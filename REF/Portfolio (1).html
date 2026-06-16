@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alex Rivera — Fullstack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- animated background -->
+<div class="bg-wrap">
+  <div class="bg-glow a"></div>
+  <div class="bg-glow b"></div>
+  <div class="bg-grid"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-noise"></div>
+</div>
+
+<!-- nav -->
+<nav class="nav" id="nav">
+  <a href="#top" class="brand"><span class="dot"></span>Alex Rivera</a>
+  <div class="nav-links">
+    <a href="#projects" data-i18n="nav.projects">Projects</a>
+    <a href="#skills" data-i18n="nav.skills">Skills</a>
+    <a href="#experience" data-i18n="nav.experience">Experience</a>
+    <a href="#contact" class="nav-cta" data-i18n="nav.cta">Let's talk</a>
+    <div class="lang-pick" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+  </div>
+</nav>
+
+<div class="shell" id="top">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div class="status reveal"><span class="pulse"></span><span data-i18n="hero.status">Available for new projects · Remote / Lisbon</span></div>
+      <h1 class="reveal" data-i18n="hero.title">Fullstack developer<br />building <span class="grad">fast, thoughtful</span><br />products end to end.</h1>
+      <p class="hero-lead reveal" data-i18n="hero.lead">I'm <strong>Alex Rivera</strong> — I design and ship complete web products, from database schema to pixel-perfect UI. Comfortable owning the whole stack and the messy parts in between.</p>
+      <div class="btn-row reveal">
+        <a href="#projects" class="btn btn-primary" data-i18n="hero.btnWork">View my work <span class="arrow">↗</span></a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero.btnContact">Get in touch</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span data-i18n="hero.scroll">SCROLL</span>
+      <span class="line"></span>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-body reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">01 — About</p>
+          <h2 class="section-title" data-i18n="about.title">I turn ideas into products people actually use.</h2>
+          <p data-i18n="about.p1">Over the last several years I've built everything from real-time dashboards and payment systems to design-driven marketing sites. I care about <strong>clean architecture</strong>, fast load times, and interfaces that feel obvious.</p>
+          <p data-i18n="about.p2">I work best embedded in small teams where I can move across the stack — shaping API contracts in the morning and polishing animations in the afternoon. Lately I've been deep in <strong>TypeScript, Go, and edge infrastructure</strong>.</p>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-row">
+            <span class="stat-num">6<span class="u">+</span></span>
+            <span class="stat-label" data-i18n="about.stat1">years shipping production code</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-num">40<span class="u">+</span></span>
+            <span class="stat-label" data-i18n="about.stat2">projects delivered end to end</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-num">12<span class="u">M</span></span>
+            <span class="stat-label" data-i18n="about.stat3">monthly requests served</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-num">99.9<span class="u">%</span></span>
+            <span class="stat-label" data-i18n="about.stat4">uptime across live systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="eyebrow reveal" data-i18n="projects.eyebrow">02 — Selected work</p>
+      <h2 class="section-title reveal" data-i18n="projects.title">Projects</h2>
+      <p class="section-sub reveal" data-i18n="projects.sub">A few things I've designed, built, and shipped. Swap these for your own — each card links out to a live demo or repo.</p>
+
+      <div class="proj-grid">
+        <a href="#" class="proj feature reveal">
+          <div class="proj-thumb"><span class="num">[ 01 ]</span><span class="ph">project screenshot</span></div>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3 data-i18n="proj1.title">Helm — realtime ops dashboard</h3>
+              <span class="proj-arrow">↗</span>
+            </div>
+            <p data-i18n="proj1.desc">A live operations console for a logistics company: websocket data streams, role-based access, and a custom charting layer. Cut incident response time by 40%.</p>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Go</span><span class="tag">PostgreSQL</span><span class="tag">WebSockets</span><span class="tag">AWS</span></div>
+          </div>
+        </a>
+
+        <a href="#" class="proj reveal">
+          <div class="proj-thumb"><span class="num">[ 02 ]</span><span class="ph">project screenshot</span></div>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3 data-i18n="proj2.title">Ledger — payments API</h3>
+              <span class="proj-arrow">↗</span>
+            </div>
+            <p data-i18n="proj2.desc">A double-entry payments service handling subscriptions, refunds, and reconciliation with idempotent webhooks.</p>
+            <div class="tags"><span class="tag">Node</span><span class="tag">Stripe</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
+          </div>
+        </a>
+
+        <a href="#" class="proj reveal">
+          <div class="proj-thumb"><span class="num">[ 03 ]</span><span class="ph">project screenshot</span></div>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3 data-i18n="proj3.title">Atlas — docs search engine</h3>
+              <span class="proj-arrow">↗</span>
+            </div>
+            <p data-i18n="proj3.desc">Full-text + semantic search over internal docs with sub-50ms queries and a keyboard-first UI.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">Python</span><span class="tag">pgvector</span><span class="tag">FastAPI</span></div>
+          </div>
+        </a>
+
+        <a href="#" class="proj reveal">
+          <div class="proj-thumb"><span class="num">[ 04 ]</span><span class="ph">project screenshot</span></div>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3 data-i18n="proj4.title">Nimbus — deploy CLI</h3>
+              <span class="proj-arrow">↗</span>
+            </div>
+            <p data-i18n="proj4.desc">An open-source CLI that ships containers to edge regions with one command. 1.2k stars on GitHub.</p>
+            <div class="tags"><span class="tag">Go</span><span class="tag">Cobra</span><span class="tag">Terraform</span></div>
+          </div>
+        </a>
+
+        <a href="#" class="proj reveal">
+          <div class="proj-thumb"><span class="num">[ 05 ]</span><span class="ph">project screenshot</span></div>
+          <div class="proj-body">
+            <div class="proj-head">
+              <h3 data-i18n="proj5.title">Canvas — collaborative editor</h3>
+              <span class="proj-arrow">↗</span>
+            </div>
+            <p data-i18n="proj5.desc">A multiplayer rich-text editor with CRDT sync, presence cursors, and offline support.</p>
+            <div class="tags"><span class="tag">Svelte</span><span class="tag">Yjs</span><span class="tag">Rust</span><span class="tag">WASM</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="eyebrow reveal" data-i18n="skills.eyebrow">03 — Toolkit</p>
+      <h2 class="section-title reveal" data-i18n="skills.title">Skills &amp; stack</h2>
+      <p class="section-sub reveal" data-i18n="skills.sub">The tools I reach for, grouped by where they live in the stack.</p>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="icon">◐</div>
+          <h3 data-i18n="skill.frontend">Frontend</h3>
+          <div class="chips">
+            <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Svelte</span><span class="chip">Tailwind</span><span class="chip">Framer Motion</span><span class="chip">Vite</span>
+          </div>
+        </div>
+        <div class="skill-card alt reveal">
+          <div class="icon">◑</div>
+          <h3 data-i18n="skill.backend">Backend</h3>
+          <div class="chips">
+            <span class="chip">Node</span><span class="chip">Go</span><span class="chip">Python</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">GraphQL</span><span class="chip">REST</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="icon">◒</div>
+          <h3 data-i18n="skill.infra">Infra &amp; DevOps</h3>
+          <div class="chips">
+            <span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Terraform</span><span class="chip">CI/CD</span><span class="chip">Cloudflare</span>
+          </div>
+        </div>
+        <div class="skill-card alt reveal">
+          <div class="icon">◓</div>
+          <h3 data-i18n="skill.data">Data</h3>
+          <div class="chips">
+            <span class="chip">Prisma</span><span class="chip">pgvector</span><span class="chip">Kafka</span><span class="chip">ClickHouse</span><span class="chip">ETL</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="icon">◔</div>
+          <h3 data-i18n="skill.design">Design</h3>
+          <div class="chips">
+            <span class="chip">Figma</span><span class="chip">Design systems</span><span class="chip">Prototyping</span><span class="chip">Accessibility</span>
+          </div>
+        </div>
+        <div class="skill-card alt reveal">
+          <div class="icon">◕</div>
+          <h3 data-i18n="skill.practices">Practices</h3>
+          <div class="chips">
+            <span class="chip">TDD</span><span class="chip">Code review</span><span class="chip">Observability</span><span class="chip">Agile</span><span class="chip">Mentoring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <p class="eyebrow reveal" data-i18n="experience.eyebrow">04 — Career</p>
+      <h2 class="section-title reveal" data-i18n="experience.title">Experience</h2>
+      <p class="section-sub reveal" data-i18n="experience.sub">Where I've worked and what I shipped there.</p>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <span class="node"></span>
+          <div class="tl-top">
+            <span class="tl-role" data-i18n="exp1.role">Senior Fullstack Engineer · <span class="tl-co">Northwind</span></span>
+            <span class="tl-date" data-i18n="exp1.date">2023 — Present</span>
+          </div>
+          <p data-i18n="exp1.desc">Lead engineer on the customer platform. Rebuilt the core dashboard in Next.js + Go, owned the design system, and mentored three engineers. Drove a 2× improvement in page-load performance.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="node"></span>
+          <div class="tl-top">
+            <span class="tl-role" data-i18n="exp2.role">Fullstack Developer · <span class="tl-co">Bright Labs</span></span>
+            <span class="tl-date" data-i18n="exp2.date">2021 — 2023</span>
+          </div>
+          <p data-i18n="exp2.desc">Built and scaled a multi-tenant SaaS from 0 to 30k users. Designed the API, the billing system, and the React frontend. Introduced end-to-end testing and CI that cut regressions sharply.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="node"></span>
+          <div class="tl-top">
+            <span class="tl-role" data-i18n="exp3.role">Software Engineer · <span class="tl-co">Pixel &amp; Co</span></span>
+            <span class="tl-date" data-i18n="exp3.date">2019 — 2021</span>
+          </div>
+          <p data-i18n="exp3.desc">Delivered client web apps across e-commerce, fintech, and media. Worked directly with designers to ship polished, accessible interfaces on tight timelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow reveal" style="justify-content:center;" data-i18n="contact.eyebrow">05 — Contact</p>
+      <h2 class="section-title reveal" data-i18n="contact.title">Let's build something.</h2>
+      <p class="contact-sub reveal" data-i18n="contact.sub">Have a project in mind or just want to say hi? My inbox is always open.</p>
+      <a href="/cdn-cgi/l/email-protection#3958555c41795c41585449555c175a5654" class="mail-link reveal"><span class="__cf_email__" data-cfemail="2e4f424b566e4b564f435e424b004d4143">[email&#160;protected]</span></a>
+      <div class="socials reveal">
+        <a href="#" class="social" data-i18n="social.github">GitHub ↗</a>
+        <a href="#" class="social" data-i18n="social.linkedin">LinkedIn ↗</a>
+        <a href="#" class="social" data-i18n="social.x">X / Twitter ↗</a>
+        <a href="#" class="social" data-i18n="social.resume">Resume ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>© 2026 Alex Rivera</span>
+    <span data-i18n="footer.built">Built from scratch · <a href="#top">Back to top ↑</a></span>
+  </footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="background.js"></script>
+<script src="i18n.js"></script>
+<script>
+  // sticky nav state
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // staggered scroll reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        const sibs = [...e.target.parentElement.querySelectorAll('.reveal')];
+        const delay = Math.min(sibs.indexOf(e.target), 6) * 70;
+        setTimeout(() => e.target.classList.add('in'), delay);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>

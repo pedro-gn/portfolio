@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Helm — Project · Alex Rivera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="detail.css" />
+</head>
+<body>
+
+<!-- animated background -->
+<div class="bg-wrap">
+  <div class="bg-glow a"></div>
+  <div class="bg-glow b"></div>
+  <div class="bg-grid"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-noise"></div>
+</div>
+
+<!-- nav -->
+<nav class="nav" id="nav">
+  <a href="Portfolio.html#top" class="brand"><span class="dot"></span>Alex Rivera</a>
+  <div class="nav-links">
+    <a href="Portfolio.html#projects" data-i18n="nav.projects">Projects</a>
+    <a href="Portfolio.html#skills" data-i18n="nav.skills">Skills</a>
+    <a href="Portfolio.html#experience" data-i18n="nav.experience">Experience</a>
+    <a href="Portfolio.html#contact" class="nav-cta" data-i18n="nav.cta">Let's talk</a>
+    <div class="lang-pick" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+  </div>
+</nav>
+
+<div class="shell" id="top">
+
+  <!-- DETAIL HERO -->
+  <section class="detail">
+    <div class="wrap">
+      <a href="Portfolio.html#projects" class="crumb reveal"><span>←</span> <span data-i18n="d.back">All projects</span></a>
+
+      <div class="d-hero">
+        <p class="d-kicker reveal" data-i18n="d.kicker">Realtime · Logistics · 2024</p>
+        <h1 class="d-title reveal" data-i18n="d.title">Helm — realtime ops dashboard</h1>
+        <p class="d-lead reveal" data-i18n="d.lead">A live operations console that gives dispatchers a single, fast view of a fleet in motion — streaming telemetry, role-based access, and a custom charting layer built for split-second decisions.</p>
+        <div class="d-actions reveal">
+          <a href="#" class="btn btn-primary" data-i18n="d.live">Visit live site <span class="arrow">↗</span></a>
+          <a href="#" class="btn btn-ghost" data-i18n="d.code">View code</a>
+        </div>
+      </div>
+
+      <div class="d-meta reveal">
+        <div class="cell"><div class="k" data-i18n="d.meta.role">Role</div><div class="v" data-i18n="d.meta.roleV">Lead Fullstack</div></div>
+        <div class="cell"><div class="k" data-i18n="d.meta.year">Year</div><div class="v">2024</div></div>
+        <div class="cell"><div class="k" data-i18n="d.meta.team">Team</div><div class="v" data-i18n="d.meta.teamV">4 people</div></div>
+        <div class="cell"><div class="k" data-i18n="d.meta.timeline">Timeline</div><div class="v" data-i18n="d.meta.timelineV">5 months</div></div>
+      </div>
+
+      <div class="d-shot reveal"><span class="ph" data-i18n="d.shot">hero screenshot — 16:8</span></div>
+    </div>
+  </section>
+
+  <!-- DETAIL BODY -->
+  <section style="padding-top:40px;">
+    <div class="wrap">
+      <div class="d-body">
+        <div class="d-main">
+          <div class="d-block reveal">
+            <h2 class="d-h" data-i18n="d.overview">Overview</h2>
+            <p data-i18n="d.overview.p1">Dispatchers were juggling three separate tools to track a fleet of several hundred vehicles. Latency between an event happening and it showing up on screen could reach <strong>minutes</strong> — long enough for a missed delivery to become a customer complaint.</p>
+            <p data-i18n="d.overview.p2">Helm replaces all of it with one console. Vehicle telemetry streams in over WebSockets, updates render in under a second, and every team sees exactly the slice of data their role needs — nothing more.</p>
+          </div>
+
+          <div class="d-block reveal">
+            <h2 class="d-h" data-i18n="d.features">Key features</h2>
+            <ul class="feat">
+              <li><strong data-i18n="d.feat1.t">Live telemetry streams</strong><span data-i18n="d.feat1.d">Hundreds of vehicles pushing position and status over WebSockets, rendered on a map with sub-second updates.</span></li>
+              <li><strong data-i18n="d.feat2.t">Role-based access</strong><span data-i18n="d.feat2.d">Dispatchers, managers, and clients each get a tailored view, enforced from the API down to the UI.</span></li>
+              <li><strong data-i18n="d.feat3.t">Custom charting layer</strong><span data-i18n="d.feat3.d">A purpose-built canvas charting engine that stays smooth while plotting thousands of live data points.</span></li>
+              <li><strong data-i18n="d.feat4.t">Incident timeline</strong><span data-i18n="d.feat4.d">Every alert is captured, replayable, and exportable — turning chaos into an auditable record.</span></li>
+            </ul>
+          </div>
+
+          <div class="d-block reveal">
+            <h2 class="d-h" data-i18n="d.challenge">The challenge</h2>
+            <p data-i18n="d.challenge.p1">The hard part wasn't the data — it was keeping the interface <strong>calm and fast</strong> while thousands of updates poured in every minute. I built a batching layer that coalesces incoming events into animation-frame-aligned renders, so the UI never thrashes.</p>
+            <p data-i18n="d.challenge.p2">On the backend, a Go service fans out updates through Redis pub/sub, letting the system scale horizontally without dropping a single connection.</p>
+          </div>
+
+          <div class="d-block reveal">
+            <h2 class="d-h" data-i18n="d.gallery">Gallery</h2>
+            <div class="gallery">
+              <div class="shot"><span class="ph" data-i18n="d.gal1">dashboard view</span></div>
+              <div class="shot"><span class="ph" data-i18n="d.gal2">incident timeline</span></div>
+              <div class="shot"><span class="ph" data-i18n="d.gal3">fleet map</span></div>
+              <div class="shot"><span class="ph" data-i18n="d.gal4">mobile layout</span></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="d-aside">
+          <div class="aside-card reveal">
+            <p class="t" data-i18n="d.stack">Tech stack</p>
+            <div class="stack">
+              <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Go</span>
+              <span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">WebSockets</span><span class="tag">AWS</span>
+            </div>
+          </div>
+          <div class="aside-card reveal">
+            <p class="t" data-i18n="d.impact">Impact</p>
+            <div class="kpi">
+              <div class="row"><span class="n">40<span class="u">%</span></span><span class="l" data-i18n="d.kpi1">faster incident response</span></div>
+              <div class="row"><span class="n">&lt;1<span class="u">s</span></span><span class="l" data-i18n="d.kpi2">update latency on screen</span></div>
+              <div class="row"><span class="n">300<span class="u">+</span></span><span class="l" data-i18n="d.kpi3">vehicles tracked live</span></div>
+              <div class="row"><span class="n">3→1</span><span class="l" data-i18n="d.kpi4">tools consolidated</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- next project -->
+      <a href="#" class="d-next reveal">
+        <div>
+          <div class="label" data-i18n="d.nextLabel">Next project</div>
+          <div class="name" data-i18n="d.nextName">Ledger — payments API</div>
+        </div>
+        <span class="go">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>© 2026 Alex Rivera</span>
+    <span data-i18n="footer.built">Built from scratch · <a href="#top">Back to top ↑</a></span>
+  </footer>
+
+</div>
+
+<script src="background.js"></script>
+<script src="i18n.js"></script>
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const sibs = [...e.target.parentElement.querySelectorAll('.reveal')];
+        const delay = Math.min(Math.max(sibs.indexOf(e.target), 0), 6) * 70;
+        setTimeout(() => e.target.classList.add('in'), delay);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>

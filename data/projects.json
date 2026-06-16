@@ -1,0 +1,191 @@
+[
+  {
+    "id": "integrazoo",
+    "featured": true,
+    "url": "/projects/integrazoo",
+    "cover": "",
+    "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "better-auth", "Tailwind CSS", "Zod"],
+    "title": {
+      "en": "INTEGRAZOO — livestock management platform",
+      "pt": "INTEGRAZOO — plataforma de gestão de rebanho"
+    },
+    "description": {
+      "en": "A full-stack livestock management system for tracking cattle, weighings, reproduction, health, and disposals.",
+      "pt": "Um sistema full-stack de gestão de rebanho para acompanhar bovinos, pesagens, reprodução, saúde e saídas."
+    },
+    "detail": {
+      "kicker": {
+        "en": "Full-stack · Agribusiness · 2026",
+        "pt": "Full-stack · Agronegócio · 2026"
+      },
+      "lead": {
+        "en": "A multi-tenant platform that gives cattle producers a single place to register animals and follow each one through its full lifecycle.",
+        "pt": "Uma plataforma multi-tenant que oferece aos pecuaristas um único lugar para cadastrar animais e acompanhar cada um ao longo de todo o seu ciclo de vida."
+      },
+      "links": {
+        "live": "#",
+        "code": "#"
+      },
+      "meta": [
+        {
+          "label": { "en": "Role", "pt": "Função" },
+          "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" }
+        },
+        {
+          "label": { "en": "Year", "pt": "Ano" },
+          "value": { "en": "2026", "pt": "2026" }
+        },
+        {
+          "label": { "en": "Stack", "pt": "Stack" },
+          "value": { "en": "Next.js · Drizzle · Neon", "pt": "Next.js · Drizzle · Neon" }
+        },
+        {
+          "label": { "en": "Interface", "pt": "Interface" },
+          "value": { "en": "Portuguese (BR)", "pt": "Português (BR)" }
+        }
+      ],
+      "overview": [
+        {
+          "en": "INTEGRAZOO is a full-stack livestock management system built on the Next.js App Router, giving producers one place to register cattle and track every weighing, reproductive event, health record, and disposal across an animal's life.",
+          "pt": "O INTEGRAZOO é um sistema full-stack de gestão de rebanho construído sobre o App Router do Next.js, dando aos produtores um único lugar para cadastrar bovinos e acompanhar cada pesagem, evento reprodutivo, registro de saúde e saída ao longo da vida do animal."
+        },
+        {
+          "en": "The platform is multi-tenant by design: every record is scoped to the signed-in user, with role-gated admin areas and session-based auth enforced both in middleware and server-side.",
+          "pt": "A plataforma é multi-tenant por design: cada registro é vinculado ao usuário autenticado, com áreas administrativas restritas por papel e autenticação por sessão aplicada tanto no middleware quanto no servidor."
+        }
+      ],
+      "features": [
+        {
+          "title": { "en": "Full bovine lifecycle", "pt": "Ciclo de vida completo do bovino" },
+          "desc": { "en": "Register animals and follow weighings, reproduction, health events, and disposals from a single detail page.", "pt": "Cadastre animais e acompanhe pesagens, reprodução, eventos de saúde e saídas a partir de uma única página de detalhes." }
+        },
+        {
+          "title": { "en": "Per-user data isolation", "pt": "Isolamento de dados por usuário" },
+          "desc": { "en": "Ear tags are unique per producer via a composite primary key, so every query is scoped to its owner.", "pt": "Os brincos são únicos por produtor através de uma chave primária composta, então toda consulta é vinculada ao seu dono." }
+        },
+        {
+          "title": { "en": "Charts and PDF reports", "pt": "Gráficos e relatórios em PDF" },
+          "desc": { "en": "Weight trends and herd metrics are visualized with Recharts and exported to PDF on demand.", "pt": "Tendências de peso e métricas do rebanho são visualizadas com Recharts e exportadas em PDF sob demanda." }
+        },
+        {
+          "title": { "en": "Role-gated admin panel", "pt": "Painel administrativo por papel" },
+          "desc": { "en": "USER and ADMIN roles, guarded in middleware and re-checked server-side in every admin route.", "pt": "Papéis USER e ADMIN, protegidos no middleware e revalidados no servidor em cada rota administrativa." }
+        }
+      ],
+      "challenge": [
+        {
+          "en": "The hardest part was making ear tags unique per producer rather than globally. The bovine table uses a composite primary key of ear tag plus user id, and every related table — weighings, reproduction, health, disposals — references both, so all queries had to consistently filter by the session user to keep tenants isolated.",
+          "pt": "A parte mais difícil foi tornar os brincos únicos por produtor em vez de globais. A tabela de bovinos usa uma chave primária composta de brinco mais id do usuário, e cada tabela relacionada — pesagens, reprodução, saúde, saídas — referencia ambos, então todas as consultas precisaram filtrar consistentemente pelo usuário da sessão para manter os locatários isolados."
+        }
+      ],
+      "gallery": [
+        { "en": "herd dashboard", "pt": "painel do rebanho" },
+        { "en": "bovine detail page", "pt": "página de detalhes do bovino" },
+        { "en": "weighing chart", "pt": "gráfico de pesagem" },
+        { "en": "admin panel", "pt": "painel administrativo" }
+      ],
+      "impact": []
+    }
+  },
+  {
+    "id": "alugafacil-rental-management",
+    "featured": false,
+    "url": "/projects/alugafacil-rental-management",
+    "cover": "/images/alugafacil.png",
+    "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "Better Auth", "Tailwind CSS", "shadcn/ui", "Docker", "Cloudflare R2", "Nginx"],
+    "title": {
+      "en": "AlugaFácil — rental management platform",
+      "pt": "AlugaFácil — plataforma de gestão de aluguéis"
+    },
+    "description": {
+      "en": "A multi-tenant SaaS that lets rental businesses manage products, clients, contracts, and bookings in one place.",
+      "pt": "Um SaaS multi-tenant que permite a locadoras gerenciar produtos, clientes, contratos e reservas em um só lugar."
+    },
+    "detail": {
+      "kicker": {
+        "en": "SaaS · Rental Management · 2026",
+        "pt": "SaaS · Gestão de Aluguéis · 2026"
+      },
+      "lead": {
+        "en": "A full-stack rental management app where owners and their employees share a single tenant to track inventory, availability, and contracts.",
+        "pt": "Um app full-stack de gestão de aluguéis onde proprietários e seus funcionários compartilham um único tenant para controlar estoque, disponibilidade e contratos."
+      },
+      "links": {
+        "live": "https://www.alugafacil.tech",
+        "code": "#"
+      },
+      "meta": [
+        {
+          "label": { "en": "Role", "pt": "Função" },
+          "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" }
+        },
+        {
+          "label": { "en": "Year", "pt": "Ano" },
+          "value": { "en": "2026", "pt": "2026" }
+        },
+        {
+          "label": { "en": "Stack", "pt": "Stack" },
+          "value": { "en": "Next.js 16 + Drizzle", "pt": "Next.js 16 + Drizzle" }
+        },
+        {
+          "label": { "en": "Hosting", "pt": "Hospedagem" },
+          "value": { "en": "Self-hosted VPS (Docker)", "pt": "VPS própria (Docker)" }
+        }
+      ],
+      "overview": [
+        {
+          "en": "AlugaFácil gives rental businesses a single dashboard to handle products, variations, stock, clients, contracts, and bookings. The app is built on **multi-tenancy**: each owner's data is fully isolated, while employees act inside their owner's tenant without ever seeing another business's records.",
+          "pt": "O AlugaFácil oferece às locadoras um único painel para gerenciar produtos, variações, estoque, clientes, contratos e reservas. O app é construído sobre **multi-tenancy**: os dados de cada proprietário ficam totalmente isolados, enquanto os funcionários atuam dentro do tenant do seu proprietário sem nunca enxergar os registros de outro negócio."
+        },
+        {
+          "en": "It runs on Next.js 16 with the App Router and React Server Components, using Drizzle ORM over PostgreSQL and Better Auth for authentication. It is **self-hosted on a Linux VPS** via Docker Compose — a PostgreSQL container, a one-shot migration job, and the standalone Next.js app behind an Nginx reverse proxy — with product images served from **Cloudflare R2**.",
+          "pt": "Roda em Next.js 16 com App Router e React Server Components, usando Drizzle ORM sobre PostgreSQL e Better Auth para autenticação. É **auto-hospedado em uma VPS Linux** via Docker Compose — um container PostgreSQL, um job de migração único e o app Next.js standalone atrás de um proxy reverso Nginx — com as imagens dos produtos servidas pelo **Cloudflare R2**."
+        }
+      ],
+      "features": [
+        {
+          "title": { "en": "Multi-tenant access", "pt": "Acesso multi-tenant" },
+          "desc": {
+            "en": "Owners and employees share one tenant, with every query scoped to the effective owner so data never leaks across businesses.",
+            "pt": "Proprietários e funcionários compartilham um tenant, com toda consulta limitada ao proprietário efetivo para que os dados nunca vazem entre negócios."
+          }
+        },
+        {
+          "title": { "en": "Availability & conflict checks", "pt": "Disponibilidade e checagem de conflitos" },
+          "desc": {
+            "en": "Multi-product rentals intersect booked date ranges to prevent double-booking, ignoring returned or cancelled rentals.",
+            "pt": "Aluguéis com múltiplos produtos cruzam os intervalos de datas reservados para evitar reservas duplicadas, ignorando aluguéis devolvidos ou cancelados."
+          }
+        },
+        {
+          "title": { "en": "Products, variations & stock", "pt": "Produtos, variações e estoque" },
+          "desc": {
+            "en": "Stock is keyed by product and variation, with a fallback to product-level quantity when there are no variations.",
+            "pt": "O estoque é indexado por produto e variação, com fallback para a quantidade do produto quando não há variações."
+          }
+        },
+        {
+          "title": { "en": "Self-hosted Docker deploy", "pt": "Deploy auto-hospedado com Docker" },
+          "desc": {
+            "en": "A multi-stage Docker build ships a standalone Next.js image, orchestrated with Docker Compose behind Nginx, with images on Cloudflare R2 and scheduled PostgreSQL backups.",
+            "pt": "Um build Docker multi-stage entrega uma imagem standalone do Next.js, orquestrada com Docker Compose atrás do Nginx, com imagens no Cloudflare R2 e backups agendados do PostgreSQL."
+          }
+        }
+      ],
+      "challenge": [
+        {
+          "en": "The hardest part was enforcing **tenant isolation** everywhere. Because owners and employees share data scoped to an effective owner id, every read and mutation has to resolve that id rather than the raw session user — a single missed scope would expose another business's data. Centralizing this in cached auth helpers kept the rule consistent across the whole data layer.",
+          "pt": "A parte mais difícil foi garantir o **isolamento entre tenants** em todos os pontos. Como proprietários e funcionários compartilham dados vinculados a um id de proprietário efetivo, toda leitura e mutação precisa resolver esse id em vez do usuário da sessão — um único escopo esquecido exporia os dados de outro negócio. Centralizar isso em helpers de autenticação com cache manteve a regra consistente em toda a camada de dados."
+        }
+      ],
+      "gallery": [
+        { "en": "dashboard overview", "pt": "visão geral do painel" },
+        { "en": "rental detail screen", "pt": "tela de detalhes do aluguel" },
+        { "en": "product & stock management", "pt": "gestão de produtos e estoque" },
+        { "en": "contract template editor", "pt": "editor de modelos de contrato" }
+
+      ],
+      "impact": []
+    }
+  }
+]

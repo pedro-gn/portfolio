@@ -1,0 +1,41 @@
+[
+  {
+    "id": "northwind",
+    "company": "Northwind",
+    "role": {
+      "en": "Senior Fullstack Engineer",
+      "pt": "Engenheiro Fullstack Sênior"
+    },
+    "date": { "en": "2023 — Present", "pt": "2023 — Atual" },
+    "description": {
+      "en": "Lead engineer on the customer platform. Rebuilt the core dashboard in Next.js + Go, owned the design system, and mentored three engineers. Drove a 2× improvement in page-load performance.",
+      "pt": "Engenheiro líder da plataforma de clientes. Reconstruí o dashboard principal em Next.js + Go, fui responsável pelo design system e orientei três engenheiros. Conduzi uma melhoria de 2× no tempo de carregamento."
+    }
+  },
+  {
+    "id": "bright-labs",
+    "company": "Bright Labs",
+    "role": {
+      "en": "Fullstack Developer",
+      "pt": "Desenvolvedor Fullstack"
+    },
+    "date": { "en": "2021 — 2023", "pt": "2021 — 2023" },
+    "description": {
+      "en": "Built and scaled a multi-tenant SaaS from 0 to 30k users. Designed the API, the billing system, and the React frontend. Introduced end-to-end testing and CI that cut regressions sharply.",
+      "pt": "Construí e escalei um SaaS multi-tenant de 0 a 30 mil usuários. Projetei a API, o sistema de cobrança e o frontend em React. Introduzi testes ponta a ponta e CI que reduziram regressões drasticamente."
+    }
+  },
+  {
+    "id": "pixel-co",
+    "company": "Pixel & Co",
+    "role": {
+      "en": "Software Engineer",
+      "pt": "Engenheiro de Software"
+    },
+    "date": { "en": "2019 — 2021", "pt": "2019 — 2021" },
+    "description": {
+      "en": "Delivered client web apps across e-commerce, fintech, and media. Worked directly with designers to ship polished, accessible interfaces on tight timelines.",
+      "pt": "Entreguei aplicações web para clientes de e-commerce, fintech e mídia. Trabalhei diretamente com designers para lançar interfaces polidas e acessíveis em prazos apertados."
+    }
+  }
+]

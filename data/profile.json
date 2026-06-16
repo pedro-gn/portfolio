@@ -1,0 +1,15 @@
+{
+  "name": "Pedro Garcia",
+  "role": "Fullstack Developer",
+  "email": "pedrognunes139@gmail.com",
+  "socials": [
+    { "id": "github", "label": "GitHub ↗", "url": "https://github.com/pedro-gn" },
+    { "id": "linkedin", "label": "LinkedIn ↗", "url": "https://www.linkedin.com/in/pedrognp/" },
+    { "id": "x", "label": "X / Twitter ↗", "url": "https://x.com/" },
+    {
+      "id": "resume",
+      "label": { "en": "Resume ↓", "pt": "Currículo ↓" },
+      "url": "/resume.pdf"
+    }
+  ]
+}

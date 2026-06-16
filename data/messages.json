@@ -1,0 +1,134 @@
+{
+  "en": {
+    "nav": {
+      "projects": "Projects",
+      "skills": "Skills",
+      "experience": "Experience",
+      "cta": "Let's talk"
+    },
+    "hero": {
+      "status": "Available for new projects ",
+      "titlePre": "Fullstack developer",
+      "titleMid": "building",
+      "titleHighlight": "fast, thoughtful",
+      "titlePost": "products end to end.",
+      "leadBefore": "I'm ",
+      "leadAfter": " — I design and ship complete web products, from database schema to pixel-perfect UI. Comfortable owning the whole stack and the messy parts in between.",
+      "btnWork": "View my work",
+      "btnContact": "Get in touch",
+      "scroll": "SCROLL"
+    },
+    "about": {
+      "eyebrow": "01 — About",
+      "title": "I turn ideas into products people actually use.",
+      "paragraphs": [
+        "Over the last several years I've built everything from real-time dashboards and payment systems to design-driven marketing sites. I care about **clean architecture**, fast load times, and interfaces that feel obvious.",
+        "I work best embedded in small teams where I can move across the stack — shaping API contracts in the morning and polishing animations in the afternoon. Lately I've been deep in **TypeScript, Go, and edge infrastructure**."
+      ]
+    },
+    "projects": {
+      "eyebrow": "02 — Selected work",
+      "title": "Projects",
+      "sub": "A few things I've designed, built, and shipped. Swap these for your own — each card links out to a live demo or repo.",
+      "thumb": "project screenshot"
+    },
+    "skills": {
+      "eyebrow": "03 — Toolkit",
+      "title": "Skills & stack",
+      "sub": "The tools I reach for, grouped by where they live in the stack."
+    },
+    "experience": {
+      "eyebrow": "04 — Career",
+      "title": "Experience",
+      "sub": "Where I've worked and what I shipped there."
+    },
+    "contact": {
+      "eyebrow": "05 — Contact",
+      "title": "Let's build something.",
+      "sub": "Have a project in mind or just want to say hi? My inbox is always open."
+    },
+    "footer": {
+      "builtBefore": "Built from scratch · ",
+      "backToTop": "Back to top ↑"
+    },
+    "detail": {
+      "back": "All projects",
+      "live": "Visit live site",
+      "code": "View code",
+      "shot": "hero screenshot — 16:8",
+      "overview": "Overview",
+      "features": "Key features",
+      "challenge": "The challenge",
+      "gallery": "Gallery",
+      "stack": "Tech stack",
+      "impact": "Impact",
+      "next": "Next project"
+    }
+  },
+  "pt": {
+    "nav": {
+      "projects": "Projetos",
+      "skills": "Habilidades",
+      "experience": "Experiência",
+      "cta": "Vamos conversar"
+    },
+    "hero": {
+      "status": "Disponível para novos projetos ",
+      "titlePre": "Desenvolvedor fullstack",
+      "titleMid": "criando produtos",
+      "titleHighlight": "rápidos e bem pensados",
+      "titlePost": "de ponta a ponta.",
+      "leadBefore": "Sou o ",
+      "leadAfter": " — projeto e desenvolvo produtos web completos, do schema do banco à interface nos mínimos detalhes. À vontade cuidando de toda a stack e das partes complicadas no meio do caminho.",
+      "btnWork": "Ver meu trabalho",
+      "btnContact": "Entrar em contato",
+      "scroll": "ROLE"
+    },
+    "about": {
+      "eyebrow": "01 — Sobre",
+      "title": "Transformo ideias em produtos que as pessoas realmente usam.",
+      "paragraphs": [
+        "Nos últimos anos, construí de tudo — de dashboards em tempo real e sistemas de pagamento a sites institucionais orientados a design. Me importo com **arquitetura limpa**, carregamento rápido e interfaces que parecem óbvias.",
+        "Trabalho melhor integrado a times pequenos, onde posso transitar por toda a stack — definindo contratos de API de manhã e refinando animações à tarde. Ultimamente tenho me aprofundado em **TypeScript, Go e infraestrutura edge**."
+      ]
+    },
+    "projects": {
+      "eyebrow": "02 — Trabalhos selecionados",
+      "title": "Projetos",
+      "sub": "Algumas coisas que projetei, construí e lancei. Troque pelos seus — cada card leva a uma demo ou repositório.",
+      "thumb": "captura do projeto"
+    },
+    "skills": {
+      "eyebrow": "03 — Ferramentas",
+      "title": "Habilidades & stack",
+      "sub": "As ferramentas que uso, agrupadas por onde vivem na stack."
+    },
+    "experience": {
+      "eyebrow": "04 — Carreira",
+      "title": "Experiência",
+      "sub": "Onde trabalhei e o que entreguei."
+    },
+    "contact": {
+      "eyebrow": "05 — Contato",
+      "title": "Vamos construir algo.",
+      "sub": "Tem um projeto em mente ou só quer dar um oi? Minha caixa de entrada está sempre aberta."
+    },
+    "footer": {
+      "builtBefore": "Feito do zero · ",
+      "backToTop": "Voltar ao topo ↑"
+    },
+    "detail": {
+      "back": "Todos os projetos",
+      "live": "Visitar site",
+      "code": "Ver código",
+      "shot": "captura principal — 16:8",
+      "overview": "Visão geral",
+      "features": "Principais recursos",
+      "challenge": "O desafio",
+      "gallery": "Galeria",
+      "stack": "Stack",
+      "impact": "Impacto",
+      "next": "Próximo projeto"
+    }
+  }
+}

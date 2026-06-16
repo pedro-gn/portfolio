@@ -1,0 +1,38 @@
+[
+  {
+    "id": "frontend",
+    "icon": "MonitorSmartphone",
+    "name": { "en": "Frontend", "pt": "Frontend" },
+    "items": ["React", "Next.js", "TypeScript", "Svelte", "Tailwind", "Vite"]
+  },
+  {
+    "id": "backend",
+    "icon": "Server",
+    "name": { "en": "Backend", "pt": "Backend" },
+    "items": ["Node", "Go", "Next.js", "Python", "Redis", "GraphQL", "REST"]
+  },
+  {
+    "id": "infra",
+    "icon": "Cloud",
+    "name": { "en": "Infra & DevOps", "pt": "Infra & DevOps" },
+    "items": [ "Docker", "GCP","Cloudflare", "CI/CD"]
+  },
+  {
+    "id": "data",
+    "icon": "Database",
+    "name": { "en": "Data", "pt": "Dados" },
+    "items": ["Prisma", "Drizzle", "PostgreSQL", "MongoDB", "Supabase", "Redis"]
+  },
+  {
+    "id": "design",
+    "icon": "PenTool",
+    "name": { "en": "Design", "pt": "Design" },
+    "items": ["Figma", "Design systems"]
+  },
+  {
+    "id": "practices",
+    "icon": "GitPullRequest",
+    "name": { "en": "Practices", "pt": "Práticas" },
+    "items": ["TDD", "Code review", "Observability", "Agile", "Mentoring"]
+  }
+]

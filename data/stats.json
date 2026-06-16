@@ -1,0 +1,38 @@
+[
+  {
+    "id": "years",
+    "num": "6",
+    "unit": "+",
+    "label": {
+      "en": "years shipping production code",
+      "pt": "anos escrevendo código em produção"
+    }
+  },
+  {
+    "id": "projects",
+    "num": "40",
+    "unit": "+",
+    "label": {
+      "en": "projects delivered end to end",
+      "pt": "projetos entregues de ponta a ponta"
+    }
+  },
+  {
+    "id": "requests",
+    "num": "12",
+    "unit": "M",
+    "label": {
+      "en": "monthly requests served",
+      "pt": "requisições mensais atendidas"
+    }
+  },
+  {
+    "id": "uptime",
+    "num": "99.9",
+    "unit": "%",
+    "label": {
+      "en": "uptime across live systems",
+      "pt": "de uptime nos sistemas em produção"
+    }
+  }
+]
