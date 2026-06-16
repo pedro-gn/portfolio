@@ -29,7 +29,7 @@
     "projects": {
       "eyebrow": "02 — Selected work",
       "title": "Projects",
-      "sub": "A few things I've designed, built, and shipped. Swap these for your own — each card links out to a live demo or repo.",
+      "sub": "Products I designed, built, and shipped end to end — from database schema to deployed UI. Each card opens a full case study.",
       "thumb": "project screenshot"
     },
     "skills": {
@@ -95,7 +95,7 @@
     "projects": {
       "eyebrow": "02 — Trabalhos selecionados",
       "title": "Projetos",
-      "sub": "Algumas coisas que projetei, construí e lancei. Troque pelos seus — cada card leva a uma demo ou repositório.",
+      "sub": "Produtos que projetei, construí e lancei de ponta a ponta — do schema do banco à interface em produção. Cada card abre um estudo de caso completo.",
       "thumb": "captura do projeto"
     },
     "skills": {

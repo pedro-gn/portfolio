@@ -16,11 +16,8 @@ export function Hero() {
           <span>{t.status}</span>
         </Reveal>
         <Reveal as="h1" delay={70}>
-          {t.titlePre}
-          <br />
-          {t.titleMid} <span className="grad">{t.titleHighlight}</span>
-          <br />
-          {t.titlePost}
+          {t.titlePre} {t.titleMid}{" "}
+          <span className="hl">{t.titleHighlight}</span> {t.titlePost}
         </Reveal>
         <Reveal as="p" className="hero-lead" delay={140}>
           {t.leadBefore}

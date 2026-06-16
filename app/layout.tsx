@@ -35,8 +35,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
       <body>
+        {/* Mark JS as available before paint, so the reveal animation is opt-in
+            and content renders visibly for crawlers / no-JS clients. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
         <ParticleBackground />
         <LanguageProvider>{children}</LanguageProvider>
       </body>

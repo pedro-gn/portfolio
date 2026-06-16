@@ -13,9 +13,6 @@ export function Projects() {
   return (
     <section id="projects">
       <div className="wrap">
-        <Reveal as="p" className="eyebrow">
-          {t.eyebrow}
-        </Reveal>
         <Reveal as="h2" className="section-title">
           {t.title}
         </Reveal>
@@ -24,12 +21,17 @@ export function Projects() {
         </Reveal>
 
         <div className="proj-grid">
-          {projects.map((project, i) => (
+          {projects.map((project, i) => {
+            const title = pick(project.title);
+            const [mark, ...rest] = title.split("—");
+            const tagline = rest.join("—").trim();
+            return (
             <Reveal
               key={project.id}
               as={Link}
               href={project.url}
               className={`proj${project.featured ? " feature" : ""}`}
+              aria-label={title}
             >
               <div className="proj-thumb">
                 <span className="num">[ {String(i + 1).padStart(2, "0")} ]</span>
@@ -42,7 +44,10 @@ export function Projects() {
                     className="proj-img"
                   />
                 ) : (
-                  <span className="ph">{t.thumb}</span>
+                  <div className="proj-cover" aria-hidden="true">
+                    <span className="proj-cover__mark">{mark.trim()}</span>
+                    {tagline && <span className="proj-cover__sub">{tagline}</span>}
+                  </div>
                 )}
               </div>
               <div className="proj-body">
@@ -60,7 +65,8 @@ export function Projects() {
                 </div>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

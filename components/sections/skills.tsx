@@ -18,9 +18,6 @@ export function Skills() {
   return (
     <section id="skills">
       <div className="wrap">
-        <Reveal as="p" className="eyebrow">
-          {t.eyebrow}
-        </Reveal>
         <Reveal as="h2" className="section-title">
           {t.title}
         </Reveal>

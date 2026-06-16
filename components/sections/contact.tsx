@@ -11,9 +11,6 @@ export function Contact() {
   return (
     <section id="contact" className="contact">
       <div className="wrap">
-        <Reveal as="p" className="eyebrow" style={{ justifyContent: "center" }}>
-          {t.eyebrow}
-        </Reveal>
         <Reveal as="h2" className="section-title">
           {t.title}
         </Reveal>

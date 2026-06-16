@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-16T00:00:00.000Z",
+  "title": "Design System: Pedro Garcia — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "accent-cyan": {
+        "role": "primary",
+        "displayName": "Signal Cyan",
+        "canonical": "#5ee7e0",
+        "tonalRamp": ["#08201f", "#0c3330", "#114c47", "#176962", "#1f8b82", "#2fb3a8", "#47d3c7", "#5ee7e0"]
+      },
+      "accent-violet": {
+        "role": "secondary",
+        "displayName": "Circuit Violet",
+        "canonical": "#9d8cff",
+        "tonalRamp": ["#1a1633", "#272047", "#372d63", "#493c85", "#5d4ea8", "#7464cc", "#8a78e8", "#9d8cff"]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Void",
+        "canonical": "#07080d",
+        "tonalRamp": ["#07080d", "#0c0e16", "#10131e", "#141826", "#2a2f42", "#454c63", "#6b7488", "#aab2c5"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#eef1f7",
+        "tonalRamp": ["#23262e", "#3a3e49", "#545967", "#6b7488", "#8b93a6", "#aab2c5", "#cdd3e0", "#eef1f7"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only (Space Grotesk, tight grotesque)." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles." },
+      "title": { "displayName": "Title", "purpose": "Card headings, project names, timeline roles." },
+      "body": { "displayName": "Body", "purpose": "Reading copy in Sora, Ink Soft, ~65–75ch." },
+      "label": { "displayName": "Label", "purpose": "JetBrains Mono metadata: nav, tags, eyebrows, kickers." }
+    },
+    "shadows": [
+      { "name": "hover-lift", "value": "0 30px 60px -24px rgba(0,0,0,0.6)", "purpose": "Structural lift on interactive cards (paired with translateY(-6px))." },
+      { "name": "signal-glow", "value": "0 14px 40px -8px rgba(94,231,224,0.55)", "purpose": "Primary button hover — the readout lighting up." }
+    ],
+    "motion": [
+      { "name": "ease-signature", "value": "cubic-bezier(0.22, 0.61, 0.36, 1)", "purpose": "Default ease-out for lifts, reveals, and state transitions." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "900px" },
+      { "name": "sm", "value": "560px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single readout action — cyan fill, used once per view.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">View work <span class=\"ds-arrow\">↗</span></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; text-decoration: none; padding: 14px 26px; border-radius: 10px; background: #5ee7e0; color: #062b29; transition: transform .2s cubic-bezier(.22,.61,.36,1), box-shadow .3s; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px -8px rgba(94,231,224,0.55); } .ds-btn-primary:focus-visible { outline: 2px solid #5ee7e0; outline-offset: 3px; } .ds-btn-primary .ds-arrow { transition: transform .2s cubic-bezier(.22,.61,.36,1); } .ds-btn-primary:hover .ds-arrow { transform: translate(3px,-3px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action — hairline border, cyan on hover.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Get in touch</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 14px; text-decoration: none; padding: 14px 26px; border-radius: 10px; background: transparent; color: #eef1f7; border: 1px solid rgba(255,255,255,0.14); transition: transform .2s cubic-bezier(.22,.61,.36,1), border-color .25s, color .25s; } .ds-btn-ghost:hover { transform: translateY(-2px); border-color: #5ee7e0; color: #5ee7e0; } .ds-btn-ghost:focus-visible { outline: 2px solid #5ee7e0; outline-offset: 3px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Work card — tonal panel, hairline border, lifts on hover.",
+      "html": "<a class=\"ds-card\" href=\"#\"><div class=\"ds-card-head\"><h3>Helm — realtime ops</h3><span class=\"ds-card-arrow\">↗</span></div><p>A realtime logistics dashboard handling 10k events/min.</p><div class=\"ds-tags\"><span class=\"ds-tag\">TypeScript</span><span class=\"ds-tag\">WebSocket</span></div></a>",
+      "css": ".ds-card { display: flex; flex-direction: column; gap: 14px; padding: 24px; border-radius: 18px; background: #10131e; border: 1px solid rgba(255,255,255,0.08); text-decoration: none; color: inherit; transition: transform .35s cubic-bezier(.22,.61,.36,1), border-color .35s, box-shadow .35s; } .ds-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.14); box-shadow: 0 30px 60px -24px rgba(0,0,0,0.6); } .ds-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; } .ds-card h3 { margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 21px; font-weight: 600; letter-spacing: -0.01em; color: #eef1f7; } .ds-card p { margin: 0; font-family: 'Sora', sans-serif; font-size: 15.5px; color: #aab2c5; line-height: 1.6; } .ds-card-arrow { width: 38px; height: 38px; flex: none; display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; color: #aab2c5; transition: background .25s, color .25s; } .ds-card:hover .ds-card-arrow { background: #5ee7e0; color: #062b29; } .ds-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; } .ds-tag { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #aab2c5; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 5px 11px; border-radius: 7px; }"
+    },
+    {
+      "name": "Status Pill",
+      "kind": "custom",
+      "refersTo": "status-pill",
+      "description": "Live availability readout with an animated green pulse.",
+      "html": "<span class=\"ds-status\"><span class=\"ds-pulse\"></span>Available for work</span>",
+      "css": ".ds-status { display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #aab2c5; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); padding: 7px 14px; border-radius: 100px; } .ds-pulse { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 0 rgba(74,222,128,0.6); animation: ds-pulse 2.2s infinite; } @keyframes ds-pulse { 0% { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); } 70% { box-shadow: 0 0 0 9px rgba(74,222,128,0); } 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); } } @media (prefers-reduced-motion: reduce) { .ds-pulse { animation: none; } }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Monospace nav link, Ink Soft to Ink on hover with a faint fill.",
+      "html": "<a class=\"ds-navlink\" href=\"#\">Work</a>",
+      "css": ".ds-navlink { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #aab2c5; text-decoration: none; padding: 8px 14px; border-radius: 8px; transition: color .2s, background .2s; } .ds-navlink:hover { color: #eef1f7; background: rgba(255,255,255,0.05); } .ds-navlink:focus-visible { outline: 2px solid #5ee7e0; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Instrument Panel",
+    "overview": "A precision tool read in low light. The surface is near-black (#07080d), the labels are exacting monospace, and a single electric-cyan signal color (#5ee7e0) acts as the readout — the one thing that glows. Everything is placed with intent; nothing is decorative. Depth comes from tonal panel layering and hairline borders, not heavy chrome. Type carries the hierarchy: a tight grotesque display for headings, a humanist sans for reading, and a mono reserved for labels. Motion is tactile and responsive — surfaces lift, the accent pulses where status matters — but choreography never gets in the way of the work.",
+    "keyCharacteristics": [
+      "Near-black instrument surface with tonal panel layering, not flat black.",
+      "One electric-cyan signal color; violet is a rare secondary accent only.",
+      "Monospace as the labeling system — metadata, eyebrows, nav, tags.",
+      "Hairline borders and soft glows over hard shadows and heavy chrome.",
+      "Tactile, responsive motion: lift, glow, pulse — never gratuitous."
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Cyan is the instrument's single readout. Use it on ≤10% of any screen. The moment two things glow cyan, neither reads as the signal.", "section": "colors" },
+      { "name": "The Contrast Floor Rule", "body": "Body copy uses Ink Soft (#aab2c5) or lighter on dark panels — never Ink Mute (#6b7488) for anything meant to be read. Verify ≥4.5:1 against the actual panel.", "section": "colors" },
+      { "name": "The Mono-Is-Metadata Rule", "body": "JetBrains Mono labels structure, never prose. Sentences are Sora; legends, tags, timestamps, and nav are mono.", "section": "typography" },
+      { "name": "The Tracking Floor Rule", "body": "Display headings never go tighter than -0.04em. -0.025em is correct; do not crush further.", "section": "typography" },
+      { "name": "The Glow-Not-Chrome Rule", "body": "Emphasis is a soft accent glow or tonal lift, never a hard drop shadow on a resting surface. Surfaces are flat at rest.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep cyan as the single signal — primary action, live status, the one focal glow (≤10% of any screen).",
+      "Do build depth by tonal panel layering and hairline borders; reserve shadow for hover-lift and glow for accents.",
+      "Do use JetBrains Mono for labels, tags, nav, and metadata only — prose is Sora.",
+      "Do keep card radii ≤18px and button radii at 10px.",
+      "Do provide a genuine prefers-reduced-motion alternative for the particle background, glow drift, pulse, and reveal transitions.",
+      "Do verify body text hits ≥4.5:1 on its actual panel; lift toward Ink before reaching for Ink Mute."
+    ],
+    "donts": [
+      "Don't use gradient text (background-clip: text over a gradient) — banned outright; emphasize with weight, size, or solid cyan.",
+      "Don't stack a tracked-uppercase eyebrow above every section; vary the cadence.",
+      "Don't ship numbered section markers (01 / 02 / 03) as default scaffolding unless the section genuinely is an ordered sequence.",
+      "Don't use repeating-linear-gradient stripe fills as decorative thumbnail/section backgrounds — use real screenshots or a flat tonal panel.",
+      "Don't let it drift corporate-SaaS, flashy/overdesigned, or cluttered: no hero-metric template, no neon overload, no airless walls of text.",
+      "Don't crush display tracking past -0.04em or push the hero clamp past ~76px.",
+      "Don't add a second glowing color next to cyan, or promote violet to a co-lead."
+    ]
+  }
+}

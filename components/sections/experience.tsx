@@ -11,9 +11,6 @@ export function Experience() {
   return (
     <section id="experience">
       <div className="wrap">
-        <Reveal as="p" className="eyebrow">
-          {t.eyebrow}
-        </Reveal>
         <Reveal as="h2" className="section-title">
           {t.title}
         </Reveal>

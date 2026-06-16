@@ -14,7 +14,6 @@ export function About() {
       <div className="wrap">
         <div className="about-grid">
           <Reveal className="about-body">
-            <p className="eyebrow">{t.eyebrow}</p>
             <h2 className="section-title">{t.title}</h2>
             {t.paragraphs.map((p, i) => (
               <p key={i}>
