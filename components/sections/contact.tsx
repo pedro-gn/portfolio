@@ -51,6 +51,11 @@ export function Contact() {
             {copied ? t.copiedStatus : ""}
           </span>
         </Reveal>
+        <Reveal className="phone-row">
+          <a href={`tel:${profile.phone.replace(/[^+\d]/g, "")}`} className="phone-link">
+            {profile.phone}
+          </a>
+        </Reveal>
         <Reveal className="socials">
           {profile.socials.map((social) => (
             <a

@@ -2,6 +2,7 @@
   "name": "Pedro Garcia",
   "role": "Fullstack Developer",
   "email": "pedrognunes139@gmail.com",
+  "phone": "+55 37 99965-7256",
   "socials": [
     { "id": "github", "label": "GitHub ↗", "url": "https://github.com/pedro-gn" },
     { "id": "linkedin", "label": "LinkedIn ↗", "url": "https://www.linkedin.com/in/pedrognp/" },

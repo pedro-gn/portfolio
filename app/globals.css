@@ -525,6 +525,20 @@ button:focus-visible {
 @media (pointer: coarse) {
   .copy-btn { min-height: 44px; padding-block: 0; }
 }
+/* Secondary to the email above — the visitor who prefers a call (or WhatsApp)
+   gets a tappable number without it competing with the primary address. */
+.phone-row { margin-top: 18px; }
+.phone-link {
+  font-family: var(--font-mono-stack);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 3px;
+  transition: color .25s, border-color .25s;
+}
+.phone-link:hover { color: var(--accent); border-color: var(--accent); }
 .socials { display: flex; gap: 14px; justify-content: center; margin-top: 48px; flex-wrap: wrap; }
 .social {
   font-family: var(--font-mono-stack);
