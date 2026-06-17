@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Sora, JetBrains_Mono } from "next/font/google";
 import { LanguageProvider } from "@/components/language-provider";
 import { ParticleBackground } from "@/components/particle-background";
+import { ConsoleSignature } from "@/components/console-signature";
 import profile from "@/data/profile.json";
 import "./globals.css";
 
@@ -49,6 +50,7 @@ export default function RootLayout({
           }}
         />
         <ParticleBackground />
+        <ConsoleSignature />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

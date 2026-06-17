@@ -10,17 +10,17 @@
       "status": "Available for new projects ",
       "titlePre": "Fullstack developer",
       "titleMid": "building",
-      "titleHighlight": "fast, thoughtful",
-      "titlePost": "products end to end.",
+      "titleHighlight": "the whole product",
+      "titlePost": "— schema to screen.",
       "leadBefore": "I'm ",
-      "leadAfter": " — I design and ship complete web products, from database schema to pixel-perfect UI. Comfortable owning the whole stack and the messy parts in between.",
+      "leadAfter": " — I design and ship web products from the database schema to the interface, including the messy parts in between.",
       "btnWork": "View my work",
       "btnContact": "Get in touch",
       "scroll": "SCROLL"
     },
     "about": {
       "eyebrow": "01 — About",
-      "title": "I turn ideas into products people actually use.",
+      "title": "I work across the whole stack.",
       "paragraphs": [
         "Over the last several years I've built everything from real-time dashboards and payment systems to design-driven marketing sites. I care about **clean architecture**, fast load times, and interfaces that feel obvious.",
         "I work best embedded in small teams where I can move across the stack — shaping API contracts in the morning and polishing animations in the afternoon. Lately I've been deep in **TypeScript, Go, and edge infrastructure**."
@@ -29,7 +29,7 @@
     "projects": {
       "eyebrow": "02 — Selected work",
       "title": "Projects",
-      "sub": "Products I designed, built, and shipped end to end — from database schema to deployed UI. Each card opens a full case study.",
+      "sub": "Products I designed and built, from the database schema to the deployed UI. Each opens a case study.",
       "thumb": "project screenshot"
     },
     "skills": {
@@ -44,8 +44,12 @@
     },
     "contact": {
       "eyebrow": "05 — Contact",
-      "title": "Let's build something.",
-      "sub": "Have a project in mind or just want to say hi? My inbox is always open."
+      "title": "Let's talk.",
+      "sub": "Open to full-time roles and freelance work. Email is the fastest way to reach me.",
+      "copy": "Copy",
+      "copied": "Copied",
+      "copyAria": "Copy email address",
+      "copiedStatus": "Email address copied to clipboard"
     },
     "footer": {
       "builtBefore": "Built from scratch · ",
@@ -75,18 +79,18 @@
     "hero": {
       "status": "Disponível para novos projetos ",
       "titlePre": "Desenvolvedor fullstack",
-      "titleMid": "criando produtos",
-      "titleHighlight": "rápidos e bem pensados",
-      "titlePost": "de ponta a ponta.",
+      "titleMid": "que constrói o",
+      "titleHighlight": "produto inteiro",
+      "titlePost": "— do schema à tela.",
       "leadBefore": "Sou o ",
-      "leadAfter": " — projeto e desenvolvo produtos web completos, do schema do banco à interface nos mínimos detalhes. À vontade cuidando de toda a stack e das partes complicadas no meio do caminho.",
+      "leadAfter": " — projeto e desenvolvo produtos web do schema do banco à interface, incluindo as partes complicadas no meio do caminho.",
       "btnWork": "Ver meu trabalho",
       "btnContact": "Entrar em contato",
       "scroll": "ROLE"
     },
     "about": {
       "eyebrow": "01 — Sobre",
-      "title": "Transformo ideias em produtos que as pessoas realmente usam.",
+      "title": "Trabalho em toda a stack.",
       "paragraphs": [
         "Nos últimos anos, construí de tudo — de dashboards em tempo real e sistemas de pagamento a sites institucionais orientados a design. Me importo com **arquitetura limpa**, carregamento rápido e interfaces que parecem óbvias.",
         "Trabalho melhor integrado a times pequenos, onde posso transitar por toda a stack — definindo contratos de API de manhã e refinando animações à tarde. Ultimamente tenho me aprofundado em **TypeScript, Go e infraestrutura edge**."
@@ -95,7 +99,7 @@
     "projects": {
       "eyebrow": "02 — Trabalhos selecionados",
       "title": "Projetos",
-      "sub": "Produtos que projetei, construí e lancei de ponta a ponta — do schema do banco à interface em produção. Cada card abre um estudo de caso completo.",
+      "sub": "Produtos que projetei e construí, do schema do banco à interface em produção. Cada um abre um estudo de caso.",
       "thumb": "captura do projeto"
     },
     "skills": {
@@ -110,8 +114,12 @@
     },
     "contact": {
       "eyebrow": "05 — Contato",
-      "title": "Vamos construir algo.",
-      "sub": "Tem um projeto em mente ou só quer dar um oi? Minha caixa de entrada está sempre aberta."
+      "title": "Vamos conversar.",
+      "sub": "Aberto a vagas full-time e trabalhos freelance. O e-mail é o jeito mais rápido de falar comigo.",
+      "copy": "Copiar",
+      "copied": "Copiado",
+      "copyAria": "Copiar endereço de e-mail",
+      "copiedStatus": "Endereço de e-mail copiado"
     },
     "footer": {
       "builtBefore": "Feito do zero · ",

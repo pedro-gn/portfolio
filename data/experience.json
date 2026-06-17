@@ -1,41 +1,54 @@
 [
   {
-    "id": "northwind",
-    "company": "Northwind",
+    "id": "independent",
+    "company": "Independent",
     "role": {
-      "en": "Senior Fullstack Engineer",
-      "pt": "Engenheiro Fullstack Sênior"
+      "en": "Independent SaaS Developer",
+      "pt": "Desenvolvedor SaaS Independente"
     },
-    "date": { "en": "2023 — Present", "pt": "2023 — Atual" },
+    "date": { "en": "2025 — Present", "pt": "2025 — Atual" },
     "description": {
-      "en": "Lead engineer on the customer platform. Rebuilt the core dashboard in Next.js + Go, owned the design system, and mentored three engineers. Drove a 2× improvement in page-load performance.",
-      "pt": "Engenheiro líder da plataforma de clientes. Reconstruí o dashboard principal em Next.js + Go, fui responsável pelo design system e orientei três engenheiros. Conduzi uma melhoria de 2× no tempo de carregamento."
+      "en": "Design, build, and sell subscription software end-to-end — from product and schema to deploy and support. My flagship, AlugaFácil, is a multi-tenant rental-management SaaS running in production on a self-hosted VPS with real paying customers, and I keep shipping improvements to it today. Every layer is mine: Next.js + Drizzle on PostgreSQL, Better Auth, Docker, and Cloudflare R2.",
+      "pt": "Projeto, construo e vendo software por assinatura de ponta a ponta — do produto e do schema ao deploy e ao suporte. Meu produto principal, o AlugaFácil, é um SaaS multi-tenant de gestão de aluguéis em produção em uma VPS própria, com clientes reais pagando, e sigo entregando melhorias até hoje. Cada camada é minha: Next.js + Drizzle sobre PostgreSQL, Better Auth, Docker e Cloudflare R2."
     }
   },
   {
-    "id": "bright-labs",
-    "company": "Bright Labs",
+    "id": "ipgc",
+    "company": "IPGC Brasil",
     "role": {
-      "en": "Fullstack Developer",
-      "pt": "Desenvolvedor Fullstack"
+      "en": "Front-end → Full-Stack Developer",
+      "pt": "Desenvolvedor Front-end → Full Stack"
     },
-    "date": { "en": "2021 — 2023", "pt": "2021 — 2023" },
+    "date": { "en": "2025 — Present", "pt": "2025 — Atual" },
     "description": {
-      "en": "Built and scaled a multi-tenant SaaS from 0 to 30k users. Designed the API, the billing system, and the React frontend. Introduced end-to-end testing and CI that cut regressions sharply.",
-      "pt": "Construí e escalei um SaaS multi-tenant de 0 a 30 mil usuários. Projetei a API, o sistema de cobrança e o frontend em React. Introduzi testes ponta a ponta e CI que reduziram regressões drasticamente."
+      "en": "Build internal and client-facing products end-to-end at a city-planning and management institute. Shipped 5+ internal systems behind a shared authentication gateway, an education platform for a client, and a Flutter health-monitoring app for elderly care paired with a web panel for health agents. I weigh in on architecture and own features across the stack — Nest + Prisma APIs through Next.js, TanStack and shadcn/ui frontends.",
+      "pt": "Construo produtos internos e voltados a clientes de ponta a ponta em um instituto de planejamento e gestão de cidades. Entreguei mais de 5 sistemas internos integrados a um gateway de autenticação compartilhado, uma plataforma de educação para um cliente e um app de monitoramento de saúde para idosos em Flutter, conectado a um painel web para agentes de saúde. Participo das decisões de arquitetura e sou responsável por features em toda a stack — de APIs em Nest + Prisma a frontends em Next.js, TanStack e shadcn/ui."
     }
   },
   {
-    "id": "pixel-co",
-    "company": "Pixel & Co",
+    "id": "faped",
+    "company": "FAPED",
     "role": {
-      "en": "Software Engineer",
-      "pt": "Engenheiro de Software"
+      "en": "Innovation & Technology Researcher",
+      "pt": "Pesquisador em Inovação e Tecnologia"
     },
-    "date": { "en": "2019 — 2021", "pt": "2019 — 2021" },
+    "date": { "en": "2024 — 2025", "pt": "2024 — 2025" },
     "description": {
-      "en": "Delivered client web apps across e-commerce, fintech, and media. Worked directly with designers to ship polished, accessible interfaces on tight timelines.",
-      "pt": "Entreguei aplicações web para clientes de e-commerce, fintech e mídia. Trabalhei diretamente com designers para lançar interfaces polidas e acessíveis em prazos apertados."
+      "en": "Researcher on LITII4, an Industry 4.0 initiative bridging UFSJ and AMG Brasil S.A. in the metallurgy sector. Built technology to modernize production processes — data analysis to surface operational improvements, plus automation and IoT integration to raise efficiency on the factory floor.",
+      "pt": "Pesquisador no LITII4, uma iniciativa de Indústria 4.0 entre a UFSJ e a AMG Brasil S.A. no setor metalúrgico. Desenvolvi tecnologia para modernizar processos produtivos — análise de dados para revelar melhorias operacionais, além de automação e integração de IoT para aumentar a eficiência no chão de fábrica."
+    }
+  },
+  {
+    "id": "ufsj",
+    "company": "UFSJ",
+    "role": {
+      "en": "Software Developer",
+      "pt": "Desenvolvedor de Software"
+    },
+    "date": { "en": "2024 — 2025", "pt": "2024 — 2025" },
+    "description": {
+      "en": "Built a cross-platform app helping small-scale producers digitize zootechnical record-keeping — capturing and tracking animal data that used to live on paper. Shipped with Flutter for multi-platform reach and SQLite for offline-first local storage, collaborating through Git/GitHub.",
+      "pt": "Desenvolvi um app multiplataforma para ajudar pequenos produtores a digitalizar a escrituração zootécnica — capturando e acompanhando dados de animais que antes ficavam no papel. Entregue com Flutter para alcance multiplataforma e SQLite para armazenamento local offline-first, em colaboração via Git/GitHub."
     }
   }
 ]

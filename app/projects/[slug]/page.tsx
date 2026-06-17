@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SiteNav } from "@/components/site-nav";
 import { ProjectDetail } from "@/components/project-detail";
 import { getNextProject, getProject, projects } from "@/lib/projects";
+import profile from "@/data/profile.json";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.id }));
@@ -17,7 +18,7 @@ export async function generateMetadata({
   const project = getProject(slug);
   if (!project) return {};
   return {
-    title: `${project.title.en} — Project · Alex Rivera`,
+    title: `${project.title.en} — Project · ${profile.name}`,
     description: project.detail.lead.en,
   };
 }

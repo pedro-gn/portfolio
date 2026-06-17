@@ -13,7 +13,7 @@ export default function Home() {
       <SiteNav />
       <div className="shell" id="top">
         <Hero />
-        <About />
+        {/* <About /> */}
         <Projects />
         <Skills />
         <Experience />

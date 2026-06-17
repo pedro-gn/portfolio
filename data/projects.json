@@ -1,4 +1,76 @@
 [
+{
+  "id": "realtime-board-game-platform",
+  "featured": false,
+  "url": "/projects/realtime-board-game-platform",
+  "tags": ["Go", "SvelteKit", "TypeScript", "WebSockets", "PostgreSQL"],
+  "title": {
+    "en": "Realtime board-game platform — Go, Dou Shou Qi & more",
+    "pt": "Plataforma de jogos de tabuleiro em tempo real — Go, Dou Shou Qi e mais"
+  },
+  "description": {
+    "en": "A server-authoritative, extensible platform for playing turn-based board games live in the browser over WebSockets — starting with Go and Dou Shou Qi.",
+    "pt": "Uma plataforma extensível e com autoridade no servidor para jogar jogos de tabuleiro ao vivo no navegador via WebSockets — começando com Go e Dou Shou Qi."
+  },
+  "detail": {
+    "kicker": {
+      "en": "Realtime · Multiplayer games · 2026",
+      "pt": "Tempo real · Jogos multiplayer · 2026"
+    },
+    "lead": {
+      "en": "Two guests spin up a room and play a live, fully validated match — every move ruled on by the server, every board state broadcast from one source of truth, on an engine built to take on new games.",
+      "pt": "Dois visitantes criam uma sala e jogam uma partida ao vivo e totalmente validada — cada jogada julgada pelo servidor, cada estado do tabuleiro transmitido a partir de uma única fonte da verdade, sobre um motor feito para receber novos jogos."
+    },
+    "links": { "live": "#", "code": "#" },
+    "meta": [
+      { "label": { "en": "Role", "pt": "Função" }, "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" } },
+      { "label": { "en": "Year", "pt": "Ano" }, "value": { "en": "2026", "pt": "2026" } },
+      { "label": { "en": "Backend", "pt": "Backend" }, "value": { "en": "Go + WebSockets", "pt": "Go + WebSockets" } },
+      { "label": { "en": "Frontend", "pt": "Frontend" }, "value": { "en": "SvelteKit", "pt": "SvelteKit" } }
+    ],
+    "overview": [
+      {
+        "en": "The platform began as a real-time Go (Baduk/Weiqi) game and was deliberately refactored into a multi-game engine — it already hosts Dou Shou Qi, and the architecture is built so that adding new games is a first-class extension point, not a rewrite. The Go server is the single source of truth: clients never trust each other, every move is validated against a pure rules engine, and the resulting state is broadcast to both players over WebSockets.",
+        "pt": "A plataforma começou como um jogo de Go (Baduk/Weiqi) em tempo real e foi deliberadamente refatorada em um motor multijogo — já roda Dou Shou Qi, e a arquitetura foi feita para que adicionar novos jogos seja um ponto de extensão de primeira classe, não uma reescrita. O servidor em Go é a única fonte da verdade: os clientes nunca confiam uns nos outros, cada jogada é validada por um motor de regras puro e o estado resultante é transmitido aos dois jogadores via WebSockets."
+      },
+      {
+        "en": "REST handles only session and room lifecycle; all live gameplay and the lobby feed happens over WebSockets. Each game's rules engine is pure and deterministic — no I/O — so it round-trips through JSON snapshots that the store persists and rehydrates, with a pluggable in-memory or PostgreSQL backend chosen at compile time.",
+        "pt": "O REST cuida apenas do ciclo de vida de sessões e salas; toda a jogabilidade ao vivo e o feed do lobby acontecem por WebSockets. O motor de regras de cada jogo é puro e determinístico — sem I/O — então faz round-trip por snapshots JSON que o armazenamento persiste e re-hidrata, com um backend em memória ou PostgreSQL escolhido em tempo de compilação."
+      }
+    ],
+    "features": [
+      {
+        "title": { "en": "Extensible multi-game engine", "pt": "Motor multijogo extensível" },
+        "desc": { "en": "Go and Dou Shou Qi share one room, lobby and protocol layer; new games slot into a clean extension point.", "pt": "Go e Dou Shou Qi compartilham uma só camada de sala, lobby e protocolo; novos jogos se encaixam em um ponto de extensão limpo." }
+      },
+      {
+        "title": { "en": "Server-authoritative rules", "pt": "Regras com autoridade no servidor" },
+        "desc": { "en": "Pure, exhaustively unit-tested engines enforce legality, ko, handicap, and area scoring per game.", "pt": "Motores puros e exaustivamente testados aplicam legalidade, ko, handicap e contagem por área por jogo." }
+      },
+      {
+        "title": { "en": "Live WebSocket play & lobby", "pt": "Jogo e lobby ao vivo via WebSocket" },
+        "desc": { "en": "Per-room gameplay and a shared lobby feed broadcast every state change in real time.", "pt": "Jogabilidade por sala e um feed de lobby compartilhado transmitem cada mudança de estado em tempo real." }
+      },
+      {
+        "title": { "en": "Reconnect & pluggable persistence", "pt": "Reconexão e persistência" },
+        "desc": { "en": "Grace timers survive disconnects, and the store runs in-memory by default or on PostgreSQL via a build tag.", "pt": "Temporizadores de tolerância sobrevivem a desconexões, e o armazenamento roda em memória por padrão ou em PostgreSQL via build tag." }
+      }
+    ],
+    "challenge": [
+      {
+        "en": "The trickiest part was keeping two parallel state machines in sync — the engine phase (playing → scoring → finished) that drives move legality, and the persisted room lifecycle that drives the lobby and rehydration. Funnelling every transition through a single set of choke-point methods, each holding the right lock, kept the live game and its durable record from ever drifting apart — and it's the same discipline that makes dropping in a new game safe rather than risky.",
+        "pt": "A parte mais delicada foi manter duas máquinas de estado paralelas em sincronia — a fase do motor (jogando → contagem → finalizado), que rege a legalidade das jogadas, e o ciclo de vida persistido da sala, que rege o lobby e a re-hidratação. Canalizar cada transição por um único conjunto de métodos-gargalo, cada um segurando o lock correto, foi o que impediu o jogo ao vivo e seu registro durável de divergirem — e é a mesma disciplina que torna incluir um novo jogo seguro em vez de arriscado."
+      }
+    ],
+    "gallery": [
+      { "en": "live game board", "pt": "tabuleiro de jogo ao vivo" },
+      { "en": "game selection lobby", "pt": "lobby de seleção de jogos" },
+      { "en": "scoring view", "pt": "tela de contagem" },
+      { "en": "illustrated rules help", "pt": "ajuda de regras ilustrada" }
+    ],
+    "impact": []
+  }
+},
   {
     "id": "integrazoo",
     "featured": true,
@@ -79,10 +151,10 @@
         }
       ],
       "gallery": [
-        { "en": "herd dashboard", "pt": "painel do rebanho" },
-        { "en": "bovine detail page", "pt": "página de detalhes do bovino" },
-        { "en": "weighing chart", "pt": "gráfico de pesagem" },
-        { "en": "admin panel", "pt": "painel administrativo" }
+        { "caption": { "en": "herd dashboard", "pt": "painel do rebanho" } },
+        { "caption": { "en": "bovine detail page", "pt": "página de detalhes do bovino" } },
+        { "caption": { "en": "weighing chart", "pt": "gráfico de pesagem" } },
+        { "caption": { "en": "admin panel", "pt": "painel administrativo" } }
       ],
       "impact": []
     }
@@ -179,13 +251,15 @@
         }
       ],
       "gallery": [
-        { "en": "dashboard overview", "pt": "visão geral do painel" },
-        { "en": "rental detail screen", "pt": "tela de detalhes do aluguel" },
-        { "en": "product & stock management", "pt": "gestão de produtos e estoque" },
-        { "en": "contract template editor", "pt": "editor de modelos de contrato" }
-
+        { "caption": { "en": "dashboard overview", "pt": "visão geral do painel" } },
+        { "caption": { "en": "rental detail screen", "pt": "tela de detalhes do aluguel" } },
+        { "caption": { "en": "product & stock management", "pt": "gestão de produtos e estoque" } },
+        { "caption": { "en": "contract template editor", "pt": "editor de modelos de contrato" } }
       ],
-      "impact": []
+      "impact": [
+        { "value": "5+", "label": { "en": "paying clients", "pt": "clientes pagantes" } },
+        { "value": "99.9", "unit": "%", "label": { "en": "uptime", "pt": "disponibilidade" } }
+      ]
     }
   }
 ]

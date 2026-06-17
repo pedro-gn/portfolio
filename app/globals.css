@@ -59,7 +59,7 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.5;
+  opacity: 0.32; /* eased back so the live instrument grid reads over the wash */
 }
 .bg-glow.a {
   width: 620px; height: 620px;
@@ -73,17 +73,8 @@ body {
   bottom: -160px; right: -100px;
   animation: float2 26s var(--ease) infinite alternate;
 }
-.bg-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 35%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 35%, transparent 80%);
-  opacity: 0.5;
-}
+/* The 64px instrument grid now lives in the WebGL background (so it can carry
+   signal pulses and react to the cursor); see components/particle-background. */
 @keyframes float1 { to { transform: translate(120px, 80px) scale(1.15); } }
 @keyframes float2 { to { transform: translate(-100px, -60px) scale(1.1); } }
 
@@ -99,6 +90,18 @@ body {
 /* ---------- layout ---------- */
 .shell { position: relative; z-index: 1; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+/* Visually hidden, still announced to assistive tech (e.g. copy-to-clipboard
+   status). Standard clip pattern. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 section { padding: 120px 0; position: relative; }
 
@@ -282,13 +285,15 @@ button:focus-visible {
 @keyframes drop { 0%{transform:scaleY(0);transform-origin:top;} 40%{transform:scaleY(1);transform-origin:top;} 60%{transform:scaleY(1);transform-origin:bottom;} 100%{transform:scaleY(0);transform-origin:bottom;} }
 
 /* ---------- about ---------- */
-.about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: start; }
+.about-body { max-width: 62ch; }
 .about-body p { color: var(--ink-soft); font-size: 19px; margin: 0 0 22px; }
 .about-body p strong { color: var(--ink); }
 .stat-card { border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(180deg, var(--panel), var(--bg-soft)); overflow: hidden; }
 .stat-row { display: flex; justify-content: space-between; align-items: baseline; padding: 22px 24px; border-bottom: 1px solid var(--line); }
 .stat-row:last-child { border-bottom: none; }
-.stat-num { font-family: var(--font-display-stack); font-size: 38px; font-weight: 600; color: var(--ink); }
+/* Tabular figures so the digits hold a fixed width while the readout counts
+   up — no trailing-edge wobble as it climbs from 0 to the final value. */
+.stat-num { font-family: var(--font-display-stack); font-size: 38px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
 .stat-num .u { color: var(--accent); }
 .stat-label { font-family: var(--font-mono-stack); font-size: 12px; color: var(--ink-mute); text-align: right; letter-spacing: 0.05em; max-width: 130px; }
 
@@ -308,6 +313,21 @@ button:focus-visible {
 }
 .proj:hover { transform: translateY(-6px); border-color: var(--line-2); box-shadow: 0 30px 60px -24px rgba(0,0,0,0.6); }
 .proj.feature { grid-column: span 2; }
+/* Signal glow that tracks the cursor — the panel lighting up where you probe
+   it, echoing the WebGL background's cursor reticle. `screen` blend means it
+   only ever lightens, so text and screenshots stay legible. Hover-gated, so it
+   never animates on its own. */
+.proj-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(94,231,224,0.12), transparent 62%);
+  transition: opacity .4s var(--ease);
+}
+.proj:hover .proj-glow { opacity: 1; }
 .proj-thumb {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -459,6 +479,13 @@ button:focus-visible {
 .contact { text-align: center; }
 .contact .section-title { font-size: clamp(40px, 7vw, 80px); }
 .contact-sub { color: var(--ink-soft); font-size: 19px; max-width: 520px; margin: 0 auto 40px; }
+.mail-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .mail-link {
   font-family: var(--font-display-stack);
   font-size: clamp(22px, 4vw, 36px);
@@ -469,6 +496,35 @@ button:focus-visible {
   transition: color .25s, border-color .25s;
 }
 .mail-link:hover { color: var(--accent); border-color: var(--accent); }
+/* A quiet helper for the visitor who'd rather paste the address than launch a
+   mail client — anticipating the recruiter/CTO's actual next move. */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono-stack);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s, transform .2s var(--ease);
+}
+.copy-btn:hover { color: var(--ink); border-color: var(--line-2); transform: translateY(-1px); }
+.copy-btn:active { transform: translateY(0); }
+.copy-btn .copy-ico { display: block; flex: none; }
+.copy-btn.copied {
+  color: var(--accent);
+  border-color: rgba(94,231,224,0.4);
+  background: rgba(94,231,224,0.07);
+}
+/* Comfortable tap target on touch devices without bulking up the mouse size. */
+@media (pointer: coarse) {
+  .copy-btn { min-height: 44px; padding-block: 0; }
+}
 .socials { display: flex; gap: 14px; justify-content: center; margin-top: 48px; flex-wrap: wrap; }
 .social {
   font-family: var(--font-mono-stack);
@@ -534,7 +590,17 @@ button:focus-visible {
   color: var(--accent);
   margin: 0 0 18px;
 }
-.d-title { font-size: clamp(36px, 6vw, 68px); margin-bottom: 24px; }
+.d-title {
+  font-size: clamp(28px, 6.6vw, 68px);
+  margin-bottom: 24px;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+/* Balanced lines read better once there's room; on the narrowest screens
+   greedy wrapping is what guarantees a long one-word title never overflows. */
+@media (min-width: 561px) {
+  .d-title { text-wrap: balance; }
+}
 .d-lead { font-size: clamp(18px, 2.2vw, 22px); color: var(--ink-soft); margin: 0 0 32px; }
 .d-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
@@ -572,15 +638,31 @@ button:focus-visible {
   object-fit: cover;
   object-position: top center;
 }
+/* "Screenshot pending" tile — a deliberate framed marker, not a dashed box.
+   Reads as intentional until a real `src` lands and the <Image> takes over. */
 .d-shot .ph,
 .gallery .shot .ph {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0 18px;
   font-family: var(--font-mono-stack);
-  font-size: 12px;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
   color: var(--ink-mute);
-  letter-spacing: 0.08em;
-  border: 1px dashed var(--line-2);
-  padding: 8px 14px;
-  border-radius: 8px;
+  text-align: center;
+}
+.d-shot .ph::before,
+.gallery .shot .ph::before {
+  content: "";
+  width: 30px; height: 23px;
+  border: 1.5px solid var(--line-2);
+  border-radius: 5px;
+  /* outlined frame + a single readout dot — a quiet "image goes here" glyph */
+  background: radial-gradient(circle 2.5px at 50% 56%, var(--ink-mute) 99%, transparent);
+  opacity: 0.85;
 }
 
 /* body layout */
@@ -601,7 +683,7 @@ button:focus-visible {
   content: ''; width: 22px; height: 2px;
   background: var(--accent); border-radius: 2px;
 }
-.d-block p { color: var(--ink-soft); font-size: 17px; margin: 0 0 18px; }
+.d-block p { color: var(--ink-soft); font-size: 17px; margin: 0 0 18px; max-width: 68ch; text-wrap: pretty; }
 .d-block p:last-child { margin-bottom: 0; }
 .d-block p strong { color: var(--ink); }
 
@@ -621,12 +703,23 @@ button:focus-visible {
 /* gallery */
 .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .gallery .shot {
+  position: relative;
+  margin: 0;
   aspect-ratio: 16 / 10;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: linear-gradient(135deg, var(--panel-2), var(--bg-soft));
   display: grid; place-items: center;
+  overflow: hidden;
 }
+.gallery .shot .shot-img {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .5s var(--ease);
+}
+/* Only real screenshots react to hover — the pending tiles stay still. */
+.gallery .shot:has(.shot-img) { border-color: var(--line-2); }
+.gallery .shot:has(.shot-img):hover .shot-img { transform: scale(1.03); }
 
 /* aside */
 .d-aside { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 18px; }

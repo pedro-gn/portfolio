@@ -11,10 +11,6 @@ export function Hero() {
   return (
     <header className="hero">
       <div className="wrap hero-inner">
-        <Reveal className="status">
-          <span className="pulse" />
-          <span>{t.status}</span>
-        </Reveal>
         <Reveal as="h1" delay={70}>
           {t.titlePre} {t.titleMid}{" "}
           <span className="hl">{t.titleHighlight}</span> {t.titlePost}

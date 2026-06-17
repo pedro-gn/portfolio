@@ -6,7 +6,7 @@ import { Reveal } from "@/components/reveal";
 import { Emphasis } from "@/components/emphasis";
 import { useLanguage } from "@/components/language-provider";
 import { Footer } from "@/components/sections/footer";
-import type { Project } from "@/lib/projects";
+import { galleryCaption, gallerySrc, type Project } from "@/lib/projects";
 
 export function ProjectDetail({
   project,
@@ -19,6 +19,12 @@ export function ProjectDetail({
   const d = messages.detail;
   const detail = project.detail;
 
+  // A link is "real" only when it points somewhere; placeholder "#" / empty
+  // values must never render as a live button that jumps to the top instead.
+  const isLink = (url?: string) => Boolean(url) && url !== "#";
+  const hasLive = isLink(detail.links.live);
+  const hasCode = isLink(detail.links.code);
+
   return (
     <div className="shell" id="top">
       {/* DETAIL HERO */}
@@ -29,36 +35,42 @@ export function ProjectDetail({
           </Reveal>
 
           <div className="d-hero">
-            <Reveal as="p" className="d-kicker">
+            <Reveal as="p" className="d-kicker" delay={60}>
               {pick(detail.kicker)}
             </Reveal>
-            <Reveal as="h1" className="d-title">
+            <Reveal as="h1" className="d-title" delay={120}>
               {pick(project.title)}
             </Reveal>
-            <Reveal as="p" className="d-lead">
+            <Reveal as="p" className="d-lead" delay={180}>
               {pick(detail.lead)}
             </Reveal>
-            <Reveal className="d-actions">
-              <a
-                href={detail.links.live}
-                className="btn btn-primary"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {d.live} <span className="arrow">↗</span>
-              </a>
-              <a
-                href={detail.links.code}
-                className="btn btn-ghost"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {d.code}
-              </a>
-            </Reveal>
+            {(hasLive || hasCode) && (
+              <Reveal className="d-actions" delay={240}>
+                {hasLive && (
+                  <a
+                    href={detail.links.live}
+                    className="btn btn-primary"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {d.live} <span className="arrow">↗</span>
+                  </a>
+                )}
+                {hasCode && (
+                  <a
+                    href={detail.links.code}
+                    className="btn btn-ghost"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {d.code}
+                  </a>
+                )}
+              </Reveal>
+            )}
           </div>
 
-          <Reveal className="d-meta">
+          <Reveal className="d-meta" delay={300}>
             {detail.meta.map((cell, i) => (
               <div className="cell" key={i}>
                 <div className="k">{pick(cell.label)}</div>
@@ -127,11 +139,25 @@ export function ProjectDetail({
                 <Reveal className="d-block">
                   <h2 className="d-h">{d.gallery}</h2>
                   <div className="gallery">
-                    {detail.gallery.map((caption, i) => (
-                      <div className="shot" key={i}>
-                        <span className="ph">{pick(caption)}</span>
-                      </div>
-                    ))}
+                    {detail.gallery.map((item, i) => {
+                      const src = gallerySrc(item);
+                      const caption = pick(galleryCaption(item));
+                      return (
+                        <figure className="shot" key={i}>
+                          {src ? (
+                            <Image
+                              src={src}
+                              alt={caption}
+                              fill
+                              sizes="(max-width: 900px) 100vw, 440px"
+                              className="shot-img"
+                            />
+                          ) : (
+                            <figcaption className="ph">{caption}</figcaption>
+                          )}
+                        </figure>
+                      );
+                    })}
                   </div>
                 </Reveal>
               )}
