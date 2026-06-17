@@ -73,7 +73,7 @@
 },
   {
     "id": "integrazoo",
-    "featured": true,
+    "featured": false,
     "url": "/projects/integrazoo",
     "cover": "",
     "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "better-auth", "Tailwind CSS", "Zod"],
