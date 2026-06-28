@@ -63,5 +63,5 @@ Target **WCAG 2.1 AA**. Body text ≥ 4.5:1 contrast (≥ 3:1 for large text) �
 the dark tinted surfaces, where muted ink on near-black is the likely failure point.
 Full keyboard navigation with visible focus states, semantic landmarks and heading order,
 and a genuine `prefers-reduced-motion` alternative for every animation (the particle
-background, glow drift, and reveal transitions in particular). Don't rely on the cyan
+background, glow drift, and reveal transitions in particular). Don't rely on the teal
 accent alone to carry meaning.

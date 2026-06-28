@@ -8,10 +8,10 @@ colors:
   panel-2: "#141826"
   ink: "#eef1f7"
   ink-soft: "#aab2c5"
-  ink-mute: "#6b7488"
-  accent-cyan: "#5ee7e0"
-  accent-violet: "#9d8cff"
-  accent-ink: "#062b29"
+  ink-mute: "#828ba0"
+  accent: "#58c4b9"
+  accent-2: "#8f93c4"
+  accent-ink: "#04201e"
   status-online: "#4ade80"
   line: "#ffffff14"
   line-2: "#ffffff24"
@@ -59,7 +59,7 @@ spacing:
   section: "120px"
 components:
   button-primary:
-    backgroundColor: "{colors.accent-cyan}"
+    backgroundColor: "{colors.accent}"
     textColor: "{colors.accent-ink}"
     rounded: "{rounded.md}"
     padding: "14px 26px"
@@ -87,7 +87,7 @@ components:
 **Creative North Star: "The Instrument Panel"**
 
 This is a precision tool read in low light. The surface is near-black (`#07080d`), the
-labels are exacting monospace, and a single electric-cyan signal color (`#5ee7e0`) acts
+labels are exacting monospace, and a single signal-teal color (`#58c4b9`) acts
 as the readout — the one thing that glows. Everything is placed with intent; nothing is
 decorative. The system should feel like it was engineered by the kind of developer it
 represents: sharp, precise, technical, confident without raising its voice.
@@ -106,26 +106,28 @@ grids, decorative gradients), **corporate-SaaS sterility**, **flashy overdesign*
 
 **Key Characteristics:**
 - Near-black instrument surface with tonal panel layering, not flat black.
-- One electric-cyan signal color; violet is a rare secondary accent only.
+- One signal-teal color; a muted periwinkle is a rare secondary accent only.
 - Monospace as the labeling system — metadata, eyebrows, nav, tags.
 - Hairline borders and soft glows over hard shadows and heavy chrome.
 - Tactile, responsive motion: lift, glow, pulse — never gratuitous.
 
 ## 2. Colors
 
-A near-black instrument surface where a single cyan signal does almost all the talking,
-with violet held in reserve.
+A near-black instrument surface where a single teal signal does almost all the talking,
+with a muted periwinkle held in reserve.
 
 ### Primary
-- **Signal Cyan** (`#5ee7e0`): The one readout color. Primary buttons, links on hover,
-  status nodes, glow accents, active states, the brand dot. Its rarity is its power.
-- **Signal Ink** (`#062b29`): The dark teal used *as text on top of* Signal Cyan
-  (primary button label, active language pill) so cyan fills read crisply.
+- **Signal Teal** (`#58c4b9`): The one readout color. Primary buttons, links on hover,
+  status nodes, glow accents, active states, the brand dot. Calmed from an electric cyan
+  for a more serious register, then lifted a touch for a crisper readout; its rarity is
+  its power.
+- **Signal Ink** (`#04201e`): The near-black teal used *as text on top of* Signal Teal
+  (primary button label, active language pill) so the teal fills read crisply.
 
 ### Secondary
-- **Circuit Violet** (`#9d8cff`): A rare second accent. Alternate skill-card icons,
-  the far end of the timeline gradient, occasional dual-tone moments. Never competes with
-  cyan for the same surface; it is the exception, not a co-lead.
+- **Circuit Periwinkle** (`#8f93c4`): A rare, desaturated second accent. Alternate
+  skill-card icons, the far end of the timeline gradient, occasional dual-tone moments.
+  Never competes with the teal for the same surface; it is the exception, not a co-lead.
 
 ### Neutral
 - **Void** (`#07080d`): The body background — near-black, the unlit panel.
@@ -134,7 +136,7 @@ with violet held in reserve.
 - **Panel Raised** (`#141826`): The lifted layer for thumbnails and inner surfaces.
 - **Ink** (`#eef1f7`): Primary text and headings — high-contrast on Void.
 - **Ink Soft** (`#aab2c5`): Body copy and supporting text on dark surfaces.
-- **Ink Mute** (`#6b7488`): Metadata, captions, footer — lowest readable tier.
+- **Ink Mute** (`#828ba0`): Metadata, captions, footer — lowest readable tier.
 - **Hairline** (`rgba(255,255,255,0.08)` / `.14`): Borders, dividers, panel edges.
 
 ### Status
@@ -142,12 +144,12 @@ with violet held in reserve.
   a functional signal that someone is reachable.
 
 ### Named Rules
-**The One Signal Rule.** Cyan is the instrument's single readout. Use it on ≤10% of any
-screen — primary action, the live status, the one thing the eye should land on. The
-moment two things glow cyan, neither reads as the signal.
+**The One Signal Rule.** The teal is the instrument's single readout. Use it on ≤10% of
+any screen — primary action, the live status, the one thing the eye should land on. The
+moment two things glow teal, neither reads as the signal.
 
 **The Contrast Floor Rule.** Body copy uses Ink Soft (`#aab2c5`) or lighter on dark
-panels — never Ink Mute (`#6b7488`) for anything you expect to be read. Ink Mute is for
+panels — never Ink Mute (`#828ba0`) for anything you expect to be read. Ink Mute is for
 labels and metadata only. Verify ≥4.5:1 against the actual panel it sits on.
 
 ## 3. Typography
@@ -184,14 +186,16 @@ or a nav item, it's mono.
 The system is **tonally layered, not shadowed**. Depth is built by stacking near-black
 panels at rising lightness (Void → Soft Void → Panel → Panel Raised) and separating them
 with hairline white borders. Hard drop shadows are reserved for one job: the hover-lift on
-interactive cards. Accent **glow** (blurred cyan radial) carries emphasis where a shadow
+interactive cards. Accent **glow** (blurred teal radial) carries emphasis where a shadow
 would feel heavy.
 
 ### Shadow Vocabulary
 - **Hover Lift** (`box-shadow: 0 30px 60px -24px rgba(0,0,0,0.6)`): Project and "next"
   cards on hover, paired with a `translateY(-6px)`. The only structural shadow.
-- **Signal Glow** (`box-shadow: 0 14px 40px -8px rgba(94,231,224,0.55)`): Primary button
-  hover; the readout lighting up.
+- **Primary Lift** (`background` brightens to `#73d1c6` + `box-shadow: 0 16px 34px -18px
+  rgba(0,0,0,0.8)`, `translateY(-2px)`): the readout lighting up on primary-button hover.
+- **Accent Glow** (blurred teal radial, e.g. `rgba(88,196,185,0.07–0.09)`): the soft wash
+  behind the hero and project-cover marks; emphasis without chrome.
 - **Status Pulse** (animated `box-shadow` ring): The online dot only.
 
 ### Named Rules
@@ -203,10 +207,11 @@ response to hover, focus, or status.
 
 ### Buttons
 - **Shape:** Gently squared (10px radius).
-- **Primary:** Signal Cyan fill, Signal Ink label, mono 14px. Padding 14px 26px.
+- **Primary:** Signal Teal fill, Signal Ink label, mono 14px. Padding 14px 26px.
 - **Ghost:** Transparent on Void, hairline border (`line-2`), Ink label.
-- **Hover / Focus:** Primary lifts `translateY(-2px)` and gains the Signal Glow; ghost's
-  border and label shift to cyan. The trailing `↗` arrow nudges up-right on hover.
+- **Hover / Focus:** Primary lifts `translateY(-2px)`, brightens to `#73d1c6`, and gains
+  the Primary Lift shadow; ghost's border and label shift to teal. The trailing `↗` arrow
+  nudges up-right on hover.
 
 ### Chips / Tags
 - **Style:** Mono 11.5–12.5px, Ink Soft on a faint `rgba(255,255,255,0.04)` fill with a
@@ -223,27 +228,27 @@ response to hover, focus, or status.
 
 ### Inputs / Fields
 - No form inputs exist in the current build. When added: Panel fill, hairline border,
-  10px radius, focus = cyan border + faint Signal Glow ring (not a browser default
+  10px radius, focus = teal border + faint teal glow ring (not a browser default
   outline). Maintain the Contrast Floor for placeholder text (≥4.5:1, not Ink Mute).
 
 ### Navigation
 - **Style:** Fixed top bar, transparent until scrolled, then `rgba(7,8,13,0.72)` with a
   14px backdrop blur and a hairline bottom border. Links are mono 13px, Ink Soft → Ink on
-  hover with a faint fill. CTA link carries a border that turns cyan on hover.
+  hover with a faint fill. CTA link carries a border that turns teal on hover.
 - **Mobile:** Non-CTA links hide below 900px (CTA + language picker remain).
 
 ### Signature Components
 - **Status Pill:** Mono micro-label with an animated green pulse dot — "available for
   work" as a live readout, not a static badge.
-- **Timeline:** Vertical hairline with cyan→violet gradient, cyan glow nodes; the
+- **Timeline:** Vertical hairline with teal→periwinkle gradient, teal glow nodes; the
   experience section's instrument trace.
-- **Language Picker:** Pill toggle (EN / PT); active state is a cyan fill with Signal Ink
+- **Language Picker:** Pill toggle (EN / PT); active state is a teal fill with Signal Ink
   text. Bilingual parity is a brand requirement.
 
 ## 6. Do's and Don'ts
 
 ### Do:
-- **Do** keep cyan as the single signal — primary action, live status, the one focal
+- **Do** keep the teal as the single signal — primary action, live status, the one focal
   glow. Obey **The One Signal Rule** (≤10% of any screen).
 - **Do** build depth by tonal panel layering and hairline borders; reserve shadow for
   hover-lift and glow for accents.
@@ -256,7 +261,7 @@ response to hover, focus, or status.
 
 ### Don't:
 - **Don't** use **gradient text** (`background-clip: text` over a gradient). It reads as
-  generic-AI and is banned outright — emphasize with weight, size, or the solid cyan.
+  generic-AI and is banned outright — emphasize with weight, size, or the solid teal.
 - **Don't** stack a tracked-uppercase **eyebrow above every section**. One named kicker as
   a deliberate device is voice; an eyebrow on each section is AI grammar. Vary the cadence.
 - **Don't** ship **numbered section markers (01 / 02 / 03)** as default scaffolding unless
@@ -266,4 +271,4 @@ response to hover, focus, or status.
 - **Don't** let it drift **corporate-SaaS**, **flashy/overdesigned**, or **cluttered**:
   no hero-metric template, no neon overload, no airless walls of text.
 - **Don't** crush display tracking past -0.04em, and don't push the hero clamp past ~76px.
-- **Don't** add a second glowing color next to cyan, or promote violet to a co-lead.
+- **Don't** add a second glowing color next to the teal, or promote the periwinkle to a co-lead.

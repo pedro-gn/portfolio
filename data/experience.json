@@ -8,8 +8,8 @@
     },
     "date": { "en": "2025 — Present", "pt": "2025 — Atual" },
     "description": {
-      "en": "Design, build, and sell subscription software end-to-end — from product and schema to deploy and support. My flagship, AlugaFácil, is a multi-tenant rental-management SaaS running in production on a self-hosted VPS with real paying customers, and I keep shipping improvements to it today. Every layer is mine: Next.js + Drizzle on PostgreSQL, Better Auth, Docker, and Cloudflare R2.",
-      "pt": "Projeto, construo e vendo software por assinatura de ponta a ponta — do produto e do schema ao deploy e ao suporte. Meu produto principal, o AlugaFácil, é um SaaS multi-tenant de gestão de aluguéis em produção em uma VPS própria, com clientes reais pagando, e sigo entregando melhorias até hoje. Cada camada é minha: Next.js + Drizzle sobre PostgreSQL, Better Auth, Docker e Cloudflare R2."
+      "en": "Design, build, and sell subscription software end to end, from product and schema to deploy and support. My flagship, AlugaFácil, is a multi-tenant rental-management SaaS running in production on a self-hosted VPS with paying customers, and I keep shipping improvements to it. Every layer is mine: Next.js + Drizzle on PostgreSQL, Better Auth, Docker, and Cloudflare R2.",
+      "pt": "Projeto, construo e vendo software por assinatura de ponta a ponta, do produto e do schema ao deploy e ao suporte. Meu produto principal, o AlugaFácil, é um SaaS multi-tenant de gestão de aluguéis em produção em uma VPS própria, com clientes pagantes, e sigo entregando melhorias. Cada camada é minha: Next.js + Drizzle sobre PostgreSQL, Better Auth, Docker e Cloudflare R2."
     }
   },
   {
@@ -34,8 +34,8 @@
     },
     "date": { "en": "2024 — 2025", "pt": "2024 — 2025" },
     "description": {
-      "en": "Researcher on LITII4, an Industry 4.0 initiative bridging UFSJ and AMG Brasil S.A. in the metallurgy sector. Built technology to modernize production processes — data analysis to surface operational improvements, plus automation and IoT integration to raise efficiency on the factory floor.",
-      "pt": "Pesquisador no LITII4, uma iniciativa de Indústria 4.0 entre a UFSJ e a AMG Brasil S.A. no setor metalúrgico. Desenvolvi tecnologia para modernizar processos produtivos — análise de dados para revelar melhorias operacionais, além de automação e integração de IoT para aumentar a eficiência no chão de fábrica."
+      "en": "Researcher on LITII4, an Industry 4.0 initiative bridging UFSJ and AMG Brasil S.A. in the metallurgy sector. Built systems to modernize production processes: data analysis to surface operational gains, plus automation and IoT integration to raise efficiency on the factory floor.",
+      "pt": "Pesquisador no LITII4, uma iniciativa de Indústria 4.0 entre a UFSJ e a AMG Brasil S.A. no setor metalúrgico. Desenvolvi sistemas para modernizar processos produtivos: análise de dados para revelar ganhos operacionais, além de automação e integração de IoT para aumentar a eficiência no chão de fábrica."
     }
   },
   {

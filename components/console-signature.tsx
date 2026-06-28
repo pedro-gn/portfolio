@@ -18,11 +18,11 @@ export function ConsoleSignature() {
     printed = true;
 
     const chip =
-      "background:#5ee7e0;color:#062b29;font-weight:700;padding:3px 8px;border-radius:5px;font-family:monospace;";
+      "background:#58c4b9;color:#04201e;font-weight:700;padding:3px 8px;border-radius:5px;font-family:monospace;";
     const role =
       "color:#aab2c5;font-family:monospace;padding-left:8px;";
     const dim = "color:#6b7488;font-family:monospace;line-height:1.6;";
-    const signal = "color:#5ee7e0;font-family:monospace;font-weight:600;";
+    const signal = "color:#58c4b9;font-family:monospace;font-weight:600;";
 
     // eslint-disable-next-line no-console
     console.log(
@@ -32,7 +32,7 @@ export function ConsoleSignature() {
     );
     // eslint-disable-next-line no-console
     console.log(
-      "%cBuilt from scratch — Next.js + a hand-written WebGL signal field.\nNo template, no page builder. The thing you're inspecting is the portfolio.",
+      "%cBuilt from scratch — Next.js + a hand-written WebGL backdrop.\nNo template, no page builder. The thing you're inspecting is the portfolio.",
       dim,
     );
     // eslint-disable-next-line no-console

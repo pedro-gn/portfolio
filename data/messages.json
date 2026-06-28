@@ -13,7 +13,7 @@
       "titleHighlight": "the whole product",
       "titlePost": "— schema to screen.",
       "leadBefore": "I'm ",
-      "leadAfter": " — I design and ship web products from the database schema to the interface, including the messy parts in between.",
+      "leadAfter": " — I build and run web products in production, and I own every layer from the database to the interface.",
       "btnWork": "View my work",
       "btnContact": "Get in touch",
       "scroll": "SCROLL"
@@ -22,20 +22,20 @@
       "eyebrow": "01 — About",
       "title": "I work across the whole stack.",
       "paragraphs": [
-        "Over the last several years I've built everything from real-time dashboards and payment systems to design-driven marketing sites. I care about **clean architecture**, fast load times, and interfaces that feel obvious.",
-        "I work best embedded in small teams where I can move across the stack — shaping API contracts in the morning and polishing animations in the afternoon. Lately I've been deep in **TypeScript, Go, and edge infrastructure**."
+        "For the past few years I've shipped real-time dashboards, payment systems, and multi-tenant SaaS. I care about **clean architecture**, fast load times, and interfaces that explain themselves.",
+        "I work best in small teams, moving across the stack from API design to interface detail. Lately I've worked mostly in **TypeScript, Go, and edge infrastructure**."
       ]
     },
     "projects": {
       "eyebrow": "02 — Selected work",
       "title": "Projects",
-      "sub": "Products I designed and built, from the database schema to the deployed UI. Each opens a case study.",
+      "sub": "Products I designed, built, and put into production. Each one opens a full case study.",
       "thumb": "project screenshot"
     },
     "skills": {
       "eyebrow": "03 — Toolkit",
       "title": "Skills & stack",
-      "sub": "The tools I reach for, grouped by where they live in the stack."
+      "sub": "Tools I work with, grouped by where they sit in the stack."
     },
     "experience": {
       "eyebrow": "04 — Career",
@@ -83,7 +83,7 @@
       "titleHighlight": "produto inteiro",
       "titlePost": "— do schema à tela.",
       "leadBefore": "Sou o ",
-      "leadAfter": " — projeto e desenvolvo produtos web do schema do banco à interface, incluindo as partes complicadas no meio do caminho.",
+      "leadAfter": " — construo e mantenho produtos web em produção, e sou responsável por cada camada, do banco de dados à interface.",
       "btnWork": "Ver meu trabalho",
       "btnContact": "Entrar em contato",
       "scroll": "ROLE"
@@ -92,20 +92,20 @@
       "eyebrow": "01 — Sobre",
       "title": "Trabalho em toda a stack.",
       "paragraphs": [
-        "Nos últimos anos, construí de tudo — de dashboards em tempo real e sistemas de pagamento a sites institucionais orientados a design. Me importo com **arquitetura limpa**, carregamento rápido e interfaces que parecem óbvias.",
-        "Trabalho melhor integrado a times pequenos, onde posso transitar por toda a stack — definindo contratos de API de manhã e refinando animações à tarde. Ultimamente tenho me aprofundado em **TypeScript, Go e infraestrutura edge**."
+        "Nos últimos anos, entreguei dashboards em tempo real, sistemas de pagamento e SaaS multi-tenant. Me importo com **arquitetura limpa**, carregamento rápido e interfaces que se explicam sozinhas.",
+        "Trabalho melhor em times pequenos, transitando pela stack do design de APIs ao detalhe da interface. Ultimamente tenho trabalhado principalmente com **TypeScript, Go e infraestrutura edge**."
       ]
     },
     "projects": {
       "eyebrow": "02 — Trabalhos selecionados",
       "title": "Projetos",
-      "sub": "Produtos que projetei e construí, do schema do banco à interface em produção. Cada um abre um estudo de caso.",
+      "sub": "Produtos que projetei, construí e coloquei em produção. Cada um abre um estudo de caso completo.",
       "thumb": "captura do projeto"
     },
     "skills": {
       "eyebrow": "03 — Ferramentas",
       "title": "Habilidades & stack",
-      "sub": "As ferramentas que uso, agrupadas por onde vivem na stack."
+      "sub": "Ferramentas que uso, agrupadas por onde ficam na stack."
     },
     "experience": {
       "eyebrow": "04 — Carreira",

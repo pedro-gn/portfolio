@@ -5,8 +5,8 @@
       <stop offset="1" stop-color="#07080d"/>
     </linearGradient>
     <radialGradient id="glow" cx="32" cy="30" r="22" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#5ee7e0" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#5ee7e0" stop-opacity="0"/>
+      <stop offset="0" stop-color="#58c4b9" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#58c4b9" stop-opacity="0"/>
     </radialGradient>
     <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="1.6"/>
@@ -17,11 +17,11 @@
   <rect x="1" y="1" width="62" height="62" rx="14" fill="url(#tile)"/>
   <rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="#ffffff" stroke-opacity="0.10"/>
 
-  <!-- Cyan signal glow behind the mark -->
+  <!-- Soft signal glow behind the mark -->
   <circle cx="32" cy="30" r="20" fill="url(#glow)"/>
 
-  <!-- Monogram "P" — the one readout, in signal cyan -->
-  <g stroke="#5ee7e0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <!-- Monogram "P" — the one readout, in signal teal -->
+  <g stroke="#58c4b9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
     <g opacity="0.55" filter="url(#soft)">
       <path d="M23 18 H33 a8 8 0 0 1 0 16 H23"/>
       <path d="M23 18 V47"/>

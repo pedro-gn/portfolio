@@ -1,24 +1,10 @@
 "use client";
 
-import type { PointerEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 import projects from "@/data/projects.json";
-
-/**
- * Track the cursor as two CSS custom properties so a soft cyan signal glow can
- * follow the pointer across the card — the panel lighting up where you probe
- * it, echoing the cursor reticle in the WebGL background. Pointer-driven, so it
- * never fires on its own; the glow itself is gated behind :hover in CSS.
- */
-function trackPointer(e: PointerEvent<HTMLElement>) {
-  const el = e.currentTarget;
-  const rect = el.getBoundingClientRect();
-  el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-  el.style.setProperty("--my", `${e.clientY - rect.top}px`);
-}
 
 export function Projects() {
   const { messages, pick } = useLanguage();
@@ -46,9 +32,7 @@ export function Projects() {
               href={project.url}
               className={`proj${project.featured ? " feature" : ""}`}
               aria-label={title}
-              onPointerMove={trackPointer}
             >
-              <span className="proj-glow" aria-hidden="true" />
               <div className="proj-thumb">
                 <span className="num">[ {String(i + 1).padStart(2, "0")} ]</span>
                 {project.cover ? (

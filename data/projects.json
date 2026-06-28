@@ -1,167 +1,7 @@
 [
-{
-  "id": "realtime-board-game-platform",
-  "featured": false,
-  "url": "/projects/realtime-board-game-platform",
-  "tags": ["Go", "SvelteKit", "TypeScript", "WebSockets", "PostgreSQL"],
-  "title": {
-    "en": "Realtime board-game platform — Go, Dou Shou Qi & more",
-    "pt": "Plataforma de jogos de tabuleiro em tempo real — Go, Dou Shou Qi e mais"
-  },
-  "description": {
-    "en": "A server-authoritative, extensible platform for playing turn-based board games live in the browser over WebSockets — starting with Go and Dou Shou Qi.",
-    "pt": "Uma plataforma extensível e com autoridade no servidor para jogar jogos de tabuleiro ao vivo no navegador via WebSockets — começando com Go e Dou Shou Qi."
-  },
-  "detail": {
-    "kicker": {
-      "en": "Realtime · Multiplayer games · 2026",
-      "pt": "Tempo real · Jogos multiplayer · 2026"
-    },
-    "lead": {
-      "en": "Two guests spin up a room and play a live, fully validated match — every move ruled on by the server, every board state broadcast from one source of truth, on an engine built to take on new games.",
-      "pt": "Dois visitantes criam uma sala e jogam uma partida ao vivo e totalmente validada — cada jogada julgada pelo servidor, cada estado do tabuleiro transmitido a partir de uma única fonte da verdade, sobre um motor feito para receber novos jogos."
-    },
-    "links": { "live": "#", "code": "#" },
-    "meta": [
-      { "label": { "en": "Role", "pt": "Função" }, "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" } },
-      { "label": { "en": "Year", "pt": "Ano" }, "value": { "en": "2026", "pt": "2026" } },
-      { "label": { "en": "Backend", "pt": "Backend" }, "value": { "en": "Go + WebSockets", "pt": "Go + WebSockets" } },
-      { "label": { "en": "Frontend", "pt": "Frontend" }, "value": { "en": "SvelteKit", "pt": "SvelteKit" } }
-    ],
-    "overview": [
-      {
-        "en": "The platform began as a real-time Go (Baduk/Weiqi) game and was deliberately refactored into a multi-game engine — it already hosts Dou Shou Qi, and the architecture is built so that adding new games is a first-class extension point, not a rewrite. The Go server is the single source of truth: clients never trust each other, every move is validated against a pure rules engine, and the resulting state is broadcast to both players over WebSockets.",
-        "pt": "A plataforma começou como um jogo de Go (Baduk/Weiqi) em tempo real e foi deliberadamente refatorada em um motor multijogo — já roda Dou Shou Qi, e a arquitetura foi feita para que adicionar novos jogos seja um ponto de extensão de primeira classe, não uma reescrita. O servidor em Go é a única fonte da verdade: os clientes nunca confiam uns nos outros, cada jogada é validada por um motor de regras puro e o estado resultante é transmitido aos dois jogadores via WebSockets."
-      },
-      {
-        "en": "REST handles only session and room lifecycle; all live gameplay and the lobby feed happens over WebSockets. Each game's rules engine is pure and deterministic — no I/O — so it round-trips through JSON snapshots that the store persists and rehydrates, with a pluggable in-memory or PostgreSQL backend chosen at compile time.",
-        "pt": "O REST cuida apenas do ciclo de vida de sessões e salas; toda a jogabilidade ao vivo e o feed do lobby acontecem por WebSockets. O motor de regras de cada jogo é puro e determinístico — sem I/O — então faz round-trip por snapshots JSON que o armazenamento persiste e re-hidrata, com um backend em memória ou PostgreSQL escolhido em tempo de compilação."
-      }
-    ],
-    "features": [
-      {
-        "title": { "en": "Extensible multi-game engine", "pt": "Motor multijogo extensível" },
-        "desc": { "en": "Go and Dou Shou Qi share one room, lobby and protocol layer; new games slot into a clean extension point.", "pt": "Go e Dou Shou Qi compartilham uma só camada de sala, lobby e protocolo; novos jogos se encaixam em um ponto de extensão limpo." }
-      },
-      {
-        "title": { "en": "Server-authoritative rules", "pt": "Regras com autoridade no servidor" },
-        "desc": { "en": "Pure, exhaustively unit-tested engines enforce legality, ko, handicap, and area scoring per game.", "pt": "Motores puros e exaustivamente testados aplicam legalidade, ko, handicap e contagem por área por jogo." }
-      },
-      {
-        "title": { "en": "Live WebSocket play & lobby", "pt": "Jogo e lobby ao vivo via WebSocket" },
-        "desc": { "en": "Per-room gameplay and a shared lobby feed broadcast every state change in real time.", "pt": "Jogabilidade por sala e um feed de lobby compartilhado transmitem cada mudança de estado em tempo real." }
-      },
-      {
-        "title": { "en": "Reconnect & pluggable persistence", "pt": "Reconexão e persistência" },
-        "desc": { "en": "Grace timers survive disconnects, and the store runs in-memory by default or on PostgreSQL via a build tag.", "pt": "Temporizadores de tolerância sobrevivem a desconexões, e o armazenamento roda em memória por padrão ou em PostgreSQL via build tag." }
-      }
-    ],
-    "challenge": [
-      {
-        "en": "The trickiest part was keeping two parallel state machines in sync — the engine phase (playing → scoring → finished) that drives move legality, and the persisted room lifecycle that drives the lobby and rehydration. Funnelling every transition through a single set of choke-point methods, each holding the right lock, kept the live game and its durable record from ever drifting apart — and it's the same discipline that makes dropping in a new game safe rather than risky.",
-        "pt": "A parte mais delicada foi manter duas máquinas de estado paralelas em sincronia — a fase do motor (jogando → contagem → finalizado), que rege a legalidade das jogadas, e o ciclo de vida persistido da sala, que rege o lobby e a re-hidratação. Canalizar cada transição por um único conjunto de métodos-gargalo, cada um segurando o lock correto, foi o que impediu o jogo ao vivo e seu registro durável de divergirem — e é a mesma disciplina que torna incluir um novo jogo seguro em vez de arriscado."
-      }
-    ],
-    "gallery": [
-      { "en": "live game board", "pt": "tabuleiro de jogo ao vivo" },
-      { "en": "game selection lobby", "pt": "lobby de seleção de jogos" },
-      { "en": "scoring view", "pt": "tela de contagem" },
-      { "en": "illustrated rules help", "pt": "ajuda de regras ilustrada" }
-    ],
-    "impact": []
-  }
-},
-  {
-    "id": "integrazoo",
-    "featured": false,
-    "url": "/projects/integrazoo",
-    "cover": "",
-    "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "better-auth", "Tailwind CSS", "Zod"],
-    "title": {
-      "en": "INTEGRAZOO — livestock management platform",
-      "pt": "INTEGRAZOO — plataforma de gestão de rebanho"
-    },
-    "description": {
-      "en": "A full-stack livestock management system for tracking cattle, weighings, reproduction, health, and disposals.",
-      "pt": "Um sistema full-stack de gestão de rebanho para acompanhar bovinos, pesagens, reprodução, saúde e saídas."
-    },
-    "detail": {
-      "kicker": {
-        "en": "Full-stack · Agribusiness · 2026",
-        "pt": "Full-stack · Agronegócio · 2026"
-      },
-      "lead": {
-        "en": "A multi-tenant platform that gives cattle producers a single place to register animals and follow each one through its full lifecycle.",
-        "pt": "Uma plataforma multi-tenant que oferece aos pecuaristas um único lugar para cadastrar animais e acompanhar cada um ao longo de todo o seu ciclo de vida."
-      },
-      "links": {
-        "live": "#",
-        "code": "#"
-      },
-      "meta": [
-        {
-          "label": { "en": "Role", "pt": "Função" },
-          "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" }
-        },
-        {
-          "label": { "en": "Year", "pt": "Ano" },
-          "value": { "en": "2026", "pt": "2026" }
-        },
-        {
-          "label": { "en": "Stack", "pt": "Stack" },
-          "value": { "en": "Next.js · Drizzle · Neon", "pt": "Next.js · Drizzle · Neon" }
-        },
-        {
-          "label": { "en": "Interface", "pt": "Interface" },
-          "value": { "en": "Portuguese (BR)", "pt": "Português (BR)" }
-        }
-      ],
-      "overview": [
-        {
-          "en": "INTEGRAZOO is a full-stack livestock management system built on the Next.js App Router, giving producers one place to register cattle and track every weighing, reproductive event, health record, and disposal across an animal's life.",
-          "pt": "O INTEGRAZOO é um sistema full-stack de gestão de rebanho construído sobre o App Router do Next.js, dando aos produtores um único lugar para cadastrar bovinos e acompanhar cada pesagem, evento reprodutivo, registro de saúde e saída ao longo da vida do animal."
-        },
-        {
-          "en": "The platform is multi-tenant by design: every record is scoped to the signed-in user, with role-gated admin areas and session-based auth enforced both in middleware and server-side.",
-          "pt": "A plataforma é multi-tenant por design: cada registro é vinculado ao usuário autenticado, com áreas administrativas restritas por papel e autenticação por sessão aplicada tanto no middleware quanto no servidor."
-        }
-      ],
-      "features": [
-        {
-          "title": { "en": "Full bovine lifecycle", "pt": "Ciclo de vida completo do bovino" },
-          "desc": { "en": "Register animals and follow weighings, reproduction, health events, and disposals from a single detail page.", "pt": "Cadastre animais e acompanhe pesagens, reprodução, eventos de saúde e saídas a partir de uma única página de detalhes." }
-        },
-        {
-          "title": { "en": "Per-user data isolation", "pt": "Isolamento de dados por usuário" },
-          "desc": { "en": "Ear tags are unique per producer via a composite primary key, so every query is scoped to its owner.", "pt": "Os brincos são únicos por produtor através de uma chave primária composta, então toda consulta é vinculada ao seu dono." }
-        },
-        {
-          "title": { "en": "Charts and PDF reports", "pt": "Gráficos e relatórios em PDF" },
-          "desc": { "en": "Weight trends and herd metrics are visualized with Recharts and exported to PDF on demand.", "pt": "Tendências de peso e métricas do rebanho são visualizadas com Recharts e exportadas em PDF sob demanda." }
-        },
-        {
-          "title": { "en": "Role-gated admin panel", "pt": "Painel administrativo por papel" },
-          "desc": { "en": "USER and ADMIN roles, guarded in middleware and re-checked server-side in every admin route.", "pt": "Papéis USER e ADMIN, protegidos no middleware e revalidados no servidor em cada rota administrativa." }
-        }
-      ],
-      "challenge": [
-        {
-          "en": "The hardest part was making ear tags unique per producer rather than globally. The bovine table uses a composite primary key of ear tag plus user id, and every related table — weighings, reproduction, health, disposals — references both, so all queries had to consistently filter by the session user to keep tenants isolated.",
-          "pt": "A parte mais difícil foi tornar os brincos únicos por produtor em vez de globais. A tabela de bovinos usa uma chave primária composta de brinco mais id do usuário, e cada tabela relacionada — pesagens, reprodução, saúde, saídas — referencia ambos, então todas as consultas precisaram filtrar consistentemente pelo usuário da sessão para manter os locatários isolados."
-        }
-      ],
-      "gallery": [
-        { "caption": { "en": "herd dashboard", "pt": "painel do rebanho" } },
-        { "caption": { "en": "bovine detail page", "pt": "página de detalhes do bovino" } },
-        { "caption": { "en": "weighing chart", "pt": "gráfico de pesagem" } },
-        { "caption": { "en": "admin panel", "pt": "painel administrativo" } }
-      ],
-      "impact": []
-    }
-  },
   {
     "id": "alugafacil-rental-management",
-    "featured": false,
+    "featured": true,
     "url": "/projects/alugafacil-rental-management",
     "cover": "/images/alugafacil.png",
     "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "Better Auth", "Tailwind CSS", "shadcn/ui", "Docker", "Cloudflare R2", "Nginx"],
@@ -260,6 +100,262 @@
         { "value": "5+", "label": { "en": "paying clients", "pt": "clientes pagantes" } },
         { "value": "99.9", "unit": "%", "label": { "en": "uptime", "pt": "disponibilidade" } }
       ]
+    }
+  },
+  {
+    "id": "lamplit",
+    "featured": false,
+    "url": "/projects/lamplit",
+    "cover": "/images/lamplit_go.png",
+    "tags": ["Go", "SvelteKit", "TypeScript", "WebSockets", "PostgreSQL"],
+    "title": {
+      "en": "Realtime board-game platform — Go, Dou Shou Qi & more",
+      "pt": "Plataforma de jogos de tabuleiro em tempo real — Go, Dou Shou Qi e mais"
+    },
+    "description": {
+      "en": "A server-authoritative, extensible platform for playing turn-based board games live in the browser over WebSockets — starting with Go and Dou Shou Qi.",
+      "pt": "Uma plataforma extensível e com autoridade no servidor para jogar jogos de tabuleiro ao vivo no navegador via WebSockets — começando com Go e Dou Shou Qi."
+    },
+    "detail": {
+      "kicker": {
+        "en": "Realtime · Multiplayer games · 2026",
+        "pt": "Tempo real · Jogos multiplayer · 2026"
+      },
+      "lead": {
+        "en": "Two players join a room and play a fully validated match in real time. The server rules on every move and broadcasts each board state from a single source of truth, on an engine designed to add new games without a rewrite.",
+        "pt": "Dois jogadores entram em uma sala e jogam uma partida totalmente validada em tempo real. O servidor valida cada jogada e transmite cada estado do tabuleiro a partir de uma única fonte da verdade, sobre um motor projetado para adicionar novos jogos sem reescrita."
+      },
+      "links": { "live": "https://go.pedrognunes.com/", "code": "https://github.com/pedro-gn/go-game" },
+      "meta": [
+        { "label": { "en": "Role", "pt": "Função" }, "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" } },
+        { "label": { "en": "Year", "pt": "Ano" }, "value": { "en": "2026", "pt": "2026" } },
+        { "label": { "en": "Backend", "pt": "Backend" }, "value": { "en": "Go + WebSockets", "pt": "Go + WebSockets" } },
+        { "label": { "en": "Frontend", "pt": "Frontend" }, "value": { "en": "SvelteKit", "pt": "SvelteKit" } }
+      ],
+      "overview": [
+        {
+          "en": "The platform began as a real-time Go (Baduk/Weiqi) game and was deliberately refactored into a multi-game engine — it already hosts Dou Shou Qi, and the architecture is built so that adding new games is a first-class extension point, not a rewrite. The Go server is the single source of truth: clients never trust each other, every move is validated against a pure rules engine, and the resulting state is broadcast to both players over WebSockets.",
+          "pt": "A plataforma começou como um jogo de Go (Baduk/Weiqi) em tempo real e foi deliberadamente refatorada em um motor multijogo — já roda Dou Shou Qi, e a arquitetura foi feita para que adicionar novos jogos seja um ponto de extensão de primeira classe, não uma reescrita. O servidor em Go é a única fonte da verdade: os clientes nunca confiam uns nos outros, cada jogada é validada por um motor de regras puro e o estado resultante é transmitido aos dois jogadores via WebSockets."
+        },
+        {
+          "en": "REST handles only session and room lifecycle; all live gameplay and the lobby feed happens over WebSockets. Each game's rules engine is pure and deterministic — no I/O — so it round-trips through JSON snapshots that the store persists and rehydrates, with a pluggable in-memory or PostgreSQL backend chosen at compile time.",
+          "pt": "O REST cuida apenas do ciclo de vida de sessões e salas; toda a jogabilidade ao vivo e o feed do lobby acontecem por WebSockets. O motor de regras de cada jogo é puro e determinístico — sem I/O — então faz round-trip por snapshots JSON que o armazenamento persiste e re-hidrata, com um backend em memória ou PostgreSQL escolhido em tempo de compilação."
+        }
+      ],
+      "features": [
+        {
+          "title": { "en": "Extensible multi-game engine", "pt": "Motor multijogo extensível" },
+          "desc": { "en": "Go and Dou Shou Qi share one room, lobby and protocol layer; new games slot into a clean extension point.", "pt": "Go e Dou Shou Qi compartilham uma só camada de sala, lobby e protocolo; novos jogos se encaixam em um ponto de extensão limpo." }
+        },
+        {
+          "title": { "en": "Server-authoritative rules", "pt": "Regras com autoridade no servidor" },
+          "desc": { "en": "Pure, exhaustively unit-tested engines enforce legality, ko, handicap, and area scoring per game.", "pt": "Motores puros e exaustivamente testados aplicam legalidade, ko, handicap e contagem por área por jogo." }
+        },
+        {
+          "title": { "en": "Live WebSocket play & lobby", "pt": "Jogo e lobby ao vivo via WebSocket" },
+          "desc": { "en": "Per-room gameplay and a shared lobby feed broadcast every state change in real time.", "pt": "Jogabilidade por sala e um feed de lobby compartilhado transmitem cada mudança de estado em tempo real." }
+        },
+        {
+          "title": { "en": "Reconnect & pluggable persistence", "pt": "Reconexão e persistência" },
+          "desc": { "en": "Grace timers survive disconnects, and the store runs in-memory by default or on PostgreSQL via a build tag.", "pt": "Temporizadores de tolerância sobrevivem a desconexões, e o armazenamento roda em memória por padrão ou em PostgreSQL via build tag." }
+        }
+      ],
+      "challenge": [
+        {
+          "en": "The hardest part was keeping two parallel state machines in sync: the engine phase (playing → scoring → finished) that governs move legality, and the persisted room lifecycle that drives the lobby and rehydration. Routing every transition through a single set of choke-point methods, each holding the right lock, kept the live game and its stored record from drifting apart. The same discipline is what makes adding a game safe instead of risky.",
+          "pt": "A parte mais difícil foi manter duas máquinas de estado paralelas em sincronia: a fase do motor (jogando → contagem → finalizado), que rege a legalidade das jogadas, e o ciclo de vida persistido da sala, que rege o lobby e a re-hidratação. Rotear cada transição por um único conjunto de métodos-gargalo, cada um segurando o lock correto, impediu o jogo ao vivo e seu registro armazenado de divergirem. É a mesma disciplina que torna adicionar um novo jogo seguro em vez de arriscado."
+        }
+      ],
+      "gallery": [
+        { "src": "/images/lamplit_menu.png", "caption": { "en": "game selection lobby", "pt": "lobby de seleção de jogos" } },
+        { "src": "/images/lamplit_go.png", "caption": { "en": "live Go match", "pt": "partida de Go ao vivo" } },
+        { "src": "/images/lamplit_dou.png", "caption": { "en": "live Dou Shou Qi match", "pt": "partida de Dou Shou Qi ao vivo" } }
+      ],
+      "impact": []
+    }
+  },
+  {
+    "id": "integrazoo",
+    "featured": false,
+    "url": "/projects/integrazoo",
+    "cover": "",
+    "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "better-auth", "Tailwind CSS", "Zod"],
+    "title": {
+      "en": "INTEGRAZOO — livestock management platform",
+      "pt": "INTEGRAZOO — plataforma de gestão de rebanho"
+    },
+    "description": {
+      "en": "A full-stack livestock management system for tracking cattle, weighings, reproduction, health, and disposals.",
+      "pt": "Um sistema full-stack de gestão de rebanho para acompanhar bovinos, pesagens, reprodução, saúde e saídas."
+    },
+    "detail": {
+      "kicker": {
+        "en": "Full-stack · Agribusiness · 2026",
+        "pt": "Full-stack · Agronegócio · 2026"
+      },
+      "lead": {
+        "en": "A multi-tenant platform that gives cattle producers a single place to register animals and follow each one through its full lifecycle.",
+        "pt": "Uma plataforma multi-tenant que oferece aos pecuaristas um único lugar para cadastrar animais e acompanhar cada um ao longo de todo o seu ciclo de vida."
+      },
+      "links": {
+        "live": "#",
+        "code": "#"
+      },
+      "meta": [
+        {
+          "label": { "en": "Role", "pt": "Função" },
+          "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" }
+        },
+        {
+          "label": { "en": "Year", "pt": "Ano" },
+          "value": { "en": "2026", "pt": "2026" }
+        },
+        {
+          "label": { "en": "Stack", "pt": "Stack" },
+          "value": { "en": "Next.js · Drizzle · Neon", "pt": "Next.js · Drizzle · Neon" }
+        },
+        {
+          "label": { "en": "Interface", "pt": "Interface" },
+          "value": { "en": "Portuguese (BR)", "pt": "Português (BR)" }
+        }
+      ],
+      "overview": [
+        {
+          "en": "INTEGRAZOO is a full-stack livestock management system built on the Next.js App Router, giving producers one place to register cattle and track every weighing, reproductive event, health record, and disposal across an animal's life.",
+          "pt": "O INTEGRAZOO é um sistema full-stack de gestão de rebanho construído sobre o App Router do Next.js, dando aos produtores um único lugar para cadastrar bovinos e acompanhar cada pesagem, evento reprodutivo, registro de saúde e saída ao longo da vida do animal."
+        },
+        {
+          "en": "The platform is multi-tenant by design: every record is scoped to the signed-in user, with role-gated admin areas and session-based auth enforced both in middleware and server-side.",
+          "pt": "A plataforma é multi-tenant por design: cada registro é vinculado ao usuário autenticado, com áreas administrativas restritas por papel e autenticação por sessão aplicada tanto no middleware quanto no servidor."
+        }
+      ],
+      "features": [
+        {
+          "title": { "en": "Full bovine lifecycle", "pt": "Ciclo de vida completo do bovino" },
+          "desc": { "en": "Register animals and follow weighings, reproduction, health events, and disposals from a single detail page.", "pt": "Cadastre animais e acompanhe pesagens, reprodução, eventos de saúde e saídas a partir de uma única página de detalhes." }
+        },
+        {
+          "title": { "en": "Per-user data isolation", "pt": "Isolamento de dados por usuário" },
+          "desc": { "en": "Ear tags are unique per producer via a composite primary key, so every query is scoped to its owner.", "pt": "Os brincos são únicos por produtor através de uma chave primária composta, então toda consulta é vinculada ao seu dono." }
+        },
+        {
+          "title": { "en": "Charts and PDF reports", "pt": "Gráficos e relatórios em PDF" },
+          "desc": { "en": "Weight trends and herd metrics are visualized with Recharts and exported to PDF on demand.", "pt": "Tendências de peso e métricas do rebanho são visualizadas com Recharts e exportadas em PDF sob demanda." }
+        },
+        {
+          "title": { "en": "Role-gated admin panel", "pt": "Painel administrativo por papel" },
+          "desc": { "en": "USER and ADMIN roles, guarded in middleware and re-checked server-side in every admin route.", "pt": "Papéis USER e ADMIN, protegidos no middleware e revalidados no servidor em cada rota administrativa." }
+        }
+      ],
+      "challenge": [
+        {
+          "en": "The hardest part was making ear tags unique per producer rather than globally. The bovine table uses a composite primary key of ear tag plus user id, and every related table — weighings, reproduction, health, disposals — references both, so all queries had to consistently filter by the session user to keep tenants isolated.",
+          "pt": "A parte mais difícil foi tornar os brincos únicos por produtor em vez de globais. A tabela de bovinos usa uma chave primária composta de brinco mais id do usuário, e cada tabela relacionada — pesagens, reprodução, saúde, saídas — referencia ambos, então todas as consultas precisaram filtrar consistentemente pelo usuário da sessão para manter os locatários isolados."
+        }
+      ],
+      "gallery": [
+        { "caption": { "en": "herd dashboard", "pt": "painel do rebanho" } },
+        { "caption": { "en": "bovine detail page", "pt": "página de detalhes do bovino" } },
+        { "caption": { "en": "weighing chart", "pt": "gráfico de pesagem" } },
+        { "caption": { "en": "admin panel", "pt": "painel administrativo" } }
+      ],
+      "impact": []
+    }
+  },
+  {
+    "id": "raidlab-gaming-hub",
+    "featured": false,
+    "url": "/projects/raidlab-gaming-hub",
+    "cover": "/images/raidlab_landing.png",
+    "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "Better Auth", "Stripe", "Tailwind CSS"],
+    "title": {
+      "en": "raidlab — gaming hub & membership platform",
+      "pt": "raidlab — hub de games e plataforma de assinaturas"
+    },
+    "description": {
+      "en": "A plan-gated gaming hub built for a client, where members unlock products, tools, guides, and live streams through tiered subscriptions.",
+      "pt": "Um hub de games com acesso por plano, desenvolvido para um cliente, onde membros desbloqueiam produtos, ferramentas, guias e lives por meio de assinaturas em níveis."
+    },
+    "detail": {
+      "kicker": {
+        "en": "Client Work · Membership Platform · Gaming · 2026",
+        "pt": "Projeto para Cliente · Plataforma de Assinaturas · Games · 2026"
+      },
+      "lead": {
+        "en": "A subscription-driven content platform built for a client on the Next.js App Router, with layered access control gating every member and admin route.",
+        "pt": "Uma plataforma de conteúdo por assinatura desenvolvida para um cliente sobre o App Router do Next.js, com controle de acesso em camadas protegendo cada rota de membro e de admin."
+      },
+      "links": { "live": "https://raidlab.app/", "code": "#" },
+      "meta": [
+        {
+          "label": { "en": "Role", "pt": "Função" },
+          "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" }
+        },
+        {
+          "label": { "en": "Year", "pt": "Ano" },
+          "value": { "en": "2026", "pt": "2026" }
+        },
+        {
+          "label": { "en": "Stack", "pt": "Stack" },
+          "value": { "en": "Next.js 16 · Postgres", "pt": "Next.js 16 · Postgres" }
+        },
+        {
+          "label": { "en": "Status", "pt": "Status" },
+          "value": { "en": "MVP", "pt": "MVP" }
+        }
+      ],
+      "overview": [
+        {
+          "en": "raidlab is a gaming content hub built for a client, where access to products, tools, guides, live streams, and videos is **gated by subscription plan**. It runs on the Next.js 16 App Router with three route groups — public, members, and admin — each enforcing its own authorization layer.",
+          "pt": "O raidlab é um hub de conteúdo gamer desenvolvido para um cliente, onde o acesso a produtos, ferramentas, guias, lives e vídeos é **liberado conforme o plano de assinatura**. Roda sobre o App Router do Next.js 16 com três grupos de rotas — público, membros e admin — cada um aplicando sua própria camada de autorização."
+        },
+        {
+          "en": "Subscriptions and billing are handled through Stripe, authentication through Better Auth, and all content is managed by an admin CMS for the ADMIN and EDITOR roles. Every mutation flows through typed Server Actions with **Zod validation** and Drizzle queries.",
+          "pt": "Assinaturas e cobrança são tratadas via Stripe, a autenticação via Better Auth, e todo o conteúdo é gerenciado por um CMS administrativo para os papéis ADMIN e EDITOR. Cada mutação passa por Server Actions tipadas com **validação Zod** e queries Drizzle."
+        }
+      ],
+      "features": [
+        {
+          "title": { "en": "Plan-based access control", "pt": "Controle de acesso por plano" },
+          "desc": {
+            "en": "A two-layer gate — cookie auth in the proxy, then a plan matrix at the layout — decides what each member can reach.",
+            "pt": "Um portão de duas camadas — auth por cookie no proxy e depois uma matriz de planos no layout — define o que cada membro pode acessar."
+          }
+        },
+        {
+          "title": { "en": "Admin CMS", "pt": "CMS administrativo" },
+          "desc": {
+            "en": "ADMIN and EDITOR roles manage products, tools, guides, streamers, and videos through CRUD forms over the same entities.",
+            "pt": "Os papéis ADMIN e EDITOR gerenciam produtos, ferramentas, guias, streamers e vídeos por formulários CRUD sobre as mesmas entidades."
+          }
+        },
+        {
+          "title": { "en": "Stripe subscriptions", "pt": "Assinaturas Stripe" },
+          "desc": {
+            "en": "Tiered plans and billing handled through Stripe Checkout and webhooks that keep subscription state in sync.",
+            "pt": "Planos em níveis e cobrança via Stripe Checkout e webhooks que mantêm o estado da assinatura sincronizado."
+          }
+        },
+        {
+          "title": { "en": "Rate-limited auth", "pt": "Autenticação com rate limit" },
+          "desc": {
+            "en": "Sign-in is throttled per Cloudflare IP and the proxy applies a per-IP global limit to harden against abuse.",
+            "pt": "O login é limitado por IP do Cloudflare e o proxy aplica um limite global por IP para reforçar contra abusos."
+          }
+        }
+      ],
+      "challenge": [
+        {
+          "en": "Keeping authorization **consistent across every domain** was the hard part: each entity needs the same parse → authenticate → authorize → query → revalidate pipeline, with plan checks that an authenticated free item can override. A single reference implementation defines the contract every action follows.",
+          "pt": "Manter a autorização **consistente em todos os domínios** foi a parte difícil: cada entidade precisa do mesmo fluxo de parse → autenticar → autorizar → consultar → revalidar, com checagens de plano que um item gratuito autenticado pode sobrescrever. Uma única implementação de referência define o contrato que toda action segue."
+        }
+      ],
+      "gallery": [
+        { "src": "/images/raidlab_landing.png", "caption": { "en": "landing page", "pt": "página inicial" } },
+        { "src": "/images/raidlab_produtos.png", "caption": { "en": "member dashboard", "pt": "dashboard do membro" } },
+        { "src": "/images/raidlab_dailies.png", "caption": { "en": "daily routine (PLUS plan)", "pt": "rotina diária (plano PLUS)" } }
+      ],
+      "impact": []
     }
   }
 ]
