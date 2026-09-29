@@ -3,7 +3,7 @@ import messages from "@/data/messages.json";
 export const LOCALES = ["en", "pt"] as const;
 export type Locale = (typeof LOCALES)[number];
 
-export const DEFAULT_LOCALE: Locale = "en";
+export const DEFAULT_LOCALE: Locale = "pt";
 
 /** The `<html lang>` value to expose for each supported locale. */
 export const HTML_LANG: Record<Locale, string> = {
@@ -33,5 +33,7 @@ export function getMessages(locale: Locale): Messages {
 }
 
 export function isLocale(value: unknown): value is Locale {
-  return typeof value === "string" && (LOCALES as readonly string[]).includes(value);
+  return (
+    typeof value === "string" && (LOCALES as readonly string[]).includes(value)
+  );
 }

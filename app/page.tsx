@@ -1,25 +1,21 @@
-import { SiteNav } from "@/components/site-nav";
+import { GitHubActivity } from "@/components/github-activity";
 import { Hero } from "@/components/sections/hero";
-import { About } from "@/components/sections/about";
 import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
 import { Experience } from "@/components/sections/experience";
 import { Contact } from "@/components/sections/contact";
-import { Footer } from "@/components/sections/footer";
+import { UsesTeaser } from "@/components/uses";
 
 export default function Home() {
   return (
-    <>
-      <SiteNav />
-      <div className="shell" id="top">
-        <Hero />
-        {/* <About /> */}
-        <Projects />
-        <Skills />
-        <Experience />
-        <Contact />
-        <Footer />
-      </div>
-    </>
+    <main id="main" className="page-container">
+      <Hero />
+      <Skills />
+      <Experience />
+      <GitHubActivity />
+      <Projects />
+      <UsesTeaser />
+      <Contact />
+    </main>
   );
 }

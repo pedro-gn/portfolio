@@ -1,13 +1,11 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { Reveal } from "@/components/reveal";
-import { Emphasis } from "@/components/emphasis";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
 import { useLanguage } from "@/components/language-provider";
-import { Footer } from "@/components/sections/footer";
+import { Emphasis } from "@/components/emphasis";
 import { galleryCaption, gallerySrc, type Project } from "@/lib/projects";
-
 export function ProjectDetail({
   project,
   nextProject,
@@ -15,197 +13,148 @@ export function ProjectDetail({
   project: Project;
   nextProject?: Project;
 }) {
-  const { messages, pick } = useLanguage();
-  const d = messages.detail;
+  const {
+    messages: { detail: t, ui },
+    pick,
+  } = useLanguage();
   const detail = project.detail;
-
-  // A link is "real" only when it points somewhere; placeholder "#" / empty
-  // values must never render as a live button that jumps to the top instead.
-  const isLink = (url?: string) => Boolean(url) && url !== "#";
-  const hasLive = isLink(detail.links.live);
-  const hasCode = isLink(detail.links.code);
-
+  const gallery = detail.gallery.filter((item) => Boolean(gallerySrc(item)));
   return (
-    <div className="shell" id="top">
-      {/* DETAIL HERO */}
-      <section className="detail">
-        <div className="wrap">
-          <Reveal as={Link} href="/#projects" className="crumb">
-            <span>←</span> <span>{d.back}</span>
-          </Reveal>
-
-          <div className="d-hero">
-            <Reveal as="p" className="d-kicker" delay={60}>
-              {pick(detail.kicker)}
-            </Reveal>
-            <Reveal as="h1" className="d-title" delay={120}>
-              {pick(project.title)}
-            </Reveal>
-            <Reveal as="p" className="d-lead" delay={180}>
-              {pick(detail.lead)}
-            </Reveal>
-            {(hasLive || hasCode) && (
-              <Reveal className="d-actions" delay={240}>
-                {hasLive && (
-                  <a
-                    href={detail.links.live}
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {d.live} <span className="arrow">↗</span>
-                  </a>
-                )}
-                {hasCode && (
-                  <a
-                    href={detail.links.code}
-                    className="btn btn-ghost"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {d.code}
-                  </a>
-                )}
-              </Reveal>
-            )}
-          </div>
-
-          <Reveal className="d-meta" delay={300}>
-            {detail.meta.map((cell, i) => (
-              <div className="cell" key={i}>
-                <div className="k">{pick(cell.label)}</div>
-                <div className="v">{pick(cell.value)}</div>
-              </div>
-            ))}
-          </Reveal>
-
-          <Reveal className="d-shot">
-            {project.cover ? (
-              <Image
-                src={project.cover}
-                alt={pick(project.title)}
-                fill
-                sizes="(max-width: 980px) 100vw, 900px"
-                className="d-shot-img"
-                priority
-              />
-            ) : (
-              <span className="ph">{d.shot}</span>
-            )}
-          </Reveal>
-        </div>
-      </section>
-
-      {/* DETAIL BODY */}
-      <section style={{ paddingTop: 40 }}>
-        <div className="wrap">
-          <div className="d-body">
-            <div className="d-main">
-              <Reveal className="d-block">
-                <h2 className="d-h">{d.overview}</h2>
-                {detail.overview.map((p, i) => (
-                  <p key={i}>
-                    <Emphasis text={pick(p)} />
-                  </p>
-                ))}
-              </Reveal>
-
-              {detail.features.length > 0 && (
-                <Reveal className="d-block">
-                  <h2 className="d-h">{d.features}</h2>
-                  <ul className="feat">
-                    {detail.features.map((f, i) => (
-                      <li key={i}>
-                        <strong>{pick(f.title)}</strong>
-                        <span>{pick(f.desc)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              )}
-
-              {detail.challenge.length > 0 && (
-                <Reveal className="d-block">
-                  <h2 className="d-h">{d.challenge}</h2>
-                  {detail.challenge.map((p, i) => (
-                    <p key={i}>
-                      <Emphasis text={pick(p)} />
-                    </p>
-                  ))}
-                </Reveal>
-              )}
-
-              {detail.gallery.length > 0 && (
-                <Reveal className="d-block">
-                  <h2 className="d-h">{d.gallery}</h2>
-                  <div className="gallery">
-                    {detail.gallery.map((item, i) => {
-                      const src = gallerySrc(item);
-                      const caption = pick(galleryCaption(item));
-                      return (
-                        <figure className="shot" key={i}>
-                          {src ? (
-                            <Image
-                              src={src}
-                              alt={caption}
-                              fill
-                              sizes="(max-width: 900px) 100vw, 440px"
-                              className="shot-img"
-                            />
-                          ) : (
-                            <figcaption className="ph">{caption}</figcaption>
-                          )}
-                        </figure>
-                      );
-                    })}
-                  </div>
-                </Reveal>
-              )}
-            </div>
-
-            <aside className="d-aside">
-              <Reveal className="aside-card">
-                <p className="t">{d.stack}</p>
-                <div className="stack">
-                  {project.tags.map((tag) => (
-                    <span className="tag" key={tag}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Reveal>
-              {detail.impact.length > 0 && (
-                <Reveal className="aside-card">
-                  <p className="t">{d.impact}</p>
-                  <div className="kpi">
-                    {detail.impact.map((kpi, i) => (
-                      <div className="row" key={i}>
-                        <span className="n">
-                          {kpi.value}
-                          {kpi.unit && <span className="u">{kpi.unit}</span>}
-                        </span>
-                        <span className="l">{pick(kpi.label)}</span>
-                      </div>
-                    ))}
-                  </div>
-                </Reveal>
-              )}
-            </aside>
-          </div>
-
-          {nextProject && (
-            <Reveal as={Link} href={nextProject.url} className="d-next">
-              <div>
-                <div className="label">{d.next}</div>
-                <div className="name">{pick(nextProject.title)}</div>
-              </div>
-              <span className="go">→</span>
-            </Reveal>
+    <main id="main" className="page-container inner-page">
+      <div className="page-heading">
+        <Link className="back-link" href="/projects">
+          ← {t.back}
+        </Link>
+        <div className="detail-kicker">{pick(detail.kicker)}</div>
+        <h1>{pick(project.title)}</h1>
+        <p>{pick(detail.lead)}</p>
+        <div className="detail-actions">
+          {detail.links.live && detail.links.live !== "#" && (
+            <a
+              className="button"
+              href={detail.links.live}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t.live}
+              <ArrowUpRight size={14} />
+            </a>
+          )}
+          {detail.links.code && detail.links.code !== "#" && (
+            <a
+              className="button"
+              href={detail.links.code}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaGithub />
+              {t.code}
+            </a>
           )}
         </div>
+      </div>
+      <dl className="detail-meta">
+        {detail.meta.map((item, i) => (
+          <div key={i}>
+            <dt>{pick(item.label)}</dt>
+            <dd>{pick(item.value)}</dd>
+          </div>
+        ))}
+      </dl>
+      {project.cover && (
+        <Image
+          className="detail-cover"
+          src={project.cover}
+          alt={pick(project.title)}
+          width={1400}
+          height={875}
+          sizes="(max-width: 700px) 100vw, 664px"
+          preload
+        />
+      )}
+      <section className="detail-block">
+        <h2>{t.overview}</h2>
+        {detail.overview.map((text, i) => (
+          <p key={i}>
+            <Emphasis text={pick(text)} />
+          </p>
+        ))}
       </section>
-
-      <Footer />
-    </div>
+      {detail.features.length > 0 && (
+        <section className="detail-block">
+          <h2>{t.features}</h2>
+          <ul className="detail-features">
+            {detail.features.map((feature, i) => (
+              <li key={i}>
+                <strong>{pick(feature.title)}</strong>
+                <span>{pick(feature.desc)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {detail.challenge.length > 0 && (
+        <section className="detail-block">
+          <h2>{t.challenge}</h2>
+          {detail.challenge.map((text, i) => (
+            <p key={i}>
+              <Emphasis text={pick(text)} />
+            </p>
+          ))}
+        </section>
+      )}
+      {gallery.length > 0 && (
+        <section className="detail-block">
+          <h2>{t.gallery}</h2>
+          <div className="detail-gallery">
+            {gallery.map((item, i) => (
+              <figure key={i}>
+                <Image
+                  src={gallerySrc(item)!}
+                  alt={pick(galleryCaption(item))}
+                  width={1400}
+                  height={875}
+                  sizes="(max-width: 700px) 100vw, 664px"
+                />
+                <figcaption>{pick(galleryCaption(item))}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+      <section className="detail-block">
+        <h2>{t.stack}</h2>
+        <ul className="tags">
+          {project.tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+      </section>
+      {detail.impact.length > 0 && (
+        <section className="detail-block">
+          <h2>{t.impact}</h2>
+          <div className="detail-impact">
+            {detail.impact.map((item, i) => (
+              <div key={i}>
+                <strong>
+                  {item.value}
+                  {item.unit}
+                </strong>
+                <span>{pick(item.label)}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+      {nextProject && (
+        <Link className="next-project" href={nextProject.url}>
+          <span>
+            <small>{t.next}</small>
+            <strong>{nextProject.name}</strong>
+          </span>
+          <ArrowRight size={20} aria-label={ui.moreDetails} />
+        </Link>
+      )}
+    </main>
   );
 }

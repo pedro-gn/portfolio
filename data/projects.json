@@ -4,7 +4,19 @@
     "featured": true,
     "url": "/projects/alugafacil-rental-management",
     "cover": "/images/alugafacil.png",
-    "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "Better Auth", "Tailwind CSS", "shadcn/ui", "Docker", "Cloudflare R2", "Nginx"],
+    "tags": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Better Auth",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Docker",
+      "Cloudflare R2",
+      "Nginx"
+    ],
     "title": {
       "en": "AlugaFácil — rental management platform",
       "pt": "AlugaFácil — plataforma de gestão de aluguéis"
@@ -28,20 +40,44 @@
       },
       "meta": [
         {
-          "label": { "en": "Role", "pt": "Função" },
-          "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" }
+          "label": {
+            "en": "Role",
+            "pt": "Função"
+          },
+          "value": {
+            "en": "Full-stack developer",
+            "pt": "Desenvolvedor full-stack"
+          }
         },
         {
-          "label": { "en": "Year", "pt": "Ano" },
-          "value": { "en": "2026", "pt": "2026" }
+          "label": {
+            "en": "Year",
+            "pt": "Ano"
+          },
+          "value": {
+            "en": "2026",
+            "pt": "2026"
+          }
         },
         {
-          "label": { "en": "Stack", "pt": "Stack" },
-          "value": { "en": "Next.js 16 + Drizzle", "pt": "Next.js 16 + Drizzle" }
+          "label": {
+            "en": "Stack",
+            "pt": "Stack"
+          },
+          "value": {
+            "en": "Next.js 16 + Drizzle",
+            "pt": "Next.js 16 + Drizzle"
+          }
         },
         {
-          "label": { "en": "Hosting", "pt": "Hospedagem" },
-          "value": { "en": "Self-hosted VPS (Docker)", "pt": "VPS própria (Docker)" }
+          "label": {
+            "en": "Hosting",
+            "pt": "Hospedagem"
+          },
+          "value": {
+            "en": "Self-hosted VPS (Docker)",
+            "pt": "VPS própria (Docker)"
+          }
         }
       ],
       "overview": [
@@ -56,28 +92,40 @@
       ],
       "features": [
         {
-          "title": { "en": "Multi-tenant access", "pt": "Acesso multi-tenant" },
+          "title": {
+            "en": "Multi-tenant access",
+            "pt": "Acesso multi-tenant"
+          },
           "desc": {
             "en": "Owners and employees share one tenant, with every query scoped to the effective owner so data never leaks across businesses.",
             "pt": "Proprietários e funcionários compartilham um tenant, com toda consulta limitada ao proprietário efetivo para que os dados nunca vazem entre negócios."
           }
         },
         {
-          "title": { "en": "Availability & conflict checks", "pt": "Disponibilidade e checagem de conflitos" },
+          "title": {
+            "en": "Availability & conflict checks",
+            "pt": "Disponibilidade e checagem de conflitos"
+          },
           "desc": {
             "en": "Multi-product rentals intersect booked date ranges to prevent double-booking, ignoring returned or cancelled rentals.",
             "pt": "Aluguéis com múltiplos produtos cruzam os intervalos de datas reservados para evitar reservas duplicadas, ignorando aluguéis devolvidos ou cancelados."
           }
         },
         {
-          "title": { "en": "Products, variations & stock", "pt": "Produtos, variações e estoque" },
+          "title": {
+            "en": "Products, variations & stock",
+            "pt": "Produtos, variações e estoque"
+          },
           "desc": {
             "en": "Stock is keyed by product and variation, with a fallback to product-level quantity when there are no variations.",
             "pt": "O estoque é indexado por produto e variação, com fallback para a quantidade do produto quando não há variações."
           }
         },
         {
-          "title": { "en": "Self-hosted Docker deploy", "pt": "Deploy auto-hospedado com Docker" },
+          "title": {
+            "en": "Self-hosted Docker deploy",
+            "pt": "Deploy auto-hospedado com Docker"
+          },
           "desc": {
             "en": "A multi-stage Docker build ships a standalone Next.js image, orchestrated with Docker Compose behind Nginx, with images on Cloudflare R2 and scheduled PostgreSQL backups.",
             "pt": "Um build Docker multi-stage entrega uma imagem standalone do Next.js, orquestrada com Docker Compose atrás do Nginx, com imagens no Cloudflare R2 e backups agendados do PostgreSQL."
@@ -91,16 +139,50 @@
         }
       ],
       "gallery": [
-        { "caption": { "en": "dashboard overview", "pt": "visão geral do painel" } },
-        { "caption": { "en": "rental detail screen", "pt": "tela de detalhes do aluguel" } },
-        { "caption": { "en": "product & stock management", "pt": "gestão de produtos e estoque" } },
-        { "caption": { "en": "contract template editor", "pt": "editor de modelos de contrato" } }
+        {
+          "caption": {
+            "en": "dashboard overview",
+            "pt": "visão geral do painel"
+          }
+        },
+        {
+          "caption": {
+            "en": "rental detail screen",
+            "pt": "tela de detalhes do aluguel"
+          }
+        },
+        {
+          "caption": {
+            "en": "product & stock management",
+            "pt": "gestão de produtos e estoque"
+          }
+        },
+        {
+          "caption": {
+            "en": "contract template editor",
+            "pt": "editor de modelos de contrato"
+          }
+        }
       ],
       "impact": [
-        { "value": "5+", "label": { "en": "paying clients", "pt": "clientes pagantes" } },
-        { "value": "99.9", "unit": "%", "label": { "en": "uptime", "pt": "disponibilidade" } }
+        {
+          "value": "5+",
+          "label": {
+            "en": "paying clients",
+            "pt": "clientes pagantes"
+          }
+        },
+        {
+          "value": "99.9",
+          "unit": "%",
+          "label": {
+            "en": "uptime",
+            "pt": "disponibilidade"
+          }
+        }
       ]
-    }
+    },
+    "name": "AlugaFácil"
   },
   {
     "id": "lamplit",
@@ -125,12 +207,51 @@
         "en": "Two players join a room and play a fully validated match in real time. The server rules on every move and broadcasts each board state from a single source of truth, on an engine designed to add new games without a rewrite.",
         "pt": "Dois jogadores entram em uma sala e jogam uma partida totalmente validada em tempo real. O servidor valida cada jogada e transmite cada estado do tabuleiro a partir de uma única fonte da verdade, sobre um motor projetado para adicionar novos jogos sem reescrita."
       },
-      "links": { "live": "https://go.pedrognunes.com/", "code": "https://github.com/pedro-gn/go-game" },
+      "links": {
+        "live": "https://go.pedrognunes.com/",
+        "code": "https://github.com/pedro-gn/go-game"
+      },
       "meta": [
-        { "label": { "en": "Role", "pt": "Função" }, "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" } },
-        { "label": { "en": "Year", "pt": "Ano" }, "value": { "en": "2026", "pt": "2026" } },
-        { "label": { "en": "Backend", "pt": "Backend" }, "value": { "en": "Go + WebSockets", "pt": "Go + WebSockets" } },
-        { "label": { "en": "Frontend", "pt": "Frontend" }, "value": { "en": "SvelteKit", "pt": "SvelteKit" } }
+        {
+          "label": {
+            "en": "Role",
+            "pt": "Função"
+          },
+          "value": {
+            "en": "Full-stack developer",
+            "pt": "Desenvolvedor full-stack"
+          }
+        },
+        {
+          "label": {
+            "en": "Year",
+            "pt": "Ano"
+          },
+          "value": {
+            "en": "2026",
+            "pt": "2026"
+          }
+        },
+        {
+          "label": {
+            "en": "Backend",
+            "pt": "Backend"
+          },
+          "value": {
+            "en": "Go + WebSockets",
+            "pt": "Go + WebSockets"
+          }
+        },
+        {
+          "label": {
+            "en": "Frontend",
+            "pt": "Frontend"
+          },
+          "value": {
+            "en": "SvelteKit",
+            "pt": "SvelteKit"
+          }
+        }
       ],
       "overview": [
         {
@@ -144,20 +265,44 @@
       ],
       "features": [
         {
-          "title": { "en": "Extensible multi-game engine", "pt": "Motor multijogo extensível" },
-          "desc": { "en": "Go and Dou Shou Qi share one room, lobby and protocol layer; new games slot into a clean extension point.", "pt": "Go e Dou Shou Qi compartilham uma só camada de sala, lobby e protocolo; novos jogos se encaixam em um ponto de extensão limpo." }
+          "title": {
+            "en": "Extensible multi-game engine",
+            "pt": "Motor multijogo extensível"
+          },
+          "desc": {
+            "en": "Go and Dou Shou Qi share one room, lobby and protocol layer; new games slot into a clean extension point.",
+            "pt": "Go e Dou Shou Qi compartilham uma só camada de sala, lobby e protocolo; novos jogos se encaixam em um ponto de extensão limpo."
+          }
         },
         {
-          "title": { "en": "Server-authoritative rules", "pt": "Regras com autoridade no servidor" },
-          "desc": { "en": "Pure, exhaustively unit-tested engines enforce legality, ko, handicap, and area scoring per game.", "pt": "Motores puros e exaustivamente testados aplicam legalidade, ko, handicap e contagem por área por jogo." }
+          "title": {
+            "en": "Server-authoritative rules",
+            "pt": "Regras com autoridade no servidor"
+          },
+          "desc": {
+            "en": "Pure, exhaustively unit-tested engines enforce legality, ko, handicap, and area scoring per game.",
+            "pt": "Motores puros e exaustivamente testados aplicam legalidade, ko, handicap e contagem por área por jogo."
+          }
         },
         {
-          "title": { "en": "Live WebSocket play & lobby", "pt": "Jogo e lobby ao vivo via WebSocket" },
-          "desc": { "en": "Per-room gameplay and a shared lobby feed broadcast every state change in real time.", "pt": "Jogabilidade por sala e um feed de lobby compartilhado transmitem cada mudança de estado em tempo real." }
+          "title": {
+            "en": "Live WebSocket play & lobby",
+            "pt": "Jogo e lobby ao vivo via WebSocket"
+          },
+          "desc": {
+            "en": "Per-room gameplay and a shared lobby feed broadcast every state change in real time.",
+            "pt": "Jogabilidade por sala e um feed de lobby compartilhado transmitem cada mudança de estado em tempo real."
+          }
         },
         {
-          "title": { "en": "Reconnect & pluggable persistence", "pt": "Reconexão e persistência" },
-          "desc": { "en": "Grace timers survive disconnects, and the store runs in-memory by default or on PostgreSQL via a build tag.", "pt": "Temporizadores de tolerância sobrevivem a desconexões, e o armazenamento roda em memória por padrão ou em PostgreSQL via build tag." }
+          "title": {
+            "en": "Reconnect & pluggable persistence",
+            "pt": "Reconexão e persistência"
+          },
+          "desc": {
+            "en": "Grace timers survive disconnects, and the store runs in-memory by default or on PostgreSQL via a build tag.",
+            "pt": "Temporizadores de tolerância sobrevivem a desconexões, e o armazenamento roda em memória por padrão ou em PostgreSQL via build tag."
+          }
         }
       ],
       "challenge": [
@@ -167,19 +312,47 @@
         }
       ],
       "gallery": [
-        { "src": "/images/lamplit_menu.png", "caption": { "en": "game selection lobby", "pt": "lobby de seleção de jogos" } },
-        { "src": "/images/lamplit_go.png", "caption": { "en": "live Go match", "pt": "partida de Go ao vivo" } },
-        { "src": "/images/lamplit_dou.png", "caption": { "en": "live Dou Shou Qi match", "pt": "partida de Dou Shou Qi ao vivo" } }
+        {
+          "src": "/images/lamplit_menu.png",
+          "caption": {
+            "en": "game selection lobby",
+            "pt": "lobby de seleção de jogos"
+          }
+        },
+        {
+          "src": "/images/lamplit_go.png",
+          "caption": {
+            "en": "live Go match",
+            "pt": "partida de Go ao vivo"
+          }
+        },
+        {
+          "src": "/images/lamplit_dou.png",
+          "caption": {
+            "en": "live Dou Shou Qi match",
+            "pt": "partida de Dou Shou Qi ao vivo"
+          }
+        }
       ],
       "impact": []
-    }
+    },
+    "name": "Lamplit"
   },
   {
     "id": "integrazoo",
     "featured": false,
     "url": "/projects/integrazoo",
     "cover": "",
-    "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "better-auth", "Tailwind CSS", "Zod"],
+    "tags": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "better-auth",
+      "Tailwind CSS",
+      "Zod"
+    ],
     "title": {
       "en": "INTEGRAZOO — livestock management platform",
       "pt": "INTEGRAZOO — plataforma de gestão de rebanho"
@@ -203,20 +376,44 @@
       },
       "meta": [
         {
-          "label": { "en": "Role", "pt": "Função" },
-          "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" }
+          "label": {
+            "en": "Role",
+            "pt": "Função"
+          },
+          "value": {
+            "en": "Full-stack developer",
+            "pt": "Desenvolvedor full-stack"
+          }
         },
         {
-          "label": { "en": "Year", "pt": "Ano" },
-          "value": { "en": "2026", "pt": "2026" }
+          "label": {
+            "en": "Year",
+            "pt": "Ano"
+          },
+          "value": {
+            "en": "2026",
+            "pt": "2026"
+          }
         },
         {
-          "label": { "en": "Stack", "pt": "Stack" },
-          "value": { "en": "Next.js · Drizzle · Neon", "pt": "Next.js · Drizzle · Neon" }
+          "label": {
+            "en": "Stack",
+            "pt": "Stack"
+          },
+          "value": {
+            "en": "Next.js · Drizzle · Neon",
+            "pt": "Next.js · Drizzle · Neon"
+          }
         },
         {
-          "label": { "en": "Interface", "pt": "Interface" },
-          "value": { "en": "Portuguese (BR)", "pt": "Português (BR)" }
+          "label": {
+            "en": "Interface",
+            "pt": "Interface"
+          },
+          "value": {
+            "en": "Portuguese (BR)",
+            "pt": "Português (BR)"
+          }
         }
       ],
       "overview": [
@@ -231,20 +428,44 @@
       ],
       "features": [
         {
-          "title": { "en": "Full bovine lifecycle", "pt": "Ciclo de vida completo do bovino" },
-          "desc": { "en": "Register animals and follow weighings, reproduction, health events, and disposals from a single detail page.", "pt": "Cadastre animais e acompanhe pesagens, reprodução, eventos de saúde e saídas a partir de uma única página de detalhes." }
+          "title": {
+            "en": "Full bovine lifecycle",
+            "pt": "Ciclo de vida completo do bovino"
+          },
+          "desc": {
+            "en": "Register animals and follow weighings, reproduction, health events, and disposals from a single detail page.",
+            "pt": "Cadastre animais e acompanhe pesagens, reprodução, eventos de saúde e saídas a partir de uma única página de detalhes."
+          }
         },
         {
-          "title": { "en": "Per-user data isolation", "pt": "Isolamento de dados por usuário" },
-          "desc": { "en": "Ear tags are unique per producer via a composite primary key, so every query is scoped to its owner.", "pt": "Os brincos são únicos por produtor através de uma chave primária composta, então toda consulta é vinculada ao seu dono." }
+          "title": {
+            "en": "Per-user data isolation",
+            "pt": "Isolamento de dados por usuário"
+          },
+          "desc": {
+            "en": "Ear tags are unique per producer via a composite primary key, so every query is scoped to its owner.",
+            "pt": "Os brincos são únicos por produtor através de uma chave primária composta, então toda consulta é vinculada ao seu dono."
+          }
         },
         {
-          "title": { "en": "Charts and PDF reports", "pt": "Gráficos e relatórios em PDF" },
-          "desc": { "en": "Weight trends and herd metrics are visualized with Recharts and exported to PDF on demand.", "pt": "Tendências de peso e métricas do rebanho são visualizadas com Recharts e exportadas em PDF sob demanda." }
+          "title": {
+            "en": "Charts and PDF reports",
+            "pt": "Gráficos e relatórios em PDF"
+          },
+          "desc": {
+            "en": "Weight trends and herd metrics are visualized with Recharts and exported to PDF on demand.",
+            "pt": "Tendências de peso e métricas do rebanho são visualizadas com Recharts e exportadas em PDF sob demanda."
+          }
         },
         {
-          "title": { "en": "Role-gated admin panel", "pt": "Painel administrativo por papel" },
-          "desc": { "en": "USER and ADMIN roles, guarded in middleware and re-checked server-side in every admin route.", "pt": "Papéis USER e ADMIN, protegidos no middleware e revalidados no servidor em cada rota administrativa." }
+          "title": {
+            "en": "Role-gated admin panel",
+            "pt": "Painel administrativo por papel"
+          },
+          "desc": {
+            "en": "USER and ADMIN roles, guarded in middleware and re-checked server-side in every admin route.",
+            "pt": "Papéis USER e ADMIN, protegidos no middleware e revalidados no servidor em cada rota administrativa."
+          }
         }
       ],
       "challenge": [
@@ -254,20 +475,50 @@
         }
       ],
       "gallery": [
-        { "caption": { "en": "herd dashboard", "pt": "painel do rebanho" } },
-        { "caption": { "en": "bovine detail page", "pt": "página de detalhes do bovino" } },
-        { "caption": { "en": "weighing chart", "pt": "gráfico de pesagem" } },
-        { "caption": { "en": "admin panel", "pt": "painel administrativo" } }
+        {
+          "caption": {
+            "en": "herd dashboard",
+            "pt": "painel do rebanho"
+          }
+        },
+        {
+          "caption": {
+            "en": "bovine detail page",
+            "pt": "página de detalhes do bovino"
+          }
+        },
+        {
+          "caption": {
+            "en": "weighing chart",
+            "pt": "gráfico de pesagem"
+          }
+        },
+        {
+          "caption": {
+            "en": "admin panel",
+            "pt": "painel administrativo"
+          }
+        }
       ],
       "impact": []
-    }
+    },
+    "name": "INTEGRAZOO"
   },
   {
     "id": "raidlab-gaming-hub",
     "featured": false,
     "url": "/projects/raidlab-gaming-hub",
     "cover": "/images/raidlab_landing.png",
-    "tags": ["Next.js", "React", "TypeScript", "Drizzle ORM", "PostgreSQL", "Better Auth", "Stripe", "Tailwind CSS"],
+    "tags": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Better Auth",
+      "Stripe",
+      "Tailwind CSS"
+    ],
     "title": {
       "en": "raidlab — gaming hub & membership platform",
       "pt": "raidlab — hub de games e plataforma de assinaturas"
@@ -285,23 +536,50 @@
         "en": "A subscription-driven content platform built for a client on the Next.js App Router, with layered access control gating every member and admin route.",
         "pt": "Uma plataforma de conteúdo por assinatura desenvolvida para um cliente sobre o App Router do Next.js, com controle de acesso em camadas protegendo cada rota de membro e de admin."
       },
-      "links": { "live": "https://raidlab.app/", "code": "#" },
+      "links": {
+        "live": "https://raidlab.app/",
+        "code": "#"
+      },
       "meta": [
         {
-          "label": { "en": "Role", "pt": "Função" },
-          "value": { "en": "Full-stack developer", "pt": "Desenvolvedor full-stack" }
+          "label": {
+            "en": "Role",
+            "pt": "Função"
+          },
+          "value": {
+            "en": "Full-stack developer",
+            "pt": "Desenvolvedor full-stack"
+          }
         },
         {
-          "label": { "en": "Year", "pt": "Ano" },
-          "value": { "en": "2026", "pt": "2026" }
+          "label": {
+            "en": "Year",
+            "pt": "Ano"
+          },
+          "value": {
+            "en": "2026",
+            "pt": "2026"
+          }
         },
         {
-          "label": { "en": "Stack", "pt": "Stack" },
-          "value": { "en": "Next.js 16 · Postgres", "pt": "Next.js 16 · Postgres" }
+          "label": {
+            "en": "Stack",
+            "pt": "Stack"
+          },
+          "value": {
+            "en": "Next.js 16 · Postgres",
+            "pt": "Next.js 16 · Postgres"
+          }
         },
         {
-          "label": { "en": "Status", "pt": "Status" },
-          "value": { "en": "MVP", "pt": "MVP" }
+          "label": {
+            "en": "Status",
+            "pt": "Status"
+          },
+          "value": {
+            "en": "MVP",
+            "pt": "MVP"
+          }
         }
       ],
       "overview": [
@@ -316,28 +594,40 @@
       ],
       "features": [
         {
-          "title": { "en": "Plan-based access control", "pt": "Controle de acesso por plano" },
+          "title": {
+            "en": "Plan-based access control",
+            "pt": "Controle de acesso por plano"
+          },
           "desc": {
             "en": "A two-layer gate — cookie auth in the proxy, then a plan matrix at the layout — decides what each member can reach.",
             "pt": "Um portão de duas camadas — auth por cookie no proxy e depois uma matriz de planos no layout — define o que cada membro pode acessar."
           }
         },
         {
-          "title": { "en": "Admin CMS", "pt": "CMS administrativo" },
+          "title": {
+            "en": "Admin CMS",
+            "pt": "CMS administrativo"
+          },
           "desc": {
             "en": "ADMIN and EDITOR roles manage products, tools, guides, streamers, and videos through CRUD forms over the same entities.",
             "pt": "Os papéis ADMIN e EDITOR gerenciam produtos, ferramentas, guias, streamers e vídeos por formulários CRUD sobre as mesmas entidades."
           }
         },
         {
-          "title": { "en": "Stripe subscriptions", "pt": "Assinaturas Stripe" },
+          "title": {
+            "en": "Stripe subscriptions",
+            "pt": "Assinaturas Stripe"
+          },
           "desc": {
             "en": "Tiered plans and billing handled through Stripe Checkout and webhooks that keep subscription state in sync.",
             "pt": "Planos em níveis e cobrança via Stripe Checkout e webhooks que mantêm o estado da assinatura sincronizado."
           }
         },
         {
-          "title": { "en": "Rate-limited auth", "pt": "Autenticação com rate limit" },
+          "title": {
+            "en": "Rate-limited auth",
+            "pt": "Autenticação com rate limit"
+          },
           "desc": {
             "en": "Sign-in is throttled per Cloudflare IP and the proxy applies a per-IP global limit to harden against abuse.",
             "pt": "O login é limitado por IP do Cloudflare e o proxy aplica um limite global por IP para reforçar contra abusos."
@@ -351,11 +641,30 @@
         }
       ],
       "gallery": [
-        { "src": "/images/raidlab_landing.png", "caption": { "en": "landing page", "pt": "página inicial" } },
-        { "src": "/images/raidlab_produtos.png", "caption": { "en": "member dashboard", "pt": "dashboard do membro" } },
-        { "src": "/images/raidlab_dailies.png", "caption": { "en": "daily routine (PLUS plan)", "pt": "rotina diária (plano PLUS)" } }
+        {
+          "src": "/images/raidlab_landing.png",
+          "caption": {
+            "en": "landing page",
+            "pt": "página inicial"
+          }
+        },
+        {
+          "src": "/images/raidlab_produtos.png",
+          "caption": {
+            "en": "member dashboard",
+            "pt": "dashboard do membro"
+          }
+        },
+        {
+          "src": "/images/raidlab_dailies.png",
+          "caption": {
+            "en": "daily routine (PLUS plan)",
+            "pt": "rotina diária (plano PLUS)"
+          }
+        }
       ],
       "impact": []
-    }
+    },
+    "name": "raidlab"
   }
 ]

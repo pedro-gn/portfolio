@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SiteNav } from "@/components/site-nav";
 import { ProjectDetail } from "@/components/project-detail";
 import { getNextProject, getProject, projects } from "@/lib/projects";
 import profile from "@/data/profile.json";
@@ -36,7 +35,6 @@ export default async function ProjectPage({
 
   return (
     <>
-      <SiteNav />
       <ProjectDetail project={project} nextProject={nextProject} />
     </>
   );

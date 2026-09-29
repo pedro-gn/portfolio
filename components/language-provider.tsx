@@ -1,5 +1,4 @@
 "use client";
-
 import {
   createContext,
   useCallback,
@@ -7,6 +6,7 @@ import {
   useEffect,
   useMemo,
   useState,
+  useSyncExternalStore,
 } from "react";
 import {
   DEFAULT_LOCALE,
@@ -18,63 +18,64 @@ import {
   type Localized,
   type Messages,
 } from "@/lib/i18n";
-
 const STORAGE_KEY = "portfolio-lang";
-
+function subscribe(onChange: () => void) {
+  window.addEventListener("storage", onChange);
+  return () => window.removeEventListener("storage", onChange);
+}
+function getStoredLocale(): Locale {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    return isLocale(stored) ? stored : DEFAULT_LOCALE;
+  } catch {
+    return DEFAULT_LOCALE;
+  }
+}
+const getServerLocale = () => DEFAULT_LOCALE;
 type LanguageContextValue = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   messages: Messages;
-  /** Resolve a possibly-localized value for the active locale. */
   pick: <T>(value: Localized<T>) => T;
 };
-
 const LanguageContext = createContext<LanguageContextValue | null>(null);
-
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
-
-  // Hydrate the stored preference after mount to avoid SSR/client mismatch.
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      if (isLocale(stored)) setLocaleState(stored);
-    } catch {
-      /* localStorage may be unavailable (private mode, etc.) */
-    }
-  }, []);
-
-  // Keep <html lang> in sync for accessibility and SEO.
+  const stored = useSyncExternalStore(
+    subscribe,
+    getStoredLocale,
+    getServerLocale,
+  );
+  const [selected, setSelected] = useState<Locale | null>(null);
+  const locale = selected ?? stored;
   useEffect(() => {
     document.documentElement.lang = HTML_LANG[locale];
   }, [locale]);
-
   const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
+    setSelected(next);
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      /* ignore persistence failures */
+      /* In-memory preference still works when storage is blocked. */
     }
   }, []);
-
   const value = useMemo<LanguageContextValue>(
     () => ({
       locale,
       setLocale,
       messages: getMessages(locale),
-      pick: (v) => pickValue(v, locale),
+      pick: (value) => pickValue(value, locale),
     }),
     [locale, setLocale],
   );
-
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }
-
-export function useLanguage(): LanguageContextValue {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) {
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (!context)
     throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return ctx;
+  return context;
 }

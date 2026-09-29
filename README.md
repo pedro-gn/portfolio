@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pedro Garcia — Portfolio
 
-## Getting Started
+Bilingual Next.js 16 portfolio, redesigned from the [manixh](https://github.com/ig-imanish/manixh) visual reference. Figtree and JetBrains Mono are hosted locally. Reference attribution: LICENSE.manixh.
 
-First, run the development server:
+## Development
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Install: bun install
+- Run: bun run dev
+- Validate: bun run lint and bun run build
+- Production: bun run start
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- / — profile, technologies, experience, projects and contact
+- /projects — all projects
+- /projects/[slug] — project case studies
+- /uses — tools and practices
+- /resume — printable resume, with browser Save as PDF support
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Content
 
-## Learn More
+Personal details and links: data/profile.json. Projects and case studies: data/projects.json. Experience: data/experience.json. Technologies: data/skills.json. UI translations: data/messages.json. Images: public/images/.
 
-To learn more about Next.js, take a look at the following resources:
+The first visit defaults to Portuguese. The language selector stores the preference locally. No analytics metrics are fabricated. Missing code/demo URLs are not rendered as links. The resume is generated from existing portfolio content.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+See PRODUCT.md for audience and purpose, and DESIGN.md for the current visual system.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub activity loads the public contribution history from github-contributions-api.jogruber.de (the API used by react-github-calendar). It has a loading state and a profile-link fallback when the service is unavailable; no token is required.

@@ -1,74 +1,64 @@
 "use client";
-
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Check, Copy } from "lucide-react";
-import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
+import { SocialLinks } from "@/components/social-links";
 import profile from "@/data/profile.json";
-
 export function Contact() {
-  const { messages, pick } = useLanguage();
-  const t = messages.contact;
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = async () => {
+  const {
+    messages: { ui, contact },
+  } = useLanguage();
+  const [status, setStatus] = useState<"idle" | "copied" | "error">("idle");
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useEffect(() => () => clearTimeout(timer.current), []);
+  async function copyEmail() {
+    clearTimeout(timer.current);
     try {
       await navigator.clipboard.writeText(profile.email);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
+      setStatus("copied");
     } catch {
-      /* clipboard blocked — the mailto link is still right there */
+      setStatus("error");
     }
-  };
-
+    timer.current = setTimeout(() => setStatus("idle"), 3000);
+  }
   return (
-    <section id="contact" className="contact">
-      <div className="wrap">
-        <Reveal as="h2" className="section-title">
-          {t.title}
-        </Reveal>
-        <Reveal as="p" className="contact-sub">
-          {t.sub}
-        </Reveal>
-        <Reveal className="mail-row">
-          <a href={`mailto:${profile.email}`} className="mail-link">
-            {profile.email}
-          </a>
+    <section
+      id="contact"
+      className="contact-section"
+      aria-labelledby="contact-title"
+    >
+      <div className="contact-card">
+        <h2 id="contact-title">{ui.letsConnect}</h2>
+        <p>{ui.contactIntro}</p>
+        <SocialLinks />
+        <div className="contact-address">
+          <a href={"mailto:" + profile.email}>{profile.email}</a>
           <button
             type="button"
-            className={`copy-btn${copied ? " copied" : ""}`}
+            className="copy-button"
             onClick={copyEmail}
-            aria-label={t.copyAria}
+            aria-label={contact.copyAria}
+            title={status === "copied" ? contact.copied : contact.copy}
           >
-            <span aria-hidden="true">{copied ? t.copied : t.copy}</span>
-            {copied ? (
-              <Check className="copy-ico" size={15} strokeWidth={2} aria-hidden="true" />
-            ) : (
-              <Copy className="copy-ico" size={15} strokeWidth={1.75} aria-hidden="true" />
-            )}
+            {status === "copied" ? <Check size={14} /> : <Copy size={14} />}
           </button>
-          <span className="sr-only" role="status" aria-live="polite">
-            {copied ? t.copiedStatus : ""}
-          </span>
-        </Reveal>
-        <Reveal className="phone-row">
-          <a href={`tel:${profile.phone.replace(/[^+\d]/g, "")}`} className="phone-link">
-            {profile.phone}
-          </a>
-        </Reveal>
-        <Reveal className="socials">
-          {profile.socials.map((social) => (
-            <a
-              key={social.id}
-              href={social.url}
-              className="social"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {pick(social.label)}
-            </a>
-          ))}
-        </Reveal>
+        </div>
+        <a
+          className="contact-phone"
+          href={"tel:" + profile.phone.replace(/[^+\d]/g, "")}
+        >
+          {profile.phone}
+        </a>
+        <span
+          className={status === "error" ? "copy-error" : "sr-only"}
+          role="status"
+        >
+          {status === "copied"
+            ? contact.copiedStatus
+            : status === "error"
+              ? ui.copyError
+              : ""}
+        </span>
       </div>
     </section>
   );

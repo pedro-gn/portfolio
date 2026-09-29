@@ -4,13 +4,53 @@
   "email": "pedrognunes139@gmail.com",
   "phone": "+55 37 99965-7256",
   "socials": [
-    { "id": "github", "label": "GitHub ↗", "url": "https://github.com/pedro-gn" },
-    { "id": "linkedin", "label": "LinkedIn ↗", "url": "https://www.linkedin.com/in/pedrognp/" },
-    { "id": "x", "label": "X / Twitter ↗", "url": "https://x.com/" },
+    {
+      "id": "github",
+      "label": "GitHub ↗",
+      "url": "https://github.com/pedro-gn"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn ↗",
+      "url": "https://www.linkedin.com/in/pedrognp/"
+    },
+    {
+      "id": "x",
+      "label": "X / Twitter ↗",
+      "url": "https://x.com/"
+    },
     {
       "id": "resume",
-      "label": { "en": "Resume ↓", "pt": "Currículo ↓" },
-      "url": "/resume.pdf"
+      "label": {
+        "en": "Resume ↓",
+        "pt": "Currículo ↓"
+      },
+      "url": "/resume"
+    }
+  ],
+  "username": "pedro-gn",
+  "avatar": "/images/pedro-github.png",
+  "location": {
+    "pt": "Brasil",
+    "en": "Brazil"
+  },
+  "timeZone": "America/Sao_Paulo",
+  "building": {
+    "name": "AlugaFácil",
+    "url": "https://www.alugafacil.tech"
+  },
+  "bio": [
+    {
+      "pt": "Olá, sou **desenvolvedor fullstack**.",
+      "en": "Hi, I am a **Full Stack Developer**."
+    },
+    {
+      "pt": "Construo e mantenho **produtos web em produção**, do banco de dados à interface.",
+      "en": "I build and run **web products in production**, from the database to the interface."
+    },
+    {
+      "pt": "Criador do **AlugaFácil**. Trabalho com **TypeScript, Go e infraestrutura edge**.",
+      "en": "Creator of **AlugaFácil**. Working with **TypeScript, Go, and edge infrastructure**."
     }
   ]
 }
