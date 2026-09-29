@@ -1,11 +1,54 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, LockKeyhole, Sprout } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, ExternalLink, LockKeyhole, Sprout } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
+import { RiLock2Line } from "react-icons/ri";
 import { useLanguage } from "@/components/language-provider";
 import { SectionTitle } from "@/components/section-title";
 import { projects, type Project } from "@/lib/projects";
+
+function PrivateCode({
+  id,
+  label,
+  description,
+}: {
+  id: string;
+  label: string;
+  description: string;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span
+      className="private-code"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        className="private-code-trigger"
+        aria-label={label}
+        aria-describedby={open ? id : undefined}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+        onClick={() => setOpen(true)}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") setOpen(false);
+        }}
+      >
+        <RiLock2Line size={16} aria-hidden="true" />
+      </button>
+      {open && (
+        <span className="private-code-tooltip" id={id} role="tooltip">
+          <strong>{label}</strong>
+          <span>{description}</span>
+        </span>
+      )}
+    </span>
+  );
+}
+
 export function ProjectCard({ project }: { project: Project }) {
   const {
     pick,
@@ -13,6 +56,9 @@ export function ProjectCard({ project }: { project: Project }) {
   } = useLanguage();
   const live = project.detail.links.live !== "#" && project.detail.links.live;
   const code = project.detail.links.code !== "#" && project.detail.links.code;
+  const hostname = live
+    ? new URL(live).hostname.replace(/^www\./, "")
+    : project.name;
   return (
     <article className="project-card">
       <Link
@@ -21,12 +67,38 @@ export function ProjectCard({ project }: { project: Project }) {
         aria-label={ui.caseStudy + ": " + project.name}
       >
         {project.cover ? (
-          <Image
-            src={project.cover}
-            alt={pick(project.title)}
-            fill
-            sizes="(max-width: 600px) calc(100vw - 76px), 300px"
-          />
+          <span className="project-preview">
+            <Image
+              className="project-preview-backdrop"
+              src={project.cover}
+              alt=""
+              fill
+              sizes="(max-width: 600px) calc(100vw - 76px), 300px"
+              aria-hidden="true"
+            />
+            <span className="project-browser">
+              <span className="project-browser-toolbar" aria-hidden="true">
+                <span className="project-browser-dots">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <span className="project-browser-address">
+                  <LockKeyhole size={6} />
+                  {hostname}
+                </span>
+                <span className="project-browser-menu">···</span>
+              </span>
+              <span className="project-browser-viewport">
+                <Image
+                  src={project.cover}
+                  alt={pick(project.title)}
+                  fill
+                  sizes="(max-width: 600px) calc(100vw - 110px), 268px"
+                />
+              </span>
+            </span>
+          </span>
         ) : (
           <div className="project-wordmark">
             <Sprout size={34} aria-hidden="true" />
@@ -42,9 +114,18 @@ export function ProjectCard({ project }: { project: Project }) {
       </Link>
       <div className="project-content">
         <div className="project-heading">
-          <h3>
-            <Link href={project.url}>{project.name}</Link>
-          </h3>
+          <div className="project-name">
+            <h3>
+              <Link href={project.url}>{project.name}</Link>
+            </h3>
+            {!code && (
+              <PrivateCode
+                id={`private-${project.id}`}
+                label={ui.privateCode}
+                description={ui.privateCodeDescription}
+              />
+            )}
+          </div>
           <div className="project-links">
             {live && (
               <a
@@ -54,11 +135,11 @@ export function ProjectCard({ project }: { project: Project }) {
                 rel="noreferrer"
                 aria-label={ui.live + ": " + project.name}
               >
-                <ArrowUpRight size={12} aria-hidden="true" />
+                <ExternalLink size={12} aria-hidden="true" />
                 Live
               </a>
             )}
-            {code ? (
+            {code && (
               <a
                 className="mini-button"
                 href={code}
@@ -69,10 +150,6 @@ export function ProjectCard({ project }: { project: Project }) {
                 <FaGithub aria-hidden="true" />
                 GitHub
               </a>
-            ) : (
-              <span className="private-code" title={ui.privateCode}>
-                <LockKeyhole size={13} aria-label={ui.privateCode} />
-              </span>
             )}
           </div>
         </div>
@@ -104,13 +181,9 @@ export function Projects({ fullPage = false }: { fullPage?: boolean }) {
       aria-labelledby="projects-title"
     >
       {fullPage ? (
-        <div className="page-heading">
-          <Link className="back-link" href="/">
-            ← {ui.home}
-          </Link>
-          <h1 id="projects-title">{ui.projects}</h1>
-          <p>{ui.projectsIntro}</p>
-        </div>
+        <h1 className="section-title" id="projects-title">
+          <span>{ui.myProjects}</span>
+        </h1>
       ) : (
         <SectionTitle id="projects-title">{ui.myProjects}</SectionTitle>
       )}
@@ -119,6 +192,13 @@ export function Projects({ fullPage = false }: { fullPage?: boolean }) {
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
+      {fullPage && (
+        <div className="section-action">
+          <Link className="back-link" href="/">
+            ← {ui.home}
+          </Link>
+        </div>
+      )}
       {!fullPage && (
         <div className="section-action">
           <Link className="button" href="/projects">

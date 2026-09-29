@@ -36,8 +36,8 @@
   },
   "timeZone": "America/Sao_Paulo",
   "building": {
-    "name": "AlugaFácil",
-    "url": "https://www.alugafacil.tech"
+    "name": "Loqqa",
+    "url": "https://www.loqqa.com.br"
   },
   "bio": [
     {
@@ -49,8 +49,8 @@
       "en": "I build and run **web products in production**, from the database to the interface."
     },
     {
-      "pt": "Criador do **AlugaFácil**. Trabalho com **TypeScript, Go e infraestrutura edge**.",
-      "en": "Creator of **AlugaFácil**. Working with **TypeScript, Go, and edge infrastructure**."
+      "pt": "Criador do **Loqqa**. Trabalho com **TypeScript, Go e infraestrutura edge**.",
+      "en": "Creator of **Loqqa**. Working with **TypeScript, Go, and edge infrastructure**."
     }
   ]
 }

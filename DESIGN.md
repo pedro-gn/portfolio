@@ -17,7 +17,7 @@ A centered 700px column, with 18px side padding on desktop and 20–25px on mobi
 
 ## Components
 
-Section headings have four corner marks. Cards are transparent with thin dashed borders, without large radii or elevation. Buttons have compact dark surfaces, 2–4px corners and a subtle inset highlight. Project screenshots retain their own colors. Technology icons use their brand colors.
+Section headings have four corner marks. Cards are transparent with thin dashed borders, without large radii or elevation. Buttons have compact dark surfaces, 2–4px corners and a subtle inset highlight. Project thumbnails use a 16:9 browser mockup over a blurred backdrop derived from the same screenshot. They start in grayscale and reveal their colors on hover or keyboard focus. A green lock beside the project name explains private source code through a localized tooltip available with mouse, keyboard and touch. Technology icons use their brand colors.
 
 ## Interaction and accessibility
 

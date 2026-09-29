@@ -11,8 +11,8 @@
       "pt": "2025 — Atual"
     },
     "description": {
-      "en": "Design, build, and sell subscription software end to end, from product and schema to deploy and support. My flagship, AlugaFácil, is a multi-tenant rental-management SaaS running in production on a self-hosted VPS with paying customers, and I keep shipping improvements to it. Every layer is mine: Next.js + Drizzle on PostgreSQL, Better Auth, Docker, and Cloudflare R2.",
-      "pt": "Projeto, construo e vendo software por assinatura de ponta a ponta, do produto e do schema ao deploy e ao suporte. Meu produto principal, o AlugaFácil, é um SaaS multi-tenant de gestão de aluguéis em produção em uma VPS própria, com clientes pagantes, e sigo entregando melhorias. Cada camada é minha: Next.js + Drizzle sobre PostgreSQL, Better Auth, Docker e Cloudflare R2."
+      "en": "Design, build, and sell subscription software end to end, from product and schema to deploy and support. My flagship, Loqqa, is a multi-tenant rental-management SaaS running in production on a self-hosted VPS with paying customers, and I keep shipping improvements to it. Every layer is mine: Next.js + Drizzle on PostgreSQL, Better Auth, Docker, and Cloudflare R2.",
+      "pt": "Projeto, construo e vendo software por assinatura de ponta a ponta, do produto e do schema ao deploy e ao suporte. Meu produto principal, o Loqqa, é um SaaS multi-tenant de gestão de aluguéis em produção em uma VPS própria, com clientes pagantes, e sigo entregando melhorias. Cada camada é minha: Next.js + Drizzle sobre PostgreSQL, Better Auth, Docker e Cloudflare R2."
     },
     "status": "present"
   },
