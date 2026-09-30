@@ -5,8 +5,11 @@ import { Volume2, VolumeX } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 
 const SOUND_KEY = "portfolio-click-sound";
-const BURST_DURATION = 700;
-const DOT_COUNT = 12;
+const BURST_DURATION = 500;
+const SPARK_COUNT = 12;
+const SPARK_SIZE = 12;
+const SPARK_RADIUS = 20;
+const SPARK_SCALE = 1.2;
 
 type Burst = { x: number; y: number; startedAt: number };
 
@@ -53,8 +56,9 @@ export function ClickFeedback() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const bursts: Burst[] = [];
     let frame = 0;
-    let audio: AudioContext | null = null;
-    let clickBuffer: AudioBuffer | null = null;
+    const audio = new Audio("/audio/click.mp3");
+    audio.preload = "auto";
+    audio.volume = 0.3;
 
     const resize = () => {
       const scale = Math.min(window.devicePixelRatio || 1, 2);
@@ -80,19 +84,26 @@ export function ClickFeedback() {
           continue;
         }
 
-        const radius = 4 + progress * 21;
-        const opacity = 0.95 * (1 - progress) ** 0.8;
-        const size = progress < 0.65 ? 2.5 : 2;
-        context.fillStyle = `rgba(245, 245, 245, ${opacity})`;
+        const eased = progress * (2 - progress);
+        const radius = eased * SPARK_RADIUS * SPARK_SCALE;
+        const length = SPARK_SIZE * (1 - eased);
+        context.strokeStyle = "#fff";
+        context.lineWidth = 2;
 
-        for (let dot = 0; dot < DOT_COUNT; dot += 1) {
-          const angle = (dot / DOT_COUNT) * Math.PI * 2 - Math.PI / 2;
-          context.fillRect(
-            Math.round(burst.x + Math.cos(angle) * radius),
-            Math.round(burst.y + Math.sin(angle) * radius),
-            size,
-            size,
+        for (let spark = 0; spark < SPARK_COUNT; spark += 1) {
+          const angle = (spark / SPARK_COUNT) * Math.PI * 2;
+          const directionX = Math.cos(angle);
+          const directionY = Math.sin(angle);
+          context.beginPath();
+          context.moveTo(
+            burst.x + radius * directionX,
+            burst.y + radius * directionY,
           );
+          context.lineTo(
+            burst.x + (radius + length) * directionX,
+            burst.y + (radius + length) * directionY,
+          );
+          context.stroke();
         }
       }
 
@@ -103,29 +114,8 @@ export function ClickFeedback() {
       if (!soundEnabledRef.current) return;
 
       try {
-        audio ??= new AudioContext();
-        if (audio.state === "suspended") void audio.resume().catch(() => {});
-
-        if (!clickBuffer) {
-          const length = Math.round(audio.sampleRate * 0.035);
-          clickBuffer = audio.createBuffer(1, length, audio.sampleRate);
-          const samples = clickBuffer.getChannelData(0);
-          for (let index = 0; index < length; index += 1) {
-            const decay = (1 - index / length) ** 3;
-            samples[index] = (Math.random() * 2 - 1) * decay;
-          }
-        }
-
-        const source = audio.createBufferSource();
-        const filter = audio.createBiquadFilter();
-        const gain = audio.createGain();
-        source.buffer = clickBuffer;
-        filter.type = "bandpass";
-        filter.frequency.value = 1600;
-        filter.Q.value = 0.7;
-        gain.gain.value = 0.13;
-        source.connect(filter).connect(gain).connect(audio.destination);
-        source.start();
+        audio.currentTime = 0;
+        void audio.play().catch(() => {});
       } catch {
         // Browser audio restrictions should never prevent the visual feedback.
       }
@@ -144,13 +134,12 @@ export function ClickFeedback() {
       if (frame === 0) frame = window.requestAnimationFrame(draw);
     };
 
-    const onPointerDown = (event: PointerEvent) => {
-      if (event.button === 0)
-        trigger(event.clientX, event.clientY, event.target);
-    };
-
     const onClick = (event: MouseEvent) => {
-      if (event.detail !== 0 || !(event.target instanceof Element)) return;
+      if (!(event.target instanceof Element)) return;
+      if (event.detail !== 0) {
+        trigger(event.clientX, event.clientY, event.target);
+        return;
+      }
       const rect = event.target.getBoundingClientRect();
       trigger(
         rect.left + rect.width / 2,
@@ -161,15 +150,13 @@ export function ClickFeedback() {
 
     resize();
     window.addEventListener("resize", resize);
-    document.addEventListener("pointerdown", onPointerDown);
-    document.addEventListener("click", onClick);
+    document.addEventListener("click", onClick, true);
 
     return () => {
       window.removeEventListener("resize", resize);
-      document.removeEventListener("pointerdown", onPointerDown);
-      document.removeEventListener("click", onClick);
+      document.removeEventListener("click", onClick, true);
       if (frame !== 0) window.cancelAnimationFrame(frame);
-      if (audio) void audio.close();
+      audio.pause();
     };
   }, []);
 

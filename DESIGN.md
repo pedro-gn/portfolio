@@ -25,7 +25,7 @@ Each project's image backdrop and case-study cover use a restrained accent taken
 
 Native details/summary for experience. Real links for live projects, case studies, email, phone, GitHub and LinkedIn. Missing live/code URLs and absent screenshots do not render as placeholder actions or galleries. Resume has print styles and a print/save-PDF action.
 
-Pointer and touch clicks produce a brief dotted ring with a quiet synthesized click. A compact navigation button toggles the sound and remembers the preference. Reduced-motion settings suppress the ring.
+Clicks produce the reference's 12 white radial strokes (500 ms, ease-out) and play its `click.mp3` at 30% volume. A compact navigation button toggles the sound and remembers the preference. Reduced-motion settings suppress the visual effect.
 
 Portuguese and English are available everywhere, with a persisted preference. Main landmarks, skip link and visible keyboard focus are required. Marquees can be paused and are static, wrapped lists with reduced motion. Decorative duplicated content is hidden from assistive technology. There is no artificial loading delay.
 
