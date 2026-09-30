@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaGithub } from "react-icons/fa6";
 import { useLanguage } from "@/components/language-provider";
+import { ClickFeedback } from "@/components/click-feedback";
 import { LOCALES } from "@/lib/i18n";
 import profile from "@/data/profile.json";
 
@@ -50,6 +51,7 @@ export function SiteNav() {
               <FaGithub aria-hidden="true" />
               <span>GitHub</span>
             </a>
+            <ClickFeedback />
             <div
               className="language-switch"
               role="group"

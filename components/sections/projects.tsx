@@ -60,7 +60,7 @@ export function ProjectCard({ project }: { project: Project }) {
     ? new URL(live).hostname.replace(/^www\./, "")
     : project.name;
   return (
-    <article className="project-card">
+    <article className="project-card" data-project={project.id}>
       <Link
         href={project.url}
         className="project-cover"

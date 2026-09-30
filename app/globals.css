@@ -178,6 +178,31 @@ ul {
   color: var(--text);
   background: var(--surface);
 }
+.click-sound-toggle {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--muted);
+}
+.click-sound-toggle:hover,
+.click-sound-toggle:focus-visible {
+  background: var(--surface);
+  color: var(--text);
+}
+.click-feedback-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  image-rendering: crisp-edges;
+}
 .hero {
   padding-top: 66px;
   margin-bottom: 22px;
@@ -597,12 +622,29 @@ ul {
   display: grid;
   gap: 24px;
 }
+.project-card[data-project="loqqa"],
+.project-detail[data-project="loqqa"] {
+  --project-accent: 47 105 234;
+}
+.project-card[data-project="lamplit"],
+.project-detail[data-project="lamplit"] {
+  --project-accent: 191 139 67;
+}
+.project-card[data-project="suphub"],
+.project-detail[data-project="suphub"] {
+  --project-accent: 174 210 64;
+}
 .project-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 24px;
   padding: 18px;
   border: 1px dashed var(--border);
+  background: radial-gradient(
+    ellipse at 12% 48%,
+    rgb(var(--project-accent) / 0.08),
+    transparent 62%
+  );
   transition: border-color 0.2s;
 }
 .project-card:hover {
@@ -616,26 +658,37 @@ ul {
   border-radius: 4px;
   overflow: hidden;
   background: #181a1b;
+  box-shadow: 0 0 0 1px rgb(var(--project-accent) / 0.13);
 }
 .project-preview {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: #161819;
-  filter: grayscale(1);
-  transition: filter 0.35s;
+  background:
+    radial-gradient(
+      ellipse at 70% 25%,
+      rgb(var(--project-accent) / 0.33),
+      transparent 68%
+    ),
+    #161819;
 }
 .project-preview .project-preview-backdrop {
   object-fit: cover;
-  filter: blur(12px) brightness(0.65);
+  filter: grayscale(0.25) blur(18px) brightness(0.65);
   transform: scale(1.15);
-  opacity: 0.75;
+  opacity: 0.45;
+  transition: opacity 0.35s;
 }
 .project-preview::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #ffffff0d, transparent 45%, #0006);
+  background: linear-gradient(
+    135deg,
+    rgb(var(--project-accent) / 0.13),
+    transparent 46%,
+    #0008
+  );
   pointer-events: none;
 }
 .project-browser {
@@ -648,7 +701,10 @@ ul {
   border: 1px solid #ffffff30;
   border-radius: 4px 4px 0 0;
   background: #101112;
-  box-shadow: 0 3px 16px #0009;
+  box-shadow:
+    0 3px 16px #0009,
+    0 0 24px rgb(var(--project-accent) / 0.14);
+  transition: transform 0.35s;
 }
 .project-browser-toolbar {
   display: flex;
@@ -697,10 +753,20 @@ ul {
 .project-browser-viewport img {
   object-fit: cover;
   object-position: top;
+  filter: grayscale(1);
+  transition: filter 0.35s;
 }
-.project-cover:hover .project-preview,
-.project-cover:focus-visible .project-preview {
+.project-cover:hover .project-browser-viewport img,
+.project-cover:focus-visible .project-browser-viewport img {
   filter: grayscale(0);
+}
+.project-cover:hover .project-browser,
+.project-cover:focus-visible .project-browser {
+  transform: translateY(-2px);
+}
+.project-cover:hover .project-preview-backdrop,
+.project-cover:focus-visible .project-preview-backdrop {
+  opacity: 0.7;
 }
 .project-ribbon {
   position: absolute;
@@ -1023,13 +1089,37 @@ ul {
   font-size: 13px;
   color: #eee;
 }
+.detail-cover-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(16px, 4vw, 30px);
+  margin-bottom: 32px;
+  border: 1px solid rgb(var(--project-accent) / 0.22);
+  border-radius: 4px;
+  background:
+    radial-gradient(
+      ellipse at 70% 15%,
+      rgb(var(--project-accent) / 0.22),
+      transparent 70%
+    ),
+    #141617;
+}
+.detail-cover-ambient {
+  object-fit: cover;
+  filter: blur(32px) saturate(1.25) brightness(0.6);
+  transform: scale(1.2);
+  opacity: 0.38;
+}
 .detail-cover {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: auto;
   border: 1px solid #333;
   border-radius: 4px;
-  margin-bottom: 32px;
+  box-shadow: 0 5px 28px #0009;
 }
 .detail-block {
   margin: 28px 0;
@@ -1388,6 +1478,9 @@ ul {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .click-feedback-canvas {
+    display: none;
+  }
   html {
     scroll-behavior: auto;
   }

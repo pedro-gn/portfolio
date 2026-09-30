@@ -1,20 +1,19 @@
 import { Fragment } from "react";
 
 /**
- * Renders text with `**bold**` segments as <strong>, without resorting to
+ * Renders `**bold**` and `*italic*` segments without resorting to
  * dangerouslySetInnerHTML. Keeps copy in the JSON data files easy to edit.
  */
 export function Emphasis({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
   return (
     <>
       {parts.map((part, i) => {
-        const match = /^\*\*([^*]+)\*\*$/.exec(part);
-        return match ? (
-          <strong key={i}>{match[1]}</strong>
-        ) : (
-          <Fragment key={i}>{part}</Fragment>
-        );
+        const bold = /^\*\*([^*]+)\*\*$/.exec(part);
+        if (bold) return <strong key={i}>{bold[1]}</strong>;
+        const italic = /^\*([^*]+)\*$/.exec(part);
+        if (italic) return <em key={i}>{italic[1]}</em>;
+        return <Fragment key={i}>{part}</Fragment>;
       })}
     </>
   );

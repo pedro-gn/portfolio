@@ -19,9 +19,13 @@ A centered 700px column, with 18px side padding on desktop and 20–25px on mobi
 
 Section headings have four corner marks. Cards are transparent with thin dashed borders, without large radii or elevation. Buttons have compact dark surfaces, 2–4px corners and a subtle inset highlight. Project thumbnails use a 16:9 browser mockup over a blurred backdrop derived from the same screenshot. They start in grayscale and reveal their colors on hover or keyboard focus. A green lock beside the project name explains private source code through a localized tooltip available with mouse, keyboard and touch. Technology icons use their brand colors.
 
+Each project's image backdrop and case-study cover use a restrained accent taken from its product: blue for Loqqa, amber for Lamplit, lime for SupHub. Card descriptions carry each project's differentiator, while case studies explain it in a regular text section, in both languages.
+
 ## Interaction and accessibility
 
 Native details/summary for experience. Real links for live projects, case studies, email, phone, GitHub and LinkedIn. Missing live/code URLs and absent screenshots do not render as placeholder actions or galleries. Resume has print styles and a print/save-PDF action.
+
+Pointer and touch clicks produce a brief dotted ring with a quiet synthesized click. A compact navigation button toggles the sound and remembers the preference. Reduced-motion settings suppress the ring.
 
 Portuguese and English are available everywhere, with a persisted preference. Main landmarks, skip link and visible keyboard focus are required. Marquees can be paused and are static, wrapped lists with reduced motion. Decorative duplicated content is hidden from assistive technology. There is no artificial loading delay.
 

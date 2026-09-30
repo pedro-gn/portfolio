@@ -10,17 +10,20 @@
       "PostgreSQL",
       "Drizzle ORM",
       "Better Auth",
-      "Tailwind CSS",
       "Docker",
-      "Cloudflare R2"
+      "Cloudflare R2",
+      "PostHog",
+      "Asaas",
+      "Resend",
+      "Gotenberg"
     ],
     "title": {
       "pt": "Loqqa — gestão para locadoras de vestidos e trajes",
       "en": "Loqqa — dress and formalwear rental management"
     },
     "description": {
-      "pt": "SaaS para locadoras de vestidos e trajes: estoque por tamanho, agenda de provas, pagamentos, contratos assinados pelo celular e catálogo público.",
-      "en": "SaaS for dress and formalwear rentals: size-based inventory, fitting appointments, payments, mobile contract signing, and a public catalog."
+      "pt": "SaaS para locadoras de vestidos e trajes. Liga catálogo, prova, aluguel, contrato assinado e cobrança em um fluxo por loja.",
+      "en": "SaaS for dress and formalwear rentals. Connects catalog, fittings, rentals, signed contracts, and collections in one workflow for each shop."
     },
     "detail": {
       "kicker": {
@@ -83,8 +86,8 @@
           "en": "**Loqqa**, formerly AlugaFácil, brings dress and formalwear rental operations together. Products with size-based inventory, customers, fittings, events, and rentals share one workflow. The dashboard shows upcoming pickups, pending returns, and outstanding balances."
         },
         {
-          "pt": "A aplicação usa **Next.js, Drizzle e PostgreSQL**, com Better Auth e isolamento por proprietário. O deploy roda em VPS com Docker e Nginx; imagens e documentos ficam no Cloudflare R2. Contratos preservam o conteúdo enviado para assinatura, enquanto pagamentos e recibos mantêm o histórico de cada aluguel.",
-          "en": "The application uses **Next.js, Drizzle, and PostgreSQL**, with Better Auth and owner-scoped data. It runs on a VPS with Docker and Nginx, with images and documents stored in Cloudflare R2. Contracts preserve the content sent for signing, while payments and receipts retain each rental’s history."
+          "pt": "A aplicação usa **Next.js, Drizzle e PostgreSQL**, com Better Auth e dados isolados por proprietário. Roda em VPS com Docker e Nginx; imagens e documentos ficam no Cloudflare R2. O Gotenberg gera os PDFs dos contratos e o Resend entrega e-mails transacionais. **PostHog** acompanha o uso e as falhas. O **Asaas** processa a assinatura cobrada das lojas; os pagamentos dos aluguéis são registrados no próprio Loqqa.",
+          "en": "The application uses **Next.js, Drizzle, and PostgreSQL**, with Better Auth and owner-scoped data. It runs on a VPS with Docker and Nginx; images and documents live on Cloudflare R2. Gotenberg generates contract PDFs, and Resend sends transactional email. **PostHog** tracks usage and failures. **Asaas** handles subscriptions billed to shops; customers’ rental payments are recorded inside Loqqa."
         }
       ],
       "features": [
@@ -170,27 +173,25 @@
       ],
       "impact": []
     },
-    "name": "Loqqa"
+    "name": "Loqqa",
+    "differentiator": {
+      "pt": "O mesmo fluxo liga catálogo, prova, aluguel, contrato assinado e cobrança dentro de cada loja.",
+      "en": "One workflow connects the catalog, fittings, rentals, signed contracts, and collections within each shop."
+    }
   },
   {
     "id": "lamplit",
     "featured": false,
     "url": "/projects/lamplit",
     "cover": "/images/lamplit_go.png",
-    "tags": [
-      "Go",
-      "SvelteKit",
-      "TypeScript",
-      "WebSockets",
-      "PostgreSQL"
-    ],
+    "tags": ["Go", "SvelteKit", "TypeScript", "WebSockets"],
     "title": {
       "pt": "Lamplit — Go e Dou Shou Qi no navegador",
       "en": "Lamplit — Go and Dou Shou Qi in the browser"
     },
     "description": {
-      "pt": "Jogos de tabuleiro para duas pessoas, sem cadastro. Salas por convite, jogadas validadas no servidor, relógio opcional e guias ilustrados em português e inglês.",
-      "en": "Two-player board games with no account required. Invite-based rooms, server-validated moves, optional clocks, and illustrated guides in Portuguese and English."
+      "pt": "Go e Dou Shou Qi ao vivo e sem cadastro, sobre o mesmo lobby e protocolo; cada jogo tem seu motor de regras validado no servidor.",
+      "en": "Live Go and Dou Shou Qi without sign-up, sharing one lobby and protocol while each game has its own server-validated rules engine."
     },
     "detail": {
       "kicker": {
@@ -350,7 +351,11 @@
       ],
       "impact": []
     },
-    "name": "Lamplit"
+    "name": "Lamplit",
+    "differentiator": {
+      "pt": "Go e Dou Shou Qi usam o mesmo lobby e protocolo; cada jogo pluga seu próprio motor de regras, validado no servidor.",
+      "en": "Go and Dou Shou Qi share a lobby and protocol; each game plugs in its own server-validated rules engine."
+    }
   },
   {
     "id": "suphub",
@@ -360,13 +365,12 @@
     "cover": "/images/suphub-home.png",
     "tags": [
       "Next.js",
-      "React",
       "TypeScript",
       "PostgreSQL",
       "Supabase",
       "Drizzle ORM",
-      "Tailwind CSS",
-      "Vitest"
+      "Vitest",
+      "Vercel Analytics"
     ],
     "title": {
       "pt": "SupHub — comparador de suplementos",
@@ -437,8 +441,8 @@
           "en": "**SupHub** organizes supplements by category, product, and variation. Comparisons use category-specific metrics, such as cost per quantity of protein, gram of creatine, or serving, and distinguish label declarations from measured values. Affiliate commission is excluded from ranking."
         },
         {
-          "pt": "O projeto combina **Next.js, Drizzle, PostgreSQL e Supabase** com um motor de coleta de múltiplas fontes, busca de catálogo e um painel de curadoria. Regras de validade retiram ofertas vencidas; o histórico mantém as mudanças de preço das ofertas atuais. Avaliações e contribuições da comunidade passam por regras de reputação e moderação.",
-          "en": "The project combines **Next.js, Drizzle, PostgreSQL, and Supabase** with multi-source collection, catalog search, and a curation dashboard. Validity rules remove expired offers; price history tracks changes for current offers. Community reviews and contributions follow reputation and moderation rules."
+          "pt": "O projeto usa **Next.js, Drizzle, PostgreSQL e Supabase** com coleta de múltiplas fontes, busca de catálogo e painel de curadoria. Regras de vigência tiram ofertas vencidas da comparação; o histórico registra mudanças nas ofertas atuais. **Vitest** cobre cálculos e validações, e Vercel Analytics mede visitas sem identificar pessoas.",
+          "en": "The project uses **Next.js, Drizzle, PostgreSQL, and Supabase** with multi-source collection, catalog search, and a curation dashboard. Freshness rules remove expired offers from comparisons; price history records changes for current offers. **Vitest** covers calculations and validation, while Vercel Analytics measures visits without identifying people."
         }
       ],
       "features": [
@@ -491,6 +495,10 @@
       ],
       "gallery": [],
       "impact": []
+    },
+    "differentiator": {
+      "pt": "Cada posição do ranking mostra a conta e a origem do dado; comissão de afiliado não altera a ordem.",
+      "en": "Every ranking position exposes its calculation and data source; affiliate commission does not affect the order."
     }
   }
 ]

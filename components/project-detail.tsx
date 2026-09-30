@@ -20,7 +20,11 @@ export function ProjectDetail({
   const detail = project.detail;
   const gallery = detail.gallery.filter((item) => Boolean(gallerySrc(item)));
   return (
-    <main id="main" className="page-container inner-page">
+    <main
+      id="main"
+      className="page-container inner-page project-detail"
+      data-project={project.id}
+    >
       <div className="page-heading">
         <Link className="back-link" href="/projects">
           ← {t.back}
@@ -62,16 +66,30 @@ export function ProjectDetail({
         ))}
       </dl>
       {project.cover && (
-        <Image
-          className="detail-cover"
-          src={project.cover}
-          alt={pick(project.title)}
-          width={1400}
-          height={875}
-          sizes="(max-width: 700px) 100vw, 664px"
-          preload
-        />
+        <div className="detail-cover-stage">
+          <Image
+            className="detail-cover-ambient"
+            src={project.cover}
+            alt=""
+            fill
+            sizes="(max-width: 700px) 100vw, 664px"
+            aria-hidden="true"
+          />
+          <Image
+            className="detail-cover"
+            src={project.cover}
+            alt={pick(project.title)}
+            width={1400}
+            height={875}
+            sizes="(max-width: 700px) 100vw, 664px"
+            preload
+          />
+        </div>
       )}
+      <section className="detail-block">
+        <h2>{ui.differentiator}</h2>
+        <p>{pick(project.differentiator)}</p>
+      </section>
       <section className="detail-block">
         <h2>{t.overview}</h2>
         {detail.overview.map((text, i) => (

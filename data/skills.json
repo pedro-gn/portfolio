@@ -9,19 +9,39 @@
     "id": "backend",
     "icon": "Server",
     "name": { "en": "Backend", "pt": "Backend" },
-    "items": ["Node", "Go", "Next.js", "Python", "Redis", "GraphQL", "REST"]
+    "items": [
+      "Node",
+      "Go",
+      "Next.js",
+      "Python",
+      "Redis",
+      "GraphQL",
+      "REST",
+      "Better Auth",
+      "Resend",
+      "Asaas"
+    ]
   },
   {
     "id": "infra",
     "icon": "Cloud",
     "name": { "en": "Infra & DevOps", "pt": "Infra & DevOps" },
-    "items": [ "Docker", "GCP","Cloudflare", "CI/CD"]
+    "items": ["Docker", "GCP", "Cloudflare", "CI/CD", "Gotenberg"]
   },
   {
     "id": "data",
     "icon": "Database",
     "name": { "en": "Data", "pt": "Dados" },
-    "items": ["Prisma", "Drizzle", "PostgreSQL", "MongoDB", "Supabase", "Redis"]
+    "items": [
+      "Prisma",
+      "Drizzle",
+      "PostgreSQL",
+      "MongoDB",
+      "Supabase",
+      "Redis",
+      "PostHog",
+      "Vercel Analytics"
+    ]
   },
   {
     "id": "design",
@@ -33,6 +53,13 @@
     "id": "practices",
     "icon": "GitPullRequest",
     "name": { "en": "Practices", "pt": "Práticas" },
-    "items": ["TDD", "Code review", "Observability", "Agile", "Mentoring"]
+    "items": [
+      "TDD",
+      "Code review",
+      "Observability",
+      "Vitest",
+      "Agile",
+      "Mentoring"
+    ]
   }
 ]
