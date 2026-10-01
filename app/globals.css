@@ -1547,13 +1547,27 @@ ul {
 }
 
 .github-activity {
-  margin: 26px 0 8px;
-  font-size: 11px;
+  position: relative;
+  margin: 20px 0;
+  padding: 20px 18px;
+  border: 1.5px dashed var(--border);
+  color: var(--text);
+  font-size: 14px;
+  line-height: normal;
+}
+.github-activity:hover,
+.github-activity:focus-within {
+  border-color: #888;
 }
 .calendar-scroll {
   overflow-x: auto;
-  scrollbar-width: thin;
-  padding-bottom: 8px;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  padding-top: 2px;
+  overscroll-behavior-x: contain;
+}
+.calendar-scroll::-webkit-scrollbar {
+  display: none;
 }
 .calendar-scroll:focus-visible {
   outline: 1px solid #999;
@@ -1561,26 +1575,64 @@ ul {
 }
 .calendar {
   display: block;
-  margin: auto;
   max-width: none;
+  overflow: visible;
+}
+.calendar-day {
+  cursor: pointer;
+  stroke: #ffffff0a;
+}
+.calendar-day:hover {
+  stroke-width: 2px;
+}
+.calendar-day:focus {
+  outline: none;
+}
+.calendar-day:focus-visible {
+  stroke: #fff;
+  stroke-width: 2px;
+}
+.calendar-tooltip {
+  position: absolute;
+  z-index: 10;
+  width: max-content;
+  max-width: min(280px, calc(100% - 16px));
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+  box-shadow: 0 2px 10px #0003;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
 }
 .calendar-footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 12px;
-  margin-top: 5px;
-  font-size: 10px;
+  gap: 4px 16px;
+  margin-top: 8px;
 }
 .calendar-legend {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
+  margin-left: auto;
+}
+.calendar-legend > span:first-child {
+  margin-right: 0.4em;
+}
+.calendar-legend > span:last-child {
+  margin-left: 0.4em;
 }
 .calendar-legend i {
   display: block;
-  width: 9px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
   border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #ffffff0a;
 }
 .calendar-profile {
   display: flex;
@@ -1594,12 +1646,32 @@ ul {
   color: #aaa;
 }
 .calendar-message {
-  padding: 16px;
-  border: 1px dashed var(--border);
+  min-height: 157px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  .github-activity {
+    padding: 16px 25px;
+  }
 }
 @media (max-width: 400px) {
-  .calendar-footer {
-    flex-wrap: wrap;
-    font-size: 10px;
+  .github-activity {
+    margin: 12px 0;
+    padding: 12px 20px;
+  }
+}
+@media (max-width: 360px) {
+  .github-activity {
+    margin: 10px 0;
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 354px) {
+  .github-activity {
+    margin: 8px 0;
+    padding: 8px 20px;
   }
 }
